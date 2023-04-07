@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --white: #fff;
+    --black: #000;
+
+    --pink: #ebbab9;
+    --gray-100: #e5e5e5;
+    --gray-400: #7f7f7f;
+    --gray-700: #404040;
+    --gray-900: #000501;
+
+    --color-body: var(--gray-700);
+    --color-body-tint: var(--gray-400);
+    --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
+
+    --section-spacing: 3.75rem;
+
+    --font-size-sm: clamp(14.22px, 0.01vw + 14.14px, 14.4px);
+    --font-size-base: clamp(16px, 0.15vw + 15.09px, 18px);
+    --font-size-md: clamp(18px, 0.34vw + 15.95px, 22.5px);
+    --font-size-lg: clamp(20.25px, 0.6vw + 16.67px, 28.13px);
+    --font-size-xl: clamp(22.78px, 0.94vw + 17.16px, 35.16px);
+    --font-size-2xl: clamp(25.63px, 1.39vw + 17.3px, 43.95px);
+    --font-size-3xl: clamp(28.83px, 1.98vw + 16.97px, 54.93px);
+    --font-size-4xl: clamp(32.41px, 2.75vw + 16.06px, 68.63px);
+  }
+
+  @screen md {
+    :root {
+      --section-spacing: 4rem;
+    }
+  }
+
+  @screen lg {
+    :root {
+      --section-spacing: 6.25rem;
+    }
+  }
+
+  /* Typography */
+  h1,
+  .h1 {
+    @apply font-heading font-semibold text-3xl leading-tight;
+  }
+
+  h2,
+  .h2 {
+    @apply font-heading font-semibold text-2xl leading-tight;
+  }
+
+  h3,
+  .h3 {
+    @apply font-heading font-semibold text-xl leading-tight;
+  }
+
+  h4,
+  .h4 {
+    @apply font-heading font-semibold text-lg leading-tight;
+  }
+
+  h5,
+  .h5 {
+    @apply font-heading font-semibold text-md leading-tight;
+  }
+
+  h6,
+  .h6 {
+    @apply font-heading font-semibold text-base leading-tight;
+  }
+}
