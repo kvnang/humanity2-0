@@ -17,9 +17,9 @@ module.exports = {
         DEFAULT: "1.5rem",
         sm: "2rem",
         md: "4rem",
-        lg: "12rem",
-        xl: "8rem",
-        "2xl": "16rem",
+        lg: "6rem",
+        // xl: "8rem",
+        "2xl": "12rem",
         "3xl": "16rem",
       },
       // screens: {
@@ -57,6 +57,7 @@ module.exports = {
     extend: {
       spacing: {
         section: "var(--section-spacing)",
+        page: "var(--page-spacing)",
       },
       screens: {
         "3xl": "1750px",
@@ -67,6 +68,7 @@ module.exports = {
             color: "var(--color-body)",
             fontSize: "var(--font-size-base)",
             fontWeight: 500,
+            "--tw-prose-counters": "var(--pink)",
           },
         },
       },

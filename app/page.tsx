@@ -98,13 +98,17 @@ export default function Home() {
         </div>
         <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-75"></div>
         <div className="container py-section">
-          <div className="max-w-prose">
-            <h2 className="h3 text-white">
-              <TitleLine>
-                People around the world are constantly moving, but advancing
-                towards what?
-              </TitleLine>
-            </h2>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-12 md:max-lg:col-span-10 md:max-lg:col-start-2">
+              <div className="max-w-prose">
+                <h2 className="h3 text-white">
+                  <TitleLine>
+                    People around the world are constantly moving, but advancing
+                    towards what?
+                  </TitleLine>
+                </h2>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -116,28 +120,32 @@ export default function Home() {
       </section>
       <section className="py-section">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-x-4">
-            <div>
-              <h2 className="h1 mb-[1em]">
-                <TitleLine>Participate in the Forum</TitleLine>
-              </h2>
-            </div>
-            <div className="prose md:ml-[4.5rem] lg:ml-0">
-              <p>
-                Participants in the Humanity 2.0 Forum are mission-aligned
-                stakeholders gathered to address particular impediments to human
-                flourishing.
-              </p>
-              <p>
-                The Forum provides an opportunity for stakeholders to be
-                presented with high potential solutions to particular human
-                challenges and then an invitation to unite in a cross-sector
-                effort to address them. Anyone may request to attend a Forum,
-                but due to practical considerations, only a limited number are
-                invited.
-              </p>
-              <div className="mt-6">
-                <Button type="button">Join</Button>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-12 md:max-lg:col-span-10 md:max-lg:col-start-2">
+              <div className="grid lg:grid-cols-2 gap-x-10">
+                <div>
+                  <h2 className="h1 mb-[1em]">
+                    <TitleLine>Participate in the Forum</TitleLine>
+                  </h2>
+                </div>
+                <div className="prose">
+                  <p>
+                    Participants in the Humanity 2.0 Forum are mission-aligned
+                    stakeholders gathered to address particular impediments to
+                    human flourishing.
+                  </p>
+                  <p>
+                    The Forum provides an opportunity for stakeholders to be
+                    presented with high potential solutions to particular human
+                    challenges and then an invitation to unite in a cross-sector
+                    effort to address them. Anyone may request to attend a
+                    Forum, but due to practical considerations, only a limited
+                    number are invited.
+                  </p>
+                  <div className="mt-6">
+                    <Button type="button">Join</Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

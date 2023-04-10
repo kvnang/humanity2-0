@@ -3,11 +3,48 @@
 import * as React from "react";
 import { Hamburger } from "./Hamburger";
 import Link from "next/link";
-import clsx from "clsx";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, Transition, Menu } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+
+const MENU_ITEMS = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    children: [
+      {
+        name: "About Us",
+        href: "/about",
+      },
+      {
+        name: "Advisory Board",
+        href: "/about/advisory-board",
+      },
+    ],
+  },
+  {
+    name: "Divisions",
+    children: [
+      {
+        name: "Academy",
+        href: "/divisions/academy",
+      },
+    ],
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const onClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -47,14 +84,54 @@ export function Header() {
               <div className="absolute top-0 left-0 w-full z-0 bg-gray-900 pt-16">
                 <div className="py-8 px-7 md:px-12 text-white">
                   <ul>
-                    <li>
-                      <Link
-                        href="/"
-                        className="hover:text-primary transition-colors"
-                      >
-                        <span className="h6">Home</span>
-                      </Link>
-                    </li>
+                    {MENU_ITEMS.map((item) => (
+                      <li key={item.name} className="mb-4 last:mb-0">
+                        {item.href ? (
+                          <Link
+                            href={item.href}
+                            className="hover:text-primary transition-colors"
+                            onClick={onClick}
+                          >
+                            <span className="h6">{item.name}</span>
+                          </Link>
+                        ) : (
+                          <Menu>
+                            <Menu.Button className="group inline-flex items-center">
+                              <span className="h6">{item.name}</span>
+                              <ChevronDownIcon className="w-5 h-5 shrink-0 ml-2 transition-transform group-data-[headlessui-state=open]:rotate-180" />
+                            </Menu.Button>
+                            {item.children && (
+                              <Transition
+                                enter="transition duration-100 ease-out"
+                                enterFrom="transform scale-95 opacity-0"
+                                enterTo="transform scale-100 opacity-100"
+                                leave="transition duration-75 ease-out"
+                                leaveFrom="transform scale-100 opacity-100"
+                                leaveTo="transform scale-95 opacity-0"
+                              >
+                                <Menu.Items className="inline-flex flex-col pl-6 mt-4">
+                                  {item.children.map((child) => (
+                                    <Menu.Item
+                                      key={child.name}
+                                      className="group mb-4 last:mb-0"
+                                      as="div"
+                                    >
+                                      <Link
+                                        className="hover:text-primary transition-colors"
+                                        href={child.href}
+                                        onClick={onClick}
+                                      >
+                                        {child.name}
+                                      </Link>
+                                    </Menu.Item>
+                                  ))}
+                                </Menu.Items>
+                              </Transition>
+                            )}
+                          </Menu>
+                        )}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

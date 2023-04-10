@@ -18,6 +18,7 @@
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
 
     --section-spacing: 3.75rem;
+    --page-spacing: calc(var(--section-spacing) + 1rem);
 
     --font-size-sm: clamp(14.22px, 0.01vw + 14.14px, 14.4px);
     --font-size-base: clamp(16px, 0.15vw + 15.09px, 18px);
@@ -27,17 +28,22 @@
     --font-size-2xl: clamp(25.63px, 1.39vw + 17.3px, 43.95px);
     --font-size-3xl: clamp(28.83px, 1.98vw + 16.97px, 54.93px);
     --font-size-4xl: clamp(32.41px, 2.75vw + 16.06px, 68.63px);
+
+    --line-width: 3rem;
   }
 
   @screen md {
     :root {
       --section-spacing: 4rem;
+      --page-spacing: calc(var(--section-spacing) + 2.5rem);
     }
   }
 
   @screen lg {
     :root {
       --section-spacing: 6.25rem;
+      --page-spacing: calc(var(--section-spacing) + 0px);
+      --line-width: 5rem;
     }
   }
 
@@ -64,11 +70,11 @@
 
   h5,
   .h5 {
-    @apply font-heading font-semibold text-md leading-tight;
+    @apply font-heading font-semibold text-md leading-snug;
   }
 
   h6,
   .h6 {
-    @apply font-heading font-semibold text-base leading-tight;
+    @apply font-heading font-semibold text-base leading-snug;
   }
 }
