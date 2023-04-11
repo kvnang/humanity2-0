@@ -28,6 +28,10 @@ const MENU_ITEMS = [
     name: "Divisions",
     children: [
       {
+        name: "Institute",
+        href: "/divisions/institute",
+      },
+      {
         name: "Academy",
         href: "/divisions/academy",
       },

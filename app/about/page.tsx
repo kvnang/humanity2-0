@@ -4,6 +4,8 @@ import aboutMissionImage from "@/assets/images/about-mission.jpg";
 import aboutApproachBg from "@/assets/images/about-approach-bg.jpg";
 import aboutQuoteBg from "@/assets/images/about-quote-bg.jpg";
 import { AboutTabs } from "./AboutTabs";
+import { FramedImage } from "@/components/FramedImage";
+import { NumberedList } from "@/components/NumberedList";
 
 const VISION = [
   <>
@@ -77,11 +79,10 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="col-span-12 md:-order-1 lg:col-span-5 2xl:col-span-6">
-              <div className="pt-4 pl-4 -mr-4 lg:pt-8 lg:pl-8 lg:-mr-8 3xl:-ml-8 max-w-lg lg:max-w-2xl">
-                <div className="w-full relative z-0">
-                  <div className="absolute -z-10 -translate-y-4 lg:-translate-y-8 -translate-x-4 lg:-translate-x-8 bg-primary inset-0"></div>
+              <div className="max-w-lg lg:max-w-2xl -mr-4 lg:-mr-8">
+                <FramedImage>
                   <Image src={aboutMissionImage} alt="" />
-                </div>
+                </FramedImage>
               </div>
             </div>
           </div>
@@ -111,20 +112,13 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="col-span-12 lg:col-span-8 2xl:col-span-7">
-                <ol
-                  className="grid md:grid-cols-2 md:grid-rows-3 md:grid-flow-col gap-6 lg:gap-8"
-                  style={{ counterReset: "vision-counter" }}
-                >
+                <NumberedList.Group className="grid md:grid-cols-2 md:grid-rows-3 md:grid-flow-col gap-6 lg:gap-8">
                   {VISION.map((item, index) => (
-                    <li
-                      key={`vision-${index}`}
-                      style={{ counterIncrement: "vision-counter" }}
-                      className={`flex before:[content:"0"_counter(vision-counter)] before:text-2xl before:font-heading before:mr-4 before:leading-none before:text-primary before:w-[1.5em] before:shrink-0`}
-                    >
+                    <NumberedList.Item key={`vision-${index}`}>
                       <div className="max-w-prose">{item}</div>
-                    </li>
+                    </NumberedList.Item>
                   ))}
-                </ol>
+                </NumberedList.Group>
               </div>
             </div>
           </div>

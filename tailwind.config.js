@@ -69,6 +69,8 @@ module.exports = {
             fontSize: "var(--font-size-base)",
             fontWeight: 500,
             "--tw-prose-counters": "var(--pink)",
+            "--tw-prose-bullets": "var(--pink)",
+            // "--tw-prose-bold": "currentColor",
           },
         },
       },
