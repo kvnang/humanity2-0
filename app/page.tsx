@@ -7,6 +7,7 @@ import { Button } from "@/components/Button";
 import { Profile } from "@/components/Profile";
 import { advisoryBoard } from "@/lib/advisoryBoard";
 import { AdvisoryBoard } from "@/components/AdvisoryBoard";
+import { ParticipateInForum } from "@/components/ParticipateInForum";
 
 export default function Home() {
   return (
@@ -118,39 +119,7 @@ export default function Home() {
           <AdvisoryBoard />
         </div>
       </section>
-      <section className="py-section">
-        <div className="container">
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 md:max-lg:col-span-10 md:max-lg:col-start-2">
-              <div className="grid lg:grid-cols-2 gap-x-10">
-                <div>
-                  <h2 className="h1 mb-[1em]">
-                    <TitleLine>Participate in the Forum</TitleLine>
-                  </h2>
-                </div>
-                <div className="prose">
-                  <p>
-                    Participants in the Humanity 2.0 Forum are mission-aligned
-                    stakeholders gathered to address particular impediments to
-                    human flourishing.
-                  </p>
-                  <p>
-                    The Forum provides an opportunity for stakeholders to be
-                    presented with high potential solutions to particular human
-                    challenges and then an invitation to unite in a cross-sector
-                    effort to address them. Anyone may request to attend a
-                    Forum, but due to practical considerations, only a limited
-                    number are invited.
-                  </p>
-                  <div className="mt-6">
-                    <Button type="button">Join</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ParticipateInForum />
       <section className="py-section bg-primary">
         <div className="container">
           <div className="flex flex-wrap items-center -m-4">

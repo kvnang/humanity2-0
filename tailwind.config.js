@@ -39,6 +39,7 @@ module.exports = {
     fontFamily: {
       heading: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
       sans: ["var(--font-catamaran)", ...defaultTheme.fontFamily.sans],
+      mono: [...defaultTheme.fontFamily.mono],
     },
     colors: {
       transparent: "transparent",
@@ -47,6 +48,7 @@ module.exports = {
       white: "var(--white)",
       primary: "var(--pink)",
       body: "var(--color-body)",
+      "bg-2/10": "var(--color-bg-opacity-20)",
       "bg-8/10": "var(--color-bg-opacity-80)",
       "body-tint": "var(--color-body-tint)",
       "gray-100": "var(--gray-100)",

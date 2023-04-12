@@ -52,7 +52,7 @@ export function Header() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 w-full flex">
+      <header className="fixed top-0 left-0 w-full flex z-10">
         <div className="px-3 pt-1 md:px-8 md:pt-8 flex w-full">
           <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>

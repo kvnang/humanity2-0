@@ -15,6 +15,7 @@
 
     --color-body: var(--gray-700);
     --color-body-tint: var(--gray-400);
+    --color-bg-opacity-20: rgba(255, 255, 255, 0.2);
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
 
     --section-spacing: 3.75rem;
