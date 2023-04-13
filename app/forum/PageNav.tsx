@@ -81,7 +81,7 @@ export function PageNav() {
         <div
           className={clsx(
             isSticky
-              ? `fixed top-4 z-50 left-1/2 -translate-x-1/2 container`
+              ? `fixed top-4 z-10 left-1/2 -translate-x-1/2 container`
               : ``
           )}
         >

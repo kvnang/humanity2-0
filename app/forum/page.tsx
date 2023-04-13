@@ -90,7 +90,7 @@ export default function ForumPage() {
         <div className="container">
           <h2 className="mb-[1em]">Photos</h2>
         </div>
-        <Photos />
+        <Photos albumUrl="https://photos.app.goo.gl/yTztxb2Sqf5AfacY9" />
       </section>
       <section>
         <div id="opening-address" className="pt-section">
