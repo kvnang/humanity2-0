@@ -6,13 +6,16 @@ export function VideoEntry({
   title,
   publishedAt,
   thumbnails,
-  id,
+  resourceId,
 }: {
   url: string;
   title: string;
   publishedAt: string;
   thumbnails: Record<string, { url: string; width: number; height: number }>;
-  id: string;
+  resourceId: {
+    kind: string;
+    videoId: string;
+  };
 }) {
   const thumbnail = thumbnails.standard || thumbnails.default;
 
@@ -43,8 +46,10 @@ export function VideoEntry({
           <div className="max-w-lg">
             <h3 className="h6 font-sans mb-1">
               <Link
-                href={`https://youtube.com/watch?v=${id}`}
+                href={`https://youtube.com/watch?v=${resourceId.videoId}`}
                 className="hover:underline decoration-primary underline-offset-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="absolute inset-0" />
                 {title}

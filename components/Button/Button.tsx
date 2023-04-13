@@ -11,7 +11,7 @@ export function Button({
   return (
     <button
       {...props}
-      className="text-md font-semibold font-heading group relative pb-1"
+      className={`text-md font-semibold font-heading group relative pb-1 ${props.className}`}
     >
       <div className="absolute bottom-0 left-0 w-full h-1 overflow-hidden">
         <div
@@ -40,7 +40,7 @@ export function ButtonLink({
   return (
     <Link
       {...props}
-      className="text-md font-semibold font-heading group relative pb-1"
+      className={`text-md font-semibold font-heading group relative pb-1 ${props.className}`}
     >
       <div className="absolute bottom-0 left-0 w-full h-1 overflow-hidden">
         <div

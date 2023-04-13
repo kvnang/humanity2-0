@@ -15,16 +15,18 @@ import {
   topics,
   organizations,
   schedule,
-} from "@/lib/forum2023";
+} from "@/lib/forum2022";
 import clsx from "clsx";
-import { Schedule, ScheduleItem, ScheduleItemSeparator } from "./Schedule";
+import { Schedule } from "./Schedule";
 import { FramedImage } from "@/components/FramedImage";
-import { ButtonLink } from "@/components/Button";
+import { Photos } from "./Photos";
+import forumPhotosBg from "@/assets/images/forum-photos-bg.jpg";
+import { ScrollFade } from "@/components/ScrollFade";
 
 export default function ForumPage() {
   return (
     <main>
-      <section className="pt-page pb-section relative z-0">
+      <section className="pt-page pb-section relative">
         <div
           className="absolute top-0 right-0 w-3/5 md:w-2/5 -z-10"
           style={{ height: "70%" }}
@@ -76,44 +78,19 @@ export default function ForumPage() {
           </div>
         </div>
       </section>
-      <section id="photos" className="py-section bg-gray-100">
+      <section id="photos" className="py-section bg-gray-100 relative z-0">
+        <div className="absolute inset-0">
+          <Image
+            src={forumPhotosBg}
+            alt=""
+            fill
+            className="object-cover -z-10"
+          />
+        </div>
         <div className="container">
           <h2 className="mb-[1em]">Photos</h2>
         </div>
-        <div className="relative">
-          <div className="relative">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 2xl:gap-8">
-              <div className="grid grid-rows-2 gap-4 2xl:gap-8">
-                <div className="relative w-full pb-[60%] bg-white rounded-md"></div>
-                <div className="relative w-full pb-[60%] bg-white rounded-md"></div>
-              </div>
-              <div className="grid grid-rows-[12fr_1fr] gap-4 2xl:gap-8">
-                <div className="relative w-full h-full bg-white rounded-md"></div>
-                <div></div>
-              </div>
-              <div className="hidden: md:grid grid-rows-[4fr_2fr_1fr] gap-4 2xl:gap-8">
-                <div className="relative w-full h-full bg-white rounded-md"></div>
-                <div className="grid grid-cols-2 gap-4 2xl:gap-8">
-                  <div className="relative w-full h-full bg-white rounded-md"></div>
-                  <div className="relative w-full h-full bg-white rounded-md"></div>
-                </div>
-                <div></div>
-              </div>
-              <div className="hidden lg:grid grid-rows-2 gap-4 2xl:gap-8">
-                <div className="relative w-full pb-[60%] bg-white rounded-md"></div>
-                <div className="relative w-full pb-[60%] bg-white rounded-md"></div>
-              </div>
-            </div>
-            <div className="absolute w-full h-[25%] bottom-0 left-0 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
-          </div>
-          <div className="absolute w-full bottom-0 left-0">
-            <div className="container">
-              <div className="flex items-end justify-end">
-                <ButtonLink href="/">View More Photos</ButtonLink>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Photos />
       </section>
       <section>
         <div id="opening-address" className="pt-section">
@@ -185,7 +162,10 @@ export default function ForumPage() {
           ))}
         </div>
       </section>
-      <section id="sponsors" className="py-section bg-gray-100">
+      <section
+        id="participating-organizations"
+        className="py-section bg-gray-100"
+      >
         <div className="container">
           <h2 className="mb-[1em]">Participating Organizations</h2>
           <div className="relative">
@@ -199,13 +179,12 @@ export default function ForumPage() {
                   </div>
                 ))}
               </div>
-              <div className="h-10"></div>
+              <ScrollFade />
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-gray-100 to-transparent"></div>
           </div>
         </div>
       </section>
-      <section id="sponsors" className="py-section">
+      <section id="complete-program" className="py-section">
         <div className="container">
           <h2 className="mb-[1em]">The Program</h2>
           <div className="flex flex-wrap xl:flex-nowrap -m-6">
@@ -217,9 +196,8 @@ export default function ForumPage() {
                     venue="Pontifical Academy of Sciences"
                     schedule={schedule}
                   />
-                  <div className="h-10"></div>
+                  <ScrollFade />
                 </div>
-                <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent"></div>
               </div>
             </div>
             <div className="basis-full p-6 xl:flex-1">

@@ -1,4 +1,5 @@
 import { ButtonLink } from "../Button";
+import { YouTubeIcon } from "../Icons";
 import { VideoEntry } from "./VideoEntry";
 
 const PER_PAGE = 8;
@@ -14,7 +15,7 @@ export async function Videos({ playlistId }: { playlistId: string }) {
       <ul className="grid md:grid-cols-2 gap-6 mb-6">
         {items.map((item: any) => (
           <li key={item.id}>
-            <VideoEntry id={item.id} {...item.snippet} />
+            <VideoEntry {...item.snippet} />
           </li>
         ))}
       </ul>
@@ -24,7 +25,10 @@ export async function Videos({ playlistId }: { playlistId: string }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          More Videos
+          <div className="w-12 h-8 absolute top-1/2 -translate-y-1/2 left-0 -ml-12">
+            <YouTubeIcon className="w-8 h-8" />
+          </div>
+          <span>More Videos</span>
         </ButtonLink>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { TitleLine } from "@/components/TitleLine";
 export function ParticipateInForum({ theme }: { theme?: "dark" }) {
   return (
     <section
+      id="join-the-forum"
       className={`py-section ${
         theme === "dark" ? "bg-gray-900 text-white" : ""
       }`}

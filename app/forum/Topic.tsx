@@ -11,7 +11,7 @@ export function Topic({
   return (
     <div>
       <div className="mb-10">
-        <h3 className="h3 max-w-lg">{title}</h3>
+        <h3 className="h3 max-w-xl">{title}</h3>
       </div>
       {sessions.map((session) => (
         <div className="mb-10 last:mb-0" key={session.title}>
