@@ -4,12 +4,11 @@ import * as React from "react";
 import { ButtonLink } from "@/components/Button";
 import { GooglePhotosIcon } from "@/components/Icons";
 import Image, { StaticImageData } from "next/image";
-import { photos } from "@/lib/forum2022";
 import { GalleryModal } from "@/components/Modal";
 
 interface PhotoProps {
   id: number;
-  src: string | StaticImageData;
+  src: StaticImageData;
   objectPosition?: string;
 }
 
@@ -37,7 +36,13 @@ function PhotoPreview({
   );
 }
 
-export function Photos({ albumUrl }: { albumUrl: string }) {
+export function Photos({
+  albumUrl,
+  photos,
+}: {
+  albumUrl: string;
+  photos: Omit<PhotoProps, "id">[];
+}) {
   const [currentPhoto, setCurrentPhoto] = React.useState<number | null>(null);
 
   const gallery = photos.map((photo, index) => ({

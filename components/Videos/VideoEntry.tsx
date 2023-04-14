@@ -2,22 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function VideoEntry({
-  url,
-  title,
-  publishedAt,
-  thumbnails,
-  resourceId,
+  kind,
+  id,
+  snippet,
 }: {
-  url: string;
-  title: string;
-  publishedAt: string;
-  thumbnails: Record<string, { url: string; width: number; height: number }>;
-  resourceId: {
-    kind: string;
-    videoId: string;
+  kind: string;
+  id: string;
+  snippet: {
+    url: string;
+    title: string;
+    publishedAt: string;
+    thumbnails: Record<string, { url: string; width: number; height: number }>;
+    resourceId: {
+      kind: string;
+      videoId: string;
+    };
   };
 }) {
-  const thumbnail = thumbnails.standard || thumbnails.default;
+  const { thumbnails, publishedAt, title, resourceId } = snippet;
+  const thumbnail =
+    thumbnails.standard || thumbnails.high || thumbnails.default;
 
   // Format YouTube date
   const dateObj = new Date(publishedAt);
@@ -28,16 +32,18 @@ export function VideoEntry({
     day: "numeric",
   });
 
+  const videoId = kind === "youtube#video" ? id : resourceId.videoId;
+
   return (
     <article className="relative z-0">
       <div className="flex items-start">
-        <div className="w-28 lg:w-32 2xl:w-40 3xl:w-60 shrink-0 mr-4">
+        <div className="w-28 lg:w-32 xl:w-48 3xl:w-60 shrink-0 mr-4">
           <div className="w-full pb-[56.25%] relative overflow-hidden">
             <Image
               src={thumbnail.url}
               alt={title}
               fill
-              sizes="(min-width: 1750px) 240px, (min-width: 1536px) 160px, (min-width: 1024px) 128px, 112px"
+              sizes="(min-width: 1750px) 240px, (min-width: 1280px) 192px, (min-width: 1024px) 128px, 112px"
               className="object-cover"
             />
           </div>
@@ -46,7 +52,7 @@ export function VideoEntry({
           <div className="max-w-lg">
             <h3 className="h6 font-sans mb-1">
               <Link
-                href={`https://youtube.com/watch?v=${resourceId.videoId}`}
+                href={`https://youtube.com/watch?v=${videoId}`}
                 className="hover:underline decoration-primary underline-offset-2"
                 target="_blank"
                 rel="noopener noreferrer"

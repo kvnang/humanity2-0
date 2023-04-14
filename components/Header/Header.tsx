@@ -5,6 +5,7 @@ import { Hamburger } from "./Hamburger";
 import Link from "next/link";
 import { Dialog, Transition, Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 const MENU_ITEMS = [
   {
@@ -36,6 +37,19 @@ const MENU_ITEMS = [
         href: "/divisions/academy",
       },
     ],
+  },
+  {
+    name: "Forum",
+    children: [
+      {
+        name: "2022 Forum",
+        href: "/forum/2022",
+      },
+    ],
+  },
+  {
+    name: "Media",
+    href: "/media",
   },
   {
     name: "Contact",
@@ -100,37 +114,43 @@ export function Header() {
                           </Link>
                         ) : (
                           <Menu>
-                            <Menu.Button className="group inline-flex items-center">
-                              <span className="h6">{item.name}</span>
-                              <ChevronDownIcon className="w-5 h-5 shrink-0 ml-2 transition-transform group-data-[headlessui-state=open]:rotate-180" />
-                            </Menu.Button>
-                            {item.children && (
-                              <Transition
-                                enter="transition duration-100 ease-out"
-                                enterFrom="transform scale-95 opacity-0"
-                                enterTo="transform scale-100 opacity-100"
-                                leave="transition duration-75 ease-out"
-                                leaveFrom="transform scale-100 opacity-100"
-                                leaveTo="transform scale-95 opacity-0"
-                              >
-                                <Menu.Items className="inline-flex flex-col pl-6 mt-4">
-                                  {item.children.map((child) => (
-                                    <Menu.Item
-                                      key={child.name}
-                                      className="group mb-4 last:mb-0"
-                                      as="div"
+                            {({ open }) => (
+                              <>
+                                <Menu.Button className="group inline-flex items-center">
+                                  <span className="h6">{item.name}</span>
+                                  <ChevronDownIcon className="w-5 h-5 shrink-0 ml-2 transition-transform group-data-[headlessui-state=open]:rotate-180" />
+                                </Menu.Button>
+                                {item.children && (
+                                  <motion.div
+                                    animate={{
+                                      opacity: open ? 1 : 0,
+                                      height: open ? "auto" : 0,
+                                    }}
+                                    className="overflow-hidden"
+                                  >
+                                    <Menu.Items
+                                      className="inline-flex flex-col pl-6 mt-4"
+                                      static
                                     >
-                                      <Link
-                                        className="hover:text-primary transition-colors"
-                                        href={child.href}
-                                        onClick={onClick}
-                                      >
-                                        {child.name}
-                                      </Link>
-                                    </Menu.Item>
-                                  ))}
-                                </Menu.Items>
-                              </Transition>
+                                      {item.children.map((child) => (
+                                        <Menu.Item
+                                          key={child.name}
+                                          className="group mb-4 last:mb-0"
+                                          as="div"
+                                        >
+                                          <Link
+                                            className="hover:text-primary transition-colors"
+                                            href={child.href}
+                                            onClick={onClick}
+                                          >
+                                            {child.name}
+                                          </Link>
+                                        </Menu.Item>
+                                      ))}
+                                    </Menu.Items>
+                                  </motion.div>
+                                )}
+                              </>
                             )}
                           </Menu>
                         )}

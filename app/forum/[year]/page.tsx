@@ -1,29 +1,28 @@
 import { TitleLine } from "@/components/TitleLine";
 import Image from "next/image";
-import { PageNav } from "./PageNav";
+import { PageNav } from "../PageNav";
 import { Videos } from "@/components/Videos";
 import harvardHumanFlourishing from "@/assets/images/harvard-human-flourishing-program.png";
-import forum2023Bg from "@/assets/images/forum-2023-bg.jpg";
+import forum2022Bg from "@/assets/images/forum-2022-bg.jpg";
 import { ParticipateInForum } from "@/components/ParticipateInForum";
-import { Session } from "./Session";
+import { Session } from "../Session";
 import pontificalAcademyOfSciences from "@/assets/images/pontifical-academy-of-sciences.jpg";
 import { NumberedList } from "@/components/NumberedList";
-import { Topic } from "./Topic";
-import {
-  openingAddress,
-  sponsors,
-  topics,
-  organizations,
-  schedule,
-} from "@/lib/forum2022";
+import { Topic } from "../Topic";
+import * as data2022 from "@/lib/forum2022";
 import clsx from "clsx";
-import { Schedule } from "./Schedule";
+import { Schedule } from "../Schedule";
 import { FramedImage } from "@/components/FramedImage";
-import { Photos } from "./Photos";
+import { Photos } from "@/components/Photos";
 import forumPhotosBg from "@/assets/images/forum-photos-bg.jpg";
 import { ScrollFade } from "@/components/ScrollFade";
 
-export default function ForumPage() {
+export default function ForumPage({ params }: { params: { year: string } }) {
+  const { year } = params;
+  const data = data2022;
+  const { openingAddress, sponsors, topics, organizations, schedule, photos } =
+    data;
+
   return (
     <main>
       <section className="pt-page pb-section relative">
@@ -34,7 +33,7 @@ export default function ForumPage() {
           <div className="absolute top-0 -left-1 w-2/5 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
           <div className="absolute -bottom-1 left-0 h-2/5 w-full bg-gradient-to-t from-white to-transparent z-10"></div>
           <Image
-            src={forum2023Bg}
+            src={forum2022Bg}
             alt=""
             fill
             className="object-cover"
@@ -90,7 +89,10 @@ export default function ForumPage() {
         <div className="container">
           <h2 className="mb-[1em]">Photos</h2>
         </div>
-        <Photos albumUrl="https://photos.app.goo.gl/yTztxb2Sqf5AfacY9" />
+        <Photos
+          albumUrl="https://photos.app.goo.gl/yTztxb2Sqf5AfacY9"
+          photos={photos}
+        />
       </section>
       <section>
         <div id="opening-address" className="pt-section">
