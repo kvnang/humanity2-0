@@ -1,27 +1,79 @@
-import { TitleLine } from "@/components/TitleLine";
 import Image from "next/image";
-import { PageNav } from "../PageNav";
-import { Videos } from "@/components/Videos";
-import harvardHumanFlourishing from "@/assets/images/harvard-human-flourishing-program.png";
-import forum2022Bg from "@/assets/images/forum-2022-bg.jpg";
-import { ParticipateInForum } from "@/components/ParticipateInForum";
-import { Session } from "../Session";
-import pontificalAcademyOfSciences from "@/assets/images/pontifical-academy-of-sciences.jpg";
-import { NumberedList } from "@/components/NumberedList";
-import { Topic } from "../Topic";
-import * as data2022 from "@/lib/forum2022";
 import clsx from "clsx";
-import { Schedule } from "../Schedule";
+import { TitleLine } from "@/components/TitleLine";
+import { Videos } from "@/components/Videos";
+import { ParticipateInForum } from "@/components/ParticipateInForum";
+import { NumberedList } from "@/components/NumberedList";
 import { FramedImage } from "@/components/FramedImage";
 import { Photos } from "@/components/Photos";
-import forumPhotosBg from "@/assets/images/forum-photos-bg.jpg";
 import { ScrollFade } from "@/components/ScrollFade";
+import { PageNav } from "../PageNav";
+import { Session } from "../Session";
+import { Topic } from "../Topic";
+import { Schedule } from "../Schedule";
+import forum2022Bg from "@/assets/images/forum-2022-bg.jpg";
+import forumPhotosBg from "@/assets/images/forum-photos-bg.jpg";
+
+import * as data2022 from "@/lib/forum2022";
+import * as data2019 from "@/lib/forum2019";
+import * as data2018 from "@/lib/forum2018";
+
+import { notFound } from "next/navigation";
+import { Upcoming } from "../Upcoming";
 
 export default function ForumPage({ params }: { params: { year: string } }) {
   const { year } = params;
-  const data = data2022;
-  const { openingAddress, sponsors, topics, organizations, schedule, photos } =
-    data;
+
+  let data;
+
+  if (year === "2022") {
+    data = data2022;
+  } else if (year === "2019") {
+    data = data2019;
+  } else if (year === "2018") {
+    data = data2018;
+  } else if (year === "2023") {
+    return (
+      <Upcoming
+        eventDetails={{
+          title: "Human Flourishing Forum 2023",
+          date: "November 9-10, 2023",
+          venue: {
+            name: "Pontifical Academy of Sciences",
+            city: "Vatican City",
+          },
+          description: (
+            <>
+              <p>
+                A gathering of luminaries and stakeholders at the Vatican to
+                explore recent insights and foster new partnerships aimed at
+                accelerating human flourishing globally.
+              </p>
+              <ul>
+                <li>Forum: Presentations, Panels, and Workshops</li>
+                <li>Private Tour</li>
+                <li>Exclusive Dinners</li>
+              </ul>
+            </>
+          ),
+        }}
+      />
+    );
+  } else {
+    return notFound();
+  }
+
+  const {
+    openingAddress,
+    sponsors,
+    topics,
+    organizations,
+    schedule,
+    videos,
+    photos,
+    albumUrl,
+    eventDetails,
+  } = data;
 
   return (
     <main>
@@ -43,28 +95,24 @@ export default function ForumPage({ params }: { params: { year: string } }) {
         <div className="container">
           {/* Header */}
           <div className="mb-6">
-            <h1 className="mb-[0.75em] max-w-lg">
-              <TitleLine>2022 Human Flourishing Forum</TitleLine>
+            <h1 className="mb-[0.75em] max-w-xl">
+              <TitleLine>{eventDetails.title}</TitleLine>
             </h1>
             <div className="flex flex-wrap lg:flex-nowrap -mx-6 -my-4">
               <div className="px-6 py-4">
                 <div className="prose">
-                  <p>
-                    The Human Flourishing Forum consists of a two day program
-                    and involves leaders and luminaries from around the world
-                    exploring what constitutes and inhibits human flourishing.
-                    We are grateful to be partnering with The Human Flourishing
-                    Program at Harvard University in hosting this Forum.
-                  </p>
+                  <p>{eventDetails.description}</p>
                 </div>
               </div>
-              <div className="px-6 py-4">
-                <Image
-                  src={harvardHumanFlourishing}
-                  alt="The Human Flourishing Program at the Harvard University"
-                  className="w-96"
-                />
-              </div>
+              {eventDetails.descriptionLogo && (
+                <div className="px-6 py-4">
+                  <Image
+                    src={eventDetails.descriptionLogo.src}
+                    alt={eventDetails.descriptionLogo.alt || ""}
+                    className="w-96"
+                  />
+                </div>
+              )}
             </div>
           </div>
           {/* Page Nav */}
@@ -73,7 +121,7 @@ export default function ForumPage({ params }: { params: { year: string } }) {
           <div id="videos" className="mt-section">
             <h2 className="mb-[1em]">Videos</h2>
             {/* @ts-expect-error */}
-            <Videos playlistId="PL8rJDNiqYPUkoEmbZwXDzp1NyeVZg87Fl" />
+            <Videos {...videos} />
           </div>
         </div>
       </section>
@@ -89,17 +137,16 @@ export default function ForumPage({ params }: { params: { year: string } }) {
         <div className="container">
           <h2 className="mb-[1em]">Photos</h2>
         </div>
-        <Photos
-          albumUrl="https://photos.app.goo.gl/yTztxb2Sqf5AfacY9"
-          photos={photos}
-        />
+        <Photos albumUrl={albumUrl} photos={photos} />
       </section>
       <section>
-        <div id="opening-address" className="pt-section">
-          <div className="container">
-            <Session {...openingAddress} />
+        {openingAddress ? (
+          <div id="opening-address" className="pt-section">
+            <div className="container">
+              <Session {...openingAddress} />
+            </div>
           </div>
-        </div>
+        ) : null}
         <div id="topics">
           <NumberedList.Group>
             {topics.map((topicSection) => (
@@ -109,19 +156,14 @@ export default function ForumPage({ params }: { params: { year: string } }) {
                 className="group py-section even:bg-gray-900 even:text-white"
               >
                 <div className="container">
-                  <div className="flex">
-                    <NumberedList.Number className="text-2xl -ml-[calc(1.5em_+_1rem)]" />
-                    <div>
-                      {topicSection.map((topic) => (
-                        <div
-                          className="mb-10 last:mb-0"
-                          key={`topic-${topic.title}`}
-                        >
-                          <Topic {...topic} />
-                        </div>
-                      ))}
+                  {topicSection.map((topic) => (
+                    <div
+                      className="group/topic mb-10 last:mb-0"
+                      key={`topic-${topic.title}`}
+                    >
+                      <Topic {...topic} />
                     </div>
-                  </div>
+                  ))}
                 </div>
               </NumberedList.Item>
             ))}
@@ -129,7 +171,7 @@ export default function ForumPage({ params }: { params: { year: string } }) {
         </div>
       </section>
 
-      <section id="sponsors" className="py-section">
+      <section id="sponsors" className="py-section bg-gray-50">
         <div className="container">
           <h2 className="mb-[1em]">Sponsors</h2>
           {sponsors.map((sponsorsGroup) => (
@@ -143,23 +185,28 @@ export default function ForumPage({ params }: { params: { year: string } }) {
                   `grid-cols-2 sm:grid-cols-3 md:grid-cols-4`
               )}
             >
-              {sponsorsGroup.sponsors.map((sponsor) => (
-                <div
-                  key={`sponsor-${sponsor.name}`}
-                  className="relative w-full pb-[50%] border border-gray-100 rounded-md bg-white shadow-sm"
-                >
+              {sponsorsGroup.sponsors.map((sponsor) => {
+                const aspectRatio = sponsor.image.width / sponsor.image.height;
+                return (
                   <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{ padding: "18% 16%" }}
+                    key={`sponsor-${sponsor.name}`}
+                    className="relative w-full pb-[50%] border border-gray-100 rounded-md bg-white shadow-sm"
                   >
-                    <Image
-                      src={sponsor.image}
-                      alt={sponsor.name}
-                      className="w-full h-full object-contain"
-                    />
+                    <div
+                      className="absolute inset-0 flex items-center justify-center"
+                      style={{
+                        padding: aspectRatio < 1.2 ? "12% 16%" : "18% 16%",
+                      }}
+                    >
+                      <Image
+                        src={sponsor.image}
+                        alt={sponsor.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ))}
         </div>
@@ -186,7 +233,7 @@ export default function ForumPage({ params }: { params: { year: string } }) {
           </div>
         </div>
       </section>
-      <section id="complete-program" className="py-section">
+      <section id="program" className="py-section">
         <div className="container">
           <h2 className="mb-[1em]">The Program</h2>
           <div className="flex flex-wrap xl:flex-nowrap -m-6">
@@ -207,12 +254,12 @@ export default function ForumPage({ params }: { params: { year: string } }) {
                 <figure className="max-w-2xl lg:max-w-4xl">
                   <FramedImage reverse>
                     <Image
-                      src={pontificalAcademyOfSciences}
-                      alt="Pontifical Academy of Sciences"
+                      src={eventDetails.venue.image}
+                      alt={eventDetails.venue.name}
                     />
                   </FramedImage>
                   <figcaption className="mt-4">
-                    Pontifical Academy of Sciences
+                    {eventDetails.venue.name}
                   </figcaption>
                 </figure>
               </div>

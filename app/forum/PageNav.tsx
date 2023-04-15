@@ -30,8 +30,8 @@ const ANCHORS = [
     label: "Participating Organizations",
   },
   {
-    id: "complete-program",
-    label: "Complete Program",
+    id: "program",
+    label: "Program",
   },
   {
     id: "join-the-forum",

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Dialog, Transition, Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import { Social } from "@/components/Social";
 
 const MENU_ITEMS = [
   {
@@ -42,8 +43,20 @@ const MENU_ITEMS = [
     name: "Forum",
     children: [
       {
+        name: "2023 Forum",
+        href: "/forum/2023",
+      },
+      {
         name: "2022 Forum",
         href: "/forum/2022",
+      },
+      {
+        name: "2019 Forum",
+        href: "/forum/2019",
+      },
+      {
+        name: "2018 Forum",
+        href: "/forum/2018",
       },
     ],
   },
@@ -122,6 +135,10 @@ export function Header() {
                                 </Menu.Button>
                                 {item.children && (
                                   <motion.div
+                                    initial={{
+                                      opacity: 0,
+                                      height: 0,
+                                    }}
                                     animate={{
                                       opacity: open ? 1 : 0,
                                       height: open ? "auto" : 0,
@@ -157,6 +174,9 @@ export function Header() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-8">
+                    <Social />
+                  </div>
                 </div>
               </div>
             </Transition.Child>

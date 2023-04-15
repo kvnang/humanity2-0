@@ -8,6 +8,7 @@
     --black: #000;
 
     --pink: #ebbab9;
+    --gray-50: #eff1f3;
     --gray-100: #e5e5e5;
     --gray-400: #7f7f7f;
     --gray-700: #404040;
@@ -18,6 +19,7 @@
     --color-bg-opacity-20: rgba(255, 255, 255, 0.2);
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
 
+    --container-padding: 1.5rem;
     --section-spacing: 3.75rem;
     --page-spacing: calc(var(--section-spacing) + 1rem);
 
@@ -33,8 +35,15 @@
     --line-width: 3rem;
   }
 
+  @screen sm {
+    :root {
+      --container-padding: 2rem;
+    }
+  }
+
   @screen md {
     :root {
+      --container-padding: 4rem;
       --section-spacing: 4rem;
       --page-spacing: calc(var(--section-spacing) + 2.5rem);
     }
@@ -42,9 +51,28 @@
 
   @screen lg {
     :root {
+      --container-padding: 6rem;
       --section-spacing: 6.25rem;
       --page-spacing: calc(var(--section-spacing) + 0px);
       --line-width: 5rem;
+    }
+  }
+
+  @screen xl {
+    :root {
+      --container-padding: 12rem;
+    }
+  }
+
+  @screen 2xl {
+    :root {
+      --container-padding: 14rem;
+    }
+  }
+
+  @screen 3xl {
+    :root {
+      --container-padding: 16rem;
     }
   }
 

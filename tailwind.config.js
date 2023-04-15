@@ -14,17 +14,11 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "1.5rem",
-        sm: "2rem",
-        md: "4rem",
-        lg: "6rem",
-        // xl: "8rem",
-        "2xl": "12rem",
-        "3xl": "16rem",
+        DEFAULT: "var(--container-padding)",
       },
-      // screens: {
-      //   DEFAULT: "100%",
-      // },
+      screens: {
+        DEFAULT: "100%",
+      },
     },
     fontSize: {
       xs: "0.75rem",
@@ -51,6 +45,7 @@ module.exports = {
       "bg-2/10": "var(--color-bg-opacity-20)",
       "bg-8/10": "var(--color-bg-opacity-80)",
       "body-tint": "var(--color-body-tint)",
+      "gray-50": "var(--gray-50)",
       "gray-100": "var(--gray-100)",
       "gray-700": "var(--gray-700)",
       "gray-900": "var(--gray-900)",
@@ -60,8 +55,10 @@ module.exports = {
       spacing: {
         section: "var(--section-spacing)",
         page: "var(--page-spacing)",
+        container: "var(--container-padding)",
       },
       screens: {
+        xs: "360px",
         "3xl": "1750px",
       },
       typography: {

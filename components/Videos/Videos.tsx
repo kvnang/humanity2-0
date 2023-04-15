@@ -44,7 +44,7 @@ export async function Videos(
 
   return (
     <div className="">
-      <ul className="grid md:grid-cols-2 gap-6 mb-6">
+      <ul className="grid md:grid-cols-2 gap-6 mb-6 max-md:[&>li:nth-child(n+7)]:hidden">
         {items.map((item: any) => (
           <li key={item.id}>
             <VideoEntry {...item} />
