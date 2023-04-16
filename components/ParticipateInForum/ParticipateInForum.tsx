@@ -1,4 +1,4 @@
-import { Button } from "@/components/Button";
+import { Button, ButtonLink } from "@/components/Button";
 import { TitleLine } from "@/components/TitleLine";
 
 export function ParticipateInForum({ theme }: { theme?: "dark" }) {
@@ -36,7 +36,7 @@ export function ParticipateInForum({ theme }: { theme?: "dark" }) {
                     </p>
                   </div>
                   <div className="mt-6">
-                    <Button type="button">Join</Button>
+                    <ButtonLink href="/participate">Join</ButtonLink>
                   </div>
                 </div>
               </div>

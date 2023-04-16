@@ -11,9 +11,9 @@ export function Button({
   return (
     <button
       {...props}
-      className={`text-md font-semibold font-heading group relative pb-1 ${props.className}`}
+      className={`text-md font-semibold font-heading group relative pb-1 outline-offset-4 disabled:opacity-50 ${props.className}`}
     >
-      <div className="absolute bottom-0 left-0 w-full h-1 overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-1 overflow-hidden group-disabled:hidden">
         <div
           className={`absolute bottom-0 left-0 w-full h-1 group-hover:translate-x-full transition-transform duration-300 ${
             theme === "dark" ? "bg-body" : "bg-primary"
@@ -40,7 +40,7 @@ export function ButtonLink({
   return (
     <Link
       {...props}
-      className={`text-md font-semibold font-heading group relative pb-1 ${props.className}`}
+      className={`text-md font-semibold font-heading group relative pb-1 outline-offset-4 ${props.className}`}
     >
       <div className="absolute bottom-0 left-0 w-full h-1 overflow-hidden">
         <div
@@ -55,6 +55,21 @@ export function ButtonLink({
         />
       </div>
       {children}
+    </Link>
+  );
+}
+
+export function InlineLink({
+  children,
+  ...props
+}: React.ComponentProps<typeof Link>) {
+  return (
+    <Link
+      {...props}
+      className={`group relative rounded-md outline-offset-4 ${props.className}`}
+    >
+      {children}
+      <div className="absolute left-0 -bottom-0.5 border-b-4 border-primary w-full scale-x-0 group-hover:scale-x-100 duration-200 origin-left"></div>
     </Link>
   );
 }

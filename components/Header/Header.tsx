@@ -8,6 +8,12 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { Social } from "@/components/Social";
 
+interface MenuItem {
+  name: string;
+  href?: string | null | undefined;
+  children?: MenuItem[];
+}
+
 const MENU_ITEMS = [
   {
     name: "Home",
@@ -70,6 +76,99 @@ const MENU_ITEMS = [
   },
 ];
 
+function MenuItemDropdown({
+  item,
+  onClick,
+}: {
+  item: MenuItem;
+  onClick: () => void;
+}) {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [open, setOpen] = React.useState(false);
+
+  const isOpen = open;
+
+  let focusTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (focusTimeout) {
+      clearTimeout(focusTimeout);
+    }
+    setOpen((prev) => !prev);
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLButtonElement>) => {
+    focusTimeout = setTimeout(() => {
+      setOpen(true);
+    }, 50);
+  };
+
+  React.useEffect(() => {
+    () => {
+      if (focusTimeout) {
+        clearTimeout(focusTimeout);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={ref} className="flex flex-col items-start">
+      <button
+        className="group inline-flex items-center"
+        type="button"
+        onClick={handleClick}
+        // Handle focus within
+        onFocus={handleFocus}
+        onBlur={(e) => {
+          if (!ref.current?.contains(e.relatedTarget)) {
+            setOpen(false);
+          }
+        }}
+        data-open={isOpen}
+      >
+        <span className="h6">{item.name}</span>
+        <ChevronDownIcon className="w-5 h-5 shrink-0 ml-2 transition-transform group-data-[open=true]:rotate-180" />
+      </button>
+      <motion.div
+        initial={{
+          opacity: 0,
+          height: 0,
+        }}
+        animate={{
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? "auto" : 0,
+        }}
+        className="overflow-hidden"
+      >
+        <ul className="inline-flex flex-col pl-6 py-2 pr-2 mt-2">
+          {item.children?.map((child) => (
+            <li
+              key={child.name}
+              className="group mb-4 last:mb-0"
+              // as="div"
+            >
+              <Link
+                className="hover:text-primary transition-colors"
+                href={child.href || "/"}
+                onClick={onClick}
+                onFocus={() => setOpen(true)}
+                onBlur={(e) => {
+                  if (!ref.current?.contains(e.relatedTarget)) {
+                    setOpen(false);
+                  }
+                }}
+                tabIndex={isOpen ? 0 : -1}
+              >
+                {child.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+    </div>
+  );
+}
+
 export function Header() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
@@ -126,50 +225,7 @@ export function Header() {
                             <span className="h6">{item.name}</span>
                           </Link>
                         ) : (
-                          <Menu>
-                            {({ open }) => (
-                              <>
-                                <Menu.Button className="group inline-flex items-center">
-                                  <span className="h6">{item.name}</span>
-                                  <ChevronDownIcon className="w-5 h-5 shrink-0 ml-2 transition-transform group-data-[headlessui-state=open]:rotate-180" />
-                                </Menu.Button>
-                                {item.children && (
-                                  <motion.div
-                                    initial={{
-                                      opacity: 0,
-                                      height: 0,
-                                    }}
-                                    animate={{
-                                      opacity: open ? 1 : 0,
-                                      height: open ? "auto" : 0,
-                                    }}
-                                    className="overflow-hidden"
-                                  >
-                                    <Menu.Items
-                                      className="inline-flex flex-col pl-6 mt-4"
-                                      static
-                                    >
-                                      {item.children.map((child) => (
-                                        <Menu.Item
-                                          key={child.name}
-                                          className="group mb-4 last:mb-0"
-                                          as="div"
-                                        >
-                                          <Link
-                                            className="hover:text-primary transition-colors"
-                                            href={child.href}
-                                            onClick={onClick}
-                                          >
-                                            {child.name}
-                                          </Link>
-                                        </Menu.Item>
-                                      ))}
-                                    </Menu.Items>
-                                  </motion.div>
-                                )}
-                              </>
-                            )}
-                          </Menu>
+                          <MenuItemDropdown item={item} onClick={onClick} />
                         )}
                       </li>
                     ))}

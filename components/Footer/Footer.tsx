@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TitleLine } from "../TitleLine";
+import { InlineLink } from "../Button";
 
 export function Footer() {
   return (
@@ -23,12 +24,12 @@ export function Footer() {
                     <span>Rome</span>
                   </div>
                   <div className="px-6 py-1">
-                    <a
+                    <InlineLink
                       href="mailto:info@humanity2-0.org"
-                      className="inline-block font-semibold transition-colors px-3 py-1.5 hover:bg-white focus:bg-white rounded-md"
+                      className="inline-block font-semibold transition-colors"
                     >
                       info@humanity2-0.org
-                    </a>
+                    </InlineLink>
                   </div>
                 </div>
               </div>
@@ -43,7 +44,7 @@ export function Footer() {
               <ul className="flex flex-wrap -mx-2 lg:-mx-4 -my-1 text-sm">
                 <li className="px-2 lg:px-4 py-1">
                   <Link
-                    href="/"
+                    href="/privacy-policy"
                     className="text-white opacity-50 hover:opacity-100"
                   >
                     Privacy Policy
@@ -51,7 +52,7 @@ export function Footer() {
                 </li>
                 <li className="px-2 lg:px-4 py-1">
                   <Link
-                    href="/"
+                    href="/cookie-policy"
                     className="text-white opacity-50 hover:opacity-100"
                   >
                     Cookie Policy
@@ -59,7 +60,7 @@ export function Footer() {
                 </li>
                 <li className="px-2 lg:px-4 py-1">
                   <Link
-                    href="/"
+                    href="/terms-conditions"
                     className="text-white opacity-50 hover:opacity-100"
                   >
                     Terms & Conditions

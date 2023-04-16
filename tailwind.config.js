@@ -47,6 +47,8 @@ module.exports = {
       "body-tint": "var(--color-body-tint)",
       "gray-50": "var(--gray-50)",
       "gray-100": "var(--gray-100)",
+      "gray-300": "var(--gray-300)",
+      "gray-400": "var(--gray-400)",
       "gray-700": "var(--gray-700)",
       "gray-900": "var(--gray-900)",
       pink: "var(--pink)",
@@ -70,6 +72,37 @@ module.exports = {
             "--tw-prose-counters": "var(--pink)",
             "--tw-prose-bullets": "var(--pink)",
             // "--tw-prose-bold": "currentColor",
+
+            h1: {
+              fontSize: "",
+              fontWeight: "",
+            },
+            h2: {
+              fontSize: "",
+              fontWeight: "",
+            },
+            h3: {
+              fontSize: "",
+              fontWeight: "",
+            },
+            h4: {
+              fontSize: "",
+              fontWeight: "",
+            },
+            h5: {
+              fontSize: "",
+              fontWeight: "",
+            },
+            h6: {
+              fontSize: "",
+              fontWeight: "",
+            },
+
+            a: {
+              "&:hover": {
+                color: "var(--pink)",
+              },
+            },
           },
         },
       },

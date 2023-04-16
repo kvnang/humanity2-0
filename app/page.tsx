@@ -136,8 +136,8 @@ export default function Home() {
                         type="email"
                         name="email"
                         id="subscribe-email"
-                        placeholder="Email"
-                        className="px-5 py-3 outline-offset-4 w-full"
+                        placeholder="Email address"
+                        className="px-4 py-3 outline-offset-4 w-full rounded-md"
                       />
                     </label>
                   </div>

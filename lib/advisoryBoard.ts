@@ -6,6 +6,7 @@ import carloDasaroBiondo from "@/assets/images/board/carlo-dasaro-biondo.jpg";
 import jeanOelwang from "@/assets/images/board/jean-oelwang.jpg";
 import jimPitofsky from "@/assets/images/board/jim-pitofsky.jpg";
 import dinahMcleod from "@/assets/images/board/dinah-mcleod.jpg";
+import davidNazar from "@/assets/images/board/david-nazar.jpg";
 import matthewBird from "@/assets/images/board/matthew-bird.jpg";
 import moradFareed from "@/assets/images/board/morad-fareed.jpg";
 import matthewHarveySanders from "@/assets/images/board/matthew-harvey-sanders.jpg";
@@ -59,6 +60,12 @@ export const advisoryBoard = [
     title: "Chief Executive Officer",
     organization: "Global Cement and Concrete Association",
     image: dinahMcleod,
+  },
+  {
+    name: "Rev. David Nazar, SJ",
+    title: "Rector",
+    organization: "Pontifical Oriental Institute",
+    image: davidNazar,
   },
   {
     name: "Matthew Bird",

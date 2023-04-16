@@ -1,0 +1,63 @@
+import clsx from "clsx";
+
+export function Input({
+  label,
+  ...props
+}: { label: string } & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>) {
+  const id = props.id || `form-field-${props.name}`;
+
+  return (
+    <>
+      <label htmlFor={id} className="block w-full">
+        <div className="mb-1">
+          <span className="font-heading font-semibold text-gray-700 text-sm">
+            {label}
+          </span>
+        </div>
+        <input
+          {...props}
+          id={id}
+          className={clsx(
+            `w-full px-4 py-3 border border-gray-300 rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
+            props.className
+          )}
+        />
+      </label>
+    </>
+  );
+}
+
+export function Textarea({
+  label,
+  ...props
+}: { label: string } & React.DetailedHTMLProps<
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  HTMLTextAreaElement
+>) {
+  const id = props.id || `form-field-${props.name}`;
+
+  return (
+    <>
+      <label htmlFor={id} className="block w-full">
+        <div className="mb-1">
+          <span className="font-heading font-semibold text-gray-700 text-sm">
+            {label}
+          </span>
+        </div>
+        <textarea
+          {...props}
+          id={id}
+          className={clsx(
+            `w-full px-4 py-3 border border-gray-300 rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
+            `resize-y`,
+            props.className
+          )}
+          rows={props.rows || 3}
+        />
+      </label>
+    </>
+  );
+}
