@@ -17,13 +17,13 @@ export function Footer() {
                 </h2>
               </div>
               <div className="flex">
-                <div className="flex flex-wrap -mx-6 -my-1">
-                  <div className="px-6 py-1 flex items-center font-semibold">
+                <div className="flex flex-wrap -mx-6 -my-2">
+                  <div className="px-6 py-2 flex items-center font-semibold">
                     <span>Washington, D.C.</span>
                     <span className="block h-4 w-0.5 bg-primary mx-3"></span>
                     <span>Rome</span>
                   </div>
-                  <div className="px-6 py-1">
+                  <div className="px-6 py-2">
                     <InlineLink
                       href="mailto:info@humanity2-0.org"
                       className="inline-block font-semibold transition-colors"
@@ -45,7 +45,7 @@ export function Footer() {
                 <li className="px-2 lg:px-4 py-1">
                   <Link
                     href="/privacy-policy"
-                    className="text-white opacity-50 hover:opacity-100"
+                    className="text-white opacity-50 hover:opacity-100 focus:opacity-100 outline-offset-4 transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -53,7 +53,7 @@ export function Footer() {
                 <li className="px-2 lg:px-4 py-1">
                   <Link
                     href="/cookie-policy"
-                    className="text-white opacity-50 hover:opacity-100"
+                    className="text-white opacity-50 hover:opacity-100 focus:opacity-100 outline-offset-4 transition-colors"
                   >
                     Cookie Policy
                   </Link>
@@ -61,7 +61,7 @@ export function Footer() {
                 <li className="px-2 lg:px-4 py-1">
                   <Link
                     href="/terms-conditions"
-                    className="text-white opacity-50 hover:opacity-100"
+                    className="text-white opacity-50 hover:opacity-100 focus:opacity-100 outline-offset-4 transition-colors"
                   >
                     Terms & Conditions
                   </Link>

@@ -43,6 +43,7 @@ module.exports = {
       primary: "var(--pink)",
       body: "var(--color-body)",
       "bg-2/10": "var(--color-bg-opacity-20)",
+      "bg-5/10": "var(--color-bg-opacity-50)",
       "bg-8/10": "var(--color-bg-opacity-80)",
       "body-tint": "var(--color-body-tint)",
       "gray-50": "var(--gray-50)",
@@ -62,6 +63,7 @@ module.exports = {
       screens: {
         xs: "360px",
         "3xl": "1750px",
+        "4xl": "1920px",
       },
       typography: {
         DEFAULT: {

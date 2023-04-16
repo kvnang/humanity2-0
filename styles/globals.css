@@ -18,6 +18,7 @@
     --color-body: var(--gray-700);
     --color-body-tint: var(--gray-400);
     --color-bg-opacity-20: rgba(255, 255, 255, 0.2);
+    --color-bg-opacity-50: rgba(255, 255, 255, 0.5);
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
 
     --container-padding: 1.5rem;
@@ -74,6 +75,12 @@
   @screen 3xl {
     :root {
       --container-padding: 16rem;
+    }
+  }
+
+  @screen 4xl {
+    :root {
+      --container-padding: calc(50vw - 704px);
     }
   }
 

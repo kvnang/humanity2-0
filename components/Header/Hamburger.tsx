@@ -11,7 +11,7 @@ export function Hamburger({
     <button
       className={clsx(
         `group w-12 h-12 relative rounded-md hover:text-primary focus-visible:text-primary`,
-        isOpen ? "text-white" : "text-gray-500"
+        isOpen ? "text-white" : "text-gray-500 bg-bg-5/10 backdrop-blur-sm"
       )}
       onClick={() => setIsOpen((prev) => !prev)}
     >

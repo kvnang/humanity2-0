@@ -1,11 +1,11 @@
-import PrivacyPolicy from "./cookie-policy.mdx";
+import CookiePolicy from "./cookie-policy.mdx";
 
 export default function Page() {
   return (
     <main>
       <section className="pt-page pb-section container">
         <div className="prose">
-          <PrivacyPolicy />
+          <CookiePolicy />
         </div>
       </section>
     </main>

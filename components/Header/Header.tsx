@@ -90,17 +90,32 @@ function MenuItemDropdown({
 
   let focusTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFocus = () => {
+    focusTimeout = setTimeout(() => {
+      setOpen(true);
+    }, 100);
+  };
+
+  const handleMouseDown = () => {
+    if (focusTimeout) {
+      clearTimeout(focusTimeout);
+    }
+  };
+
+  const handleMouseUp = () => {
     if (focusTimeout) {
       clearTimeout(focusTimeout);
     }
     setOpen((prev) => !prev);
   };
 
-  const handleFocus = (e: React.FocusEvent<HTMLButtonElement>) => {
-    focusTimeout = setTimeout(() => {
-      setOpen(true);
-    }, 50);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "Enter") {
+      if (focusTimeout) {
+        clearTimeout(focusTimeout);
+      }
+      setOpen((prev) => !prev);
+    }
   };
 
   React.useEffect(() => {
@@ -109,15 +124,16 @@ function MenuItemDropdown({
         clearTimeout(focusTimeout);
       }
     };
-  }, []);
+  }, [focusTimeout]);
 
   return (
     <div ref={ref} className="flex flex-col items-start">
       <button
-        className="group inline-flex items-center"
+        className="group inline-flex items-center hover:text-primary transition-colors"
         type="button"
-        onClick={handleClick}
-        // Handle focus within
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onKeyDown={handleKeyDown}
         onFocus={handleFocus}
         onBlur={(e) => {
           if (!ref.current?.contains(e.relatedTarget)) {
@@ -212,7 +228,7 @@ export function Header() {
               leaveTo="opacity-0 -translate-y-8"
             >
               <div className="absolute top-0 left-0 w-full z-0 bg-gray-900 pt-16">
-                <div className="py-8 px-7 md:px-12 text-white">
+                <div className="pt-2 pb-8 px-7 md:px-12 md:pt-8 text-white">
                   <ul>
                     {MENU_ITEMS.map((item) => (
                       <li key={item.name} className="mb-4 last:mb-0">

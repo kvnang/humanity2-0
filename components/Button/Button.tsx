@@ -66,7 +66,7 @@ export function InlineLink({
   return (
     <Link
       {...props}
-      className={`group relative rounded-md outline-offset-4 ${props.className}`}
+      className={`group relative rounded-sm outline-offset-4 ${props.className}`}
     >
       {children}
       <div className="absolute left-0 -bottom-0.5 border-b-4 border-primary w-full scale-x-0 group-hover:scale-x-100 duration-200 origin-left"></div>

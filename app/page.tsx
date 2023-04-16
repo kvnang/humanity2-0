@@ -4,8 +4,6 @@ import quoteBg from "@/assets/images/home-quote-bg.jpg";
 import humanFlourishingImg from "@/assets/images/home-human-flourishing.jpg";
 import { TitleLine } from "@/components/TitleLine";
 import { Button } from "@/components/Button";
-import { Profile } from "@/components/Profile";
-import { advisoryBoard } from "@/lib/advisoryBoard";
 import { AdvisoryBoard } from "@/components/AdvisoryBoard";
 import { ParticipateInForum } from "@/components/ParticipateInForum";
 
@@ -21,7 +19,7 @@ export default function Home() {
                 <div className="absolute -top-[0.25em] -left-[0.5em] text-primary font-sans leading-none text-[5rem] sm:text-[6rem]">
                   &ldquo;
                 </div>
-                <p className="">
+                <p>
                   Three things are necessary for the salvation of man: to know
                   what he ought to believe; to know what he ought to desire; and
                   to know what he ought to do.
@@ -122,12 +120,12 @@ export default function Home() {
       <ParticipateInForum />
       <section className="py-section bg-primary">
         <div className="container">
-          <div className="flex flex-wrap items-center -m-4">
-            <div className="p-4 basis-full lg:basis-auto">
+          <div className="flex flex-wrap items-center -my-4 -mx-6">
+            <div className="py-4 px-6 basis-full lg:basis-auto">
               <h4>Sign up for email updates</h4>
             </div>
-            <div className="p-4 flex-1">
-              <form action="">
+            <div className="py-4 px-6 flex-1">
+              <form action="" className="max-w-2xl">
                 <div className="flex items-center -m-4">
                   <div className="p-4 flex-1">
                     <label htmlFor="subscribe-email">
