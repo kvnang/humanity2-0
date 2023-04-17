@@ -65,6 +65,17 @@ module.exports = {
         "3xl": "1750px",
         "4xl": "1920px",
       },
+      keyframes: {
+        "pulse-scale": {
+          "50%": {
+            transform: "scale(0.98)",
+            opacity: 0.8,
+          },
+        },
+      },
+      animation: {
+        "pulse-scale": "pulse-scale 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
       typography: {
         DEFAULT: {
           css: {

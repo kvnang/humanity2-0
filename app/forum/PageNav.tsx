@@ -48,7 +48,7 @@ export function PageNav() {
     const handleScroll = () => {
       if (ref.current) {
         const { top } = ref.current.getBoundingClientRect();
-        const isSticky = top < 16;
+        const isSticky = top < 12;
         setIsSticky(isSticky);
       }
 
@@ -56,7 +56,7 @@ export function PageNav() {
         const el = document.getElementById(curr.id);
         if (el) {
           const { top } = el.getBoundingClientRect();
-          if (top < 16) {
+          if (top < 12) {
             return curr;
           }
         }
@@ -81,13 +81,13 @@ export function PageNav() {
         <div
           className={clsx(
             isSticky
-              ? `fixed top-4 z-10 left-1/2 -translate-x-1/2 container`
+              ? `fixed top-3 z-10 left-1/2 -translate-x-1/2 container`
               : ``
           )}
         >
           <nav
             className={clsx(
-              `inline-flex max-w-full rounded-full shadow-md bg-bg-8/10 backdrop-blur-md overflow-hidden`
+              `inline-flex -mx-4 max-w-[calc(100%+2rem)] sm:mx-0 sm:max-w-full rounded-full shadow-md bg-bg-8/10 backdrop-blur-md overflow-hidden`
             )}
           >
             <div className="flex items-center shrink-0 py-1 pl-4 pr-2 rounded-l-full shadow-lg">
@@ -95,23 +95,33 @@ export function PageNav() {
                 Jump to
               </span>
             </div>
-            <ul className="flex items-center py-1 px-1 overflow-x-auto hide-scrollbar">
+            <div className="flex items-center py-1 px-1 overflow-x-auto hide-scrollbar">
               {ANCHORS.map((anchor) => (
-                <li key={anchor.id} className="">
+                <div key={anchor.id}>
                   <a
                     href={`#${anchor.id}`}
-                    className="group relative inline-flex items-center py-1 px-2 lg:px-3 rounded-full text-body hover:bg-gray-100 transition-colors font-medium whitespace-nowrap"
+                    className="group relative inline-flex items-center py-1 px-2 lg:px-3 text-sm sm:text-base rounded-full text-body hover:bg-gray-50 transition-colors font-medium whitespace-nowrap"
                     data-anchor-state={
                       activeAnchor === anchor.id ? "active" : ""
                     }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(anchor.id);
+                      if (el) {
+                        el.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }
+                    }}
                   >
                     <div className="absolute -bottom-1 left-0 w-full border-b-4 border-primary origin-left scale-x-0 group-data-[anchor-state=active]:scale-x-100 transition-transform"></div>
                     {anchor.label}
                   </a>
-                </li>
+                </div>
               ))}
               <ScrollFade direction="horizontal" />
-            </ul>
+            </div>
           </nav>
         </div>
         {/* Placeholder - so that when isSticky is true, there's no jank */}
@@ -132,7 +142,7 @@ export function PageNav() {
               <li key={anchor.id} className="">
                 <a
                   href={`#${anchor.id}`}
-                  className="inline-flex items-center py-1 px-2 lg:px-3 rounded-full text-body hover:bg-gray-100 transition-colors font-medium whitespace-nowrap"
+                  className="inline-flex items-center py-1 px-2 lg:px-3 text-sm sm:text-base rounded-full text-body hover:bg-gray-100 transition-colors font-medium whitespace-nowrap"
                 >
                   {anchor.label}
                 </a>

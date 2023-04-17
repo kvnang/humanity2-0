@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Hamburger } from "./Hamburger";
 import Link from "next/link";
-import { Dialog, Transition, Menu } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { Social } from "@/components/Social";
@@ -35,6 +35,10 @@ const MENU_ITEMS = [
   {
     name: "Divisions",
     children: [
+      {
+        name: "Impact",
+        href: "/divisions/impact",
+      },
       {
         name: "Institute",
         href: "/divisions/institute",
@@ -93,7 +97,7 @@ function MenuItemDropdown({
   const handleFocus = () => {
     focusTimeout = setTimeout(() => {
       setOpen(true);
-    }, 100);
+    }, 150);
   };
 
   const handleMouseDown = () => {
@@ -195,7 +199,7 @@ export function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 w-full flex z-10">
-        <div className="px-3 pt-1 md:px-8 md:pt-8 flex w-full">
+        <div className="px-3 pt-2 md:px-8 md:pt-8 flex w-full">
           <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </header>
@@ -214,7 +218,7 @@ export function Header() {
           </Transition.Child>
           <Dialog.Panel className="absolute top-0 left-0 w-full z-20">
             <div className="absolute top-0 left-0 w-full flex z-10">
-              <div className="px-3 pt-1 md:px-8 md:pt-8 flex w-full">
+              <div className="px-3 pt-2 md:px-8 md:pt-8 flex w-full">
                 <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
               </div>
             </div>

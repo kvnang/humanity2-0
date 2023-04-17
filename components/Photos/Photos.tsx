@@ -15,9 +15,11 @@ interface PhotoProps {
 function PhotoPreview({
   photo,
   setCurrentPhoto,
+  sizes,
 }: {
   photo: PhotoProps;
   setCurrentPhoto: React.Dispatch<React.SetStateAction<number | null>>;
+  sizes?: string;
 }) {
   return (
     <button
@@ -31,6 +33,7 @@ function PhotoPreview({
         fill
         className="object-cover"
         style={{ objectPosition: photo.objectPosition }}
+        sizes={sizes}
       />
     </button>
   );
@@ -59,13 +62,15 @@ export function Photos({
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
                 photo={gallery[0]}
-              ></PhotoPreview>
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
             </div>
             <div className="relative w-full pb-[60%] bg-white rounded-md overflow-hidden">
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
                 photo={gallery[1]}
-              ></PhotoPreview>
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
             </div>
           </div>
           <div className="grid gap-4 2xl:gap-8">
@@ -73,7 +78,8 @@ export function Photos({
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
                 photo={gallery[2]}
-              ></PhotoPreview>
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
             </div>
           </div>
           <div className="hidden md:grid grid-rows-[4fr_2fr] gap-4 2xl:gap-8">
@@ -81,20 +87,23 @@ export function Photos({
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
                 photo={gallery[3]}
-              ></PhotoPreview>
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
             </div>
             <div className="grid grid-cols-2 gap-4 2xl:gap-8">
               <div className="relative w-full h-full bg-white rounded-md overflow-hidden">
                 <PhotoPreview
                   setCurrentPhoto={setCurrentPhoto}
                   photo={gallery[4]}
-                ></PhotoPreview>
+                  sizes="(min-width: 1024px) 12.5vw, (min-width: 768px) 16.67vw, 25vw"
+                />
               </div>
               <div className="relative w-full h-full bg-white rounded-md overflow-hidden">
                 <PhotoPreview
                   setCurrentPhoto={setCurrentPhoto}
                   photo={gallery[5]}
-                ></PhotoPreview>
+                  sizes="(min-width: 1024px) 12.5vw, (min-width: 768px) 16.67vw, 25vw"
+                />
               </div>
             </div>
           </div>
@@ -103,13 +112,15 @@ export function Photos({
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
                 photo={gallery[6]}
-              ></PhotoPreview>
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
             </div>
             <div className="relative w-full pb-[60%] bg-white rounded-md overflow-hidden">
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
                 photo={gallery[7]}
-              ></PhotoPreview>
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
             </div>
           </div>
         </div>

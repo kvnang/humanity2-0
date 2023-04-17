@@ -150,6 +150,7 @@ export default function InstitutePage() {
               src={instituteTitle}
               alt="Institute"
               className="w-full h-auto"
+              priority
             />
           </h1>
           <div className="prose">

@@ -8,7 +8,12 @@ export default function AcademyPage() {
       <section className="pt-page pb-section">
         <div className="container">
           <h1 className="max-w-full w-52 mb-[0.75em] lg:w-60">
-            <Image src={academyTitle} alt="Academy" className="w-full h-auto" />
+            <Image
+              src={academyTitle}
+              alt="Academy"
+              className="w-full h-auto"
+              priority
+            />
           </h1>
           <div className="prose">
             <p>

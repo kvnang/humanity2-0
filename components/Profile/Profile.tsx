@@ -15,7 +15,12 @@ export function Profile({ name, title, organization, image }: ProfileProps) {
         <div className="w-20 sm:w-28 lg:w-36 mb-6 relative z-0">
           <div className="w-full pb-[100%] bg-pink rounded-full absolute inset-0 translate-x-2 -translate-y-2 -z-10"></div>
           <div className="relative w-full pb-[100%] bg-gray-100 rounded-full overflow-hidden">
-            <Image fill src={image} alt={name} />
+            <Image
+              fill
+              src={image}
+              alt={name}
+              sizes="(min-width: 1024px) 144px, (min-width: 640px) 112px, 80px"
+            />
           </div>
         </div>
         <div>

@@ -90,6 +90,8 @@ export default function ForumPage({ params }: { params: { year: string } }) {
             fill
             className="object-cover"
             style={{ objectPosition: "75% top" }}
+            sizes="(min-width: 768px) 40vw, 60vw"
+            priority
           />
         </div>
         <div className="container">
@@ -132,6 +134,7 @@ export default function ForumPage({ params }: { params: { year: string } }) {
             alt=""
             fill
             className="object-cover -z-10"
+            sizes="100vw"
           />
         </div>
         <div className="container">
