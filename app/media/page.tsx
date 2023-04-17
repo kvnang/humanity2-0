@@ -2,6 +2,8 @@ import Image from "next/image";
 import academyTitle from "./academy.svg";
 import { MegaphoneIcon } from "@heroicons/react/24/outline";
 import { Videos } from "@/components/Videos";
+import { photos } from "@/lib/forum2022";
+import { Photos } from "@/components/Photos";
 
 export default function MediaPage() {
   return (
@@ -63,6 +65,10 @@ export default function MediaPage() {
       <section className="py-section">
         <div className="container">
           <h2 className="mb-[1em]">Photos</h2>
+          <Photos
+            photos={photos}
+            albumUrl="https://photos.google.com/share/AF1QipMDVoegyKZzgpxUzXG_i0v26egX1EXdSJCWyziR1tiH_VjFmyvQA5P-ef24oDXv0w?key=OGR1MHQyM1BmS0xTVmFkMjE0OW1kZ3pvN1EzV3lB"
+          />
         </div>
       </section>
     </main>
