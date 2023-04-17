@@ -6,6 +6,7 @@ import aboutQuoteBg from "@/assets/images/about-quote-bg.jpg";
 import { AboutTabs } from "./AboutTabs";
 import { FramedImage } from "@/components/FramedImage";
 import { NumberedList } from "@/components/NumberedList";
+import { getMetadata } from "@/lib/metadata";
 
 const VISION = [
   <>
@@ -29,6 +30,13 @@ const VISION = [
     before private interests.
   </>,
 ];
+
+export const metadata = getMetadata({
+  title: "About",
+  description:
+    "Our mission is to identify impediments to human flourishing and then work collaboratively across sectors to remove them by sourcing and scaling bold and innovative solutions.",
+  pathname: "/about",
+});
 
 export default function AboutPage() {
   return (

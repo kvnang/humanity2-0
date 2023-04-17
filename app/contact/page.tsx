@@ -1,5 +1,13 @@
 import { TitleLine } from "@/components/TitleLine";
 import { ContactForm } from "./ContactForm";
+import { getMetadata } from "@/lib/metadata";
+
+export const metadata = getMetadata({
+  title: "Contact Us",
+  description:
+    "Contact us with any questions or comments you may have. Email: info@humanity2-0.org.",
+  pathname: "/contact",
+});
 
 export default function ContactPage() {
   return (

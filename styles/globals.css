@@ -22,7 +22,7 @@
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
 
     --container-padding: 1.5rem;
-    --section-spacing: 3.75rem;
+    --section-spacing: 3rem;
     --page-spacing: calc(var(--section-spacing) + 1rem);
 
     --font-size-sm: clamp(14.22px, 0.01vw + 14.14px, 14.4px);
@@ -40,6 +40,7 @@
   @screen sm {
     :root {
       --container-padding: 2rem;
+      --section-spacing: 3.5rem;
     }
   }
 

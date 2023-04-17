@@ -2,6 +2,7 @@ import { Montserrat, Catamaran } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import "@/styles/globals.css";
 import { Header } from "@/components/Header";
+import { defaultMetadata } from "@/lib/metadata";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -15,6 +16,8 @@ const catamaran = Catamaran({
   display: "swap",
 });
 
+export const metadata = defaultMetadata;
+
 export default function RootLayout({
   children,
 }: {
@@ -22,10 +25,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${catamaran.variable}`}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
       <body className="antialiased font-sans text-base text-body font-medium">
         <div className="min-h-screen flex flex-col">

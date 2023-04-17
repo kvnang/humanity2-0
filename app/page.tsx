@@ -45,7 +45,7 @@ export default function Home() {
                 ></Image>
               </div>
             </div>
-            <div className="absolute bottom-4 left-0 w-full z-10 pb-4 max-w-md md:bottom-8 md:pb-8 lg:relative lg:text-right lg:flex-1 lg:-ml-40 xl:max-w-2xl">
+            <div className="absolute bottom-2 sm:bottom-4 left-0 w-full z-10 pb-4 max-w-md md:bottom-8 md:pb-8 lg:relative lg:text-right lg:flex-1 lg:-ml-40 xl:max-w-2xl">
               <div className="h5 text-sm mb-2">We are a</div>
               <h2 className="h1">Human Flourishing Accelerator.</h2>
               <div className="absolute bottom-0 left-0 w-16 border-t-4 border-gray-900 md:w-32"></div>

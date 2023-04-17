@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { TitleLine } from "../TitleLine";
-import { InlineLink } from "../Button";
+import { TitleLine } from "@/components/TitleLine";
+import { InlineLink } from "@/components/Button";
+import { Social } from "@/components/Social";
 
 export function Footer() {
   return (
@@ -16,7 +17,7 @@ export function Footer() {
                   </TitleLine>
                 </h2>
               </div>
-              <div className="flex">
+              <div className="flex mb-6">
                 <div className="flex flex-wrap -mx-6 -my-2">
                   <div className="px-6 py-2 flex items-center font-semibold">
                     <span>Washington, D.C.</span>
@@ -32,6 +33,9 @@ export function Footer() {
                     </InlineLink>
                   </div>
                 </div>
+              </div>
+              <div>
+                <Social />
               </div>
             </div>
           </div>
