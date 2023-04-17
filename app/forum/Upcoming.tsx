@@ -8,7 +8,7 @@ export function Upcoming({
 }: {
   eventDetails: {
     title: string;
-    date: string;
+    dates: string;
     venue: {
       name: string;
       city?: string;
@@ -29,7 +29,7 @@ export function Upcoming({
                 <div className="mb-6">
                   <div className="flex mb-4 last:mb-0">
                     <CalendarDaysIcon className="w-5 h-5 shrink-0 mr-2 text-pink" />
-                    <span className="font-semibold">{eventDetails.date}</span>
+                    <span className="font-semibold">{eventDetails.dates}</span>
                   </div>
                   <div className="flex mb-4 last:mb-0">
                     <MapPinIcon className="w-5 h-5 shrink-0 mr-2 text-pink" />

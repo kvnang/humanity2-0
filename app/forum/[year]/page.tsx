@@ -13,54 +13,33 @@ import { Topic } from "../Topic";
 import { Schedule } from "../Schedule";
 import forum2022Bg from "@/assets/images/forum-2022-bg.jpg";
 import forumPhotosBg from "@/assets/images/forum-photos-bg.jpg";
-
-import * as data2022 from "@/lib/forum2022";
-import * as data2019 from "@/lib/forum2019";
-import * as data2018 from "@/lib/forum2018";
-
 import { notFound } from "next/navigation";
 import { Upcoming } from "../Upcoming";
+import { getForum, getForums } from "@/lib/forum";
 
-export default function ForumPage({ params }: { params: { year: string } }) {
+export async function generateStaticParams() {
+  const forums = await getForums();
+
+  return forums.map((forum) => ({
+    year: forum.year.toString(),
+  }));
+}
+
+export default async function ForumPage({
+  params,
+}: {
+  params: { year: string };
+}) {
   const { year } = params;
 
-  let data;
+  const data = await getForum(parseInt(year, 10));
 
-  if (year === "2022") {
-    data = data2022;
-  } else if (year === "2019") {
-    data = data2019;
-  } else if (year === "2018") {
-    data = data2018;
-  } else if (year === "2023") {
-    return (
-      <Upcoming
-        eventDetails={{
-          title: "Human Flourishing Forum 2023",
-          date: "November 9-10, 2023",
-          venue: {
-            name: "Pontifical Academy of Sciences",
-            city: "Vatican City",
-          },
-          description: (
-            <>
-              <p>
-                A gathering of luminaries and stakeholders at the Vatican to
-                explore recent insights and foster new partnerships aimed at
-                accelerating human flourishing globally.
-              </p>
-              <ul>
-                <li>Forum: Presentations, Panels, and Workshops</li>
-                <li>Private Tour</li>
-                <li>Exclusive Dinners</li>
-              </ul>
-            </>
-          ),
-        }}
-      />
-    );
-  } else {
+  if (!data) {
     return notFound();
+  }
+
+  if ("upcoming" in data) {
+    return <Upcoming eventDetails={data.eventDetails} />;
   }
 
   const {
