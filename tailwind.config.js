@@ -76,6 +76,9 @@ module.exports = {
       animation: {
         "pulse-scale": "pulse-scale 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
+      maxWidth: {
+        prose: "60ch",
+      },
       typography: {
         DEFAULT: {
           css: {

@@ -256,7 +256,7 @@ export default function InstitutePage() {
       <section className="py-section bg-gray-100">
         <div className="container">
           <div className="grid grid-cols-12 gap-x-4">
-            <div className="col-span-12 md:col-span-8">
+            <div className="col-span-12 md:col-span-8 mb-8 md:mb-0">
               <div className="md:-ml-10">
                 <FramedImage>
                   <Image src={instituteMetricsImage} alt=""></Image>
@@ -270,7 +270,7 @@ export default function InstitutePage() {
               </h2>
             </div>
             <div className="col-span-12">
-              <div className="my-10">
+              <div className="my-8 md:my-10">
                 <Blockquote
                   text="It is a capital mistake to theorize before one has data."
                   author="Sherlock Holmes"
@@ -344,9 +344,7 @@ export default function InstitutePage() {
       </section>
       <section className="py-section bg-gray-100">
         <div className="container">
-          <div className="flex justify-end">
-            <h2 className="h1 mb-[0.75em]">Project Legacy</h2>
-          </div>
+          <h2 className="h1 mb-[0.75em]">Project Legacy</h2>
           <TextAndQuote
             text={
               <>

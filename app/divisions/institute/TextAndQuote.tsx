@@ -20,13 +20,13 @@ export function TextAndQuote({
         }`}
       >
         {quote && (
-          <div className="pt-6 pl-12 xl:pt-0">
+          <div className="pt-4 md:pt-6 xl:pt-0">
             <Blockquote text={quote.text} author={quote.author} />
           </div>
         )}
       </div>
       <div className="px-4 basis-full xl:basis-2/3">
-        <div className="md:columns-2 gap-8">
+        <div className="">
           <div className="prose text-current">{text}</div>
         </div>
       </div>

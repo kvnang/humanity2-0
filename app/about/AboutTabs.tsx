@@ -84,7 +84,10 @@ export function AboutTabs() {
                   </div>
                 </div>
                 <div className="col-span-12 lg:col-span-6 lg:col-start-7 2xl:col-span-5 2xl:col-start-8">
-                  <div className="prose text-white">{item.text}</div>
+                  <div className="flex">
+                    <div className="shrink-0 text-2xl w-[1.5em] mr-2 hidden md:max-lg:block"></div>
+                    <div className="prose text-white">{item.text}</div>
+                  </div>
                 </div>
               </div>
             </Tab.Panel>

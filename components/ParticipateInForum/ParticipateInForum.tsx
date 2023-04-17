@@ -14,7 +14,7 @@ export function ParticipateInForum({ theme }: { theme?: "dark" }) {
           <div className="col-span-12 md:max-lg:col-span-10 md:max-lg:col-start-2">
             <div className="grid lg:grid-cols-2 gap-x-10">
               <div>
-                <h2 className="h1 mb-[1em]">
+                <h2 className="h1 mb-[1em] lg:max-w-sm">
                   <TitleLine>Participate in the Forum</TitleLine>
                 </h2>
               </div>

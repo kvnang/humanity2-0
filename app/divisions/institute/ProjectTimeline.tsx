@@ -90,11 +90,11 @@ export function ProjectTimeline() {
   return (
     <Tab.Group>
       <div className="flex flex-wrap">
-        <Tab.List className="flex basis-full mb-6 lg:flex-col lg:basis-1/4 lg:mb-0">
+        <Tab.List className="flex basis-full mb-6 md:flex-col md:basis-1/5 lg:basis-1/4 md:mb-0">
           {TIMELINE.map((t) => (
             <Tab
               key={t.year}
-              className="text-left inline-flex items-center group mr-6 lg:mb-4 last:mb-0 last:mr-0"
+              className="text-left inline-flex items-center group mr-6 md:mb-4 last:mb-0 last:mr-0"
             >
               <span className="lg:basis-12 opacity-75 group-data-[headlessui-state=selected]:opacity-100">
                 {t.year}
@@ -103,7 +103,7 @@ export function ProjectTimeline() {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="basis-full lg:flex-1">
+        <Tab.Panels className="basis-full md:flex-1">
           {TIMELINE.map((t) => (
             <Tab.Panel key={`tabpanel-${t.year}`}>
               <div>
@@ -120,7 +120,7 @@ export function ProjectTimeline() {
                       </Tab.Panel>
                     ))}
                   </Tab.Panels>
-                  <div className="mt-8 lg:mt-12 relative">
+                  <div className="mt-8 md:ml-12 lg:mt-12 relative">
                     <div className="absolute bottom-0 left-6 border-b-4 border-primary w-screen"></div>
                     <Tab.List>
                       {t.phases.map((p) => (

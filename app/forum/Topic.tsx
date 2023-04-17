@@ -13,7 +13,7 @@ export function Topic({
   return (
     <div>
       <div className="mb-10">
-        <h3 className="h3 max-w-xl mb-[1em] last:mb-0 flex">
+        <h3 className="h4 md:text-xl max-w-xl mb-[1em] last:mb-0 flex">
           <div className="hidden group-first/topic:block">
             <NumberedList.Number className="text-2xl md:-ml-[calc(1.5em_+_1rem)]" />
           </div>

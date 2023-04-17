@@ -13,19 +13,25 @@ export default function Home() {
       <Hero />
       <section className="bg-gray-900 pt-12 md:pt-20 2x">
         <div className="container py-section">
-          <div className="pl-6 md:pl-0">
+          <div className="">
             <div className="max-w-prose">
-              <blockquote className="text-white relative text-xl font-heading font-semibold mb-8">
-                <div className="absolute -top-[0.25em] -left-[0.5em] text-primary font-sans leading-none text-[5rem] sm:text-[6rem]">
-                  &ldquo;
-                </div>
-                <p>
-                  Three things are necessary for the salvation of man: to know
-                  what he ought to believe; to know what he ought to desire; and
-                  to know what he ought to do.
-                </p>
-              </blockquote>
-              <div className="opacity-50 text-white">
+              <div className="pl-4 md:pl-0">
+                <blockquote className="text-white relative text-lg md:text-xl font-heading font-semibold mb-8">
+                  <div className="absolute -top-[0.25em] -left-[0.5em] text-primary font-sans leading-none text-[4rem] md:text-[5rem]">
+                    &ldquo;
+                  </div>
+                  <p>
+                    Three things are necessary for the salvation of man:
+                    <br />
+                    to know what he ought to believe;
+                    <br />
+                    to know what he ought to desire;
+                    <br />
+                    and to know what he ought to do.
+                  </p>
+                </blockquote>
+              </div>
+              <div className="opacity-50 text-white max-md:text-right max-md:text-sm">
                 Thomas Aquinas, Two Precepts of Charity, 1273
               </div>
             </div>
@@ -37,15 +43,15 @@ export default function Home() {
           <div className="flex flex-col relative z-0 mb-8 lg:flex-row lg:items-end">
             <div className="ml-[10%] md:ml-[16%] lg:ml-0 lg:basis-2/3">
               <div className="w-full relative">
-                <div className="absolute w-full h-full top-0 right-0 translate-x-4 -translate-y-4 bg-pink -z-10" />
+                <div className="absolute w-full h-full top-0 right-0 translate-x-4 -translate-y-4 lg:translate-x-8 lg:-translate-y-8 bg-primary -z-10" />
                 <Image
                   src={humanFlourishingImg}
                   alt=""
                   className="relative w-full"
-                ></Image>
+                />
               </div>
             </div>
-            <div className="absolute bottom-2 sm:bottom-4 left-0 w-full z-10 pb-4 max-w-md md:bottom-8 md:pb-8 lg:relative lg:text-right lg:flex-1 lg:-ml-40 xl:max-w-2xl">
+            <div className="absolute bottom-2 sm:bottom-4 left-0 w-full z-10 pb-4 max-w-md md:bottom-8 md:pb-8 lg:relative lg:text-right lg:flex-1 lg:-ml-40 xl:max-w-sm xl:-ml-16 xl:mb-16">
               <div className="h5 text-sm mb-2">We are a</div>
               <h2 className="h1">Human Flourishing Accelerator.</h2>
               <div className="absolute bottom-0 left-0 w-16 border-t-4 border-gray-900 md:w-32"></div>
@@ -64,9 +70,9 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className="pl-6 md:pl-0">
-              <div className="max-w-md relative">
-                <div className="absolute -top-[0.25em] -left-[0.5em] text-primary font-sans leading-none text-[5rem] sm:text-[6rem]">
+            <div className="pl-4 sm:pl-6 md:pl-0">
+              <div className="max-w-prose relative">
+                <div className="absolute -top-[0.25em] -left-[0.5em] text-primary font-sans leading-none text-[4rem] md:text-[5rem]">
                   &ldquo;
                 </div>
                 <blockquote className="mb-4">
@@ -99,7 +105,7 @@ export default function Home() {
         <div className="container py-section">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 md:max-lg:col-span-10 md:max-lg:col-start-2">
-              <div className="max-w-prose">
+              <div className="max-w-md">
                 <h2 className="h3 text-white">
                   <TitleLine>
                     People around the world are constantly moving, but advancing

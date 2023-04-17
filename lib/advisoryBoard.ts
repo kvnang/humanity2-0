@@ -62,7 +62,7 @@ export const advisoryBoard = [
     image: dinahMcleod,
   },
   {
-    name: "Rev. David Nazar, SJ",
+    name: "Fr. David Nazar, SJ",
     title: "Rector",
     organization: "Pontifical Oriental Institute",
     image: davidNazar,

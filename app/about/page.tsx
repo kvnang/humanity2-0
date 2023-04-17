@@ -74,7 +74,9 @@ export default function AboutPage() {
                       &ldquo;If you know where you&apos;re going, you&apos;re
                       more likely to get there.&rdquo;
                     </span>{" "}
-                    <span className="text-body-tint">- Unknown</span>
+                    <span className="text-body-tint inline-block">
+                      - Unknown
+                    </span>
                   </p>
                 </blockquote>
               </div>
@@ -87,7 +89,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="col-span-12 md:-order-1 lg:col-span-5 2xl:col-span-6">
-              <div className="max-w-lg lg:max-w-2xl -mr-4 lg:-mr-8">
+              <div className="max-w-md lg:max-w-2xl -mr-4 lg:-mr-8">
                 <FramedImage>
                   <Image src={aboutMissionImage} alt="" />
                 </FramedImage>
@@ -195,13 +197,13 @@ export default function AboutPage() {
         </div>
       </section>
       <section className="py-section relative z-0">
-        <div className="absolute top-0 right-0 w-1/2 lg:w-2/3 2xl:w-full h-full -z-10">
+        <div className="absolute top-0 right-0 w-1/2 lg:w-2/3 max-w-6xl h-full -z-10">
           <Image
             src={aboutQuoteBg}
             alt=""
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover opacity-50 md:opacity-100"
           />
           <div className="absolute top-0 left-0 h-full w-1/4 bg-gradient-to-r from-white to-transparent"></div>
         </div>
@@ -209,7 +211,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-12 gap-x-4">
             <div className="col-span-12">
               <div className="max-w-md">
-                <h2 className="h3">
+                <h2 className="h4 md:text-xl">
                   <TitleLine reverse>
                     Collaboration with Partners is Critical to Success
                   </TitleLine>

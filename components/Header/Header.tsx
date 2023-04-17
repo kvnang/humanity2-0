@@ -160,11 +160,11 @@ function MenuItemDropdown({
         }}
         className="overflow-hidden"
       >
-        <ul className="inline-flex flex-col pl-6 py-2 pr-2 mt-2">
+        <ul className="inline-flex flex-col pl-6 py-2 pr-2 mt-4">
           {item.children?.map((child) => (
             <li
               key={child.name}
-              className="group mb-4 last:mb-0"
+              className="group mb-6 last:mb-0"
               // as="div"
             >
               <Link
@@ -214,7 +214,7 @@ export function Header() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="bg-bg-8/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
+            <Dialog.Overlay className="bg-bg-5/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
           </Transition.Child>
           <Dialog.Panel className="absolute top-0 left-0 w-full z-20">
             <div className="absolute top-0 left-0 w-full flex z-10">
@@ -231,11 +231,12 @@ export function Header() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 -translate-y-8"
             >
-              <div className="absolute top-0 left-0 w-full z-0 bg-gray-900 pt-16">
+              <div className="absolute top-0 left-0 w-full z-0 pt-16">
+                <div className="absolute top-0 left-0 bg-gray-900 opacity-90 -z-10 w-full h-full"></div>
                 <div className="pt-2 pb-8 px-7 md:px-12 md:pt-8 text-white">
                   <ul>
                     {MENU_ITEMS.map((item) => (
-                      <li key={item.name} className="mb-4 last:mb-0">
+                      <li key={item.name} className="mb-6 last:mb-0">
                         {item.href ? (
                           <Link
                             href={item.href}

@@ -10,7 +10,7 @@ export function TitleLine({
       <div
         className={`hidden md:block w-[var(--line-width)] border-t-4 border-primary absolute top-[0.5em] shrink-0 ${
           reverse
-            ? `right-0 translate-x-20 lg:translate-x-28 2xl:translate-x-32 3xl:translate-x-40`
+            ? `right-0 translate-x-20 lg:translate-x-28`
             : `left-0 -translate-x-20 lg:-translate-x-28 2xl:-translate-x-32 3xl:-translate-x-40`
         }`}
       ></div>

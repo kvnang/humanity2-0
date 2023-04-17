@@ -12,11 +12,12 @@
     --gray-100: #e5e5e5;
     --gray-300: #bfbfbf;
     --gray-400: #7f7f7f;
+    --gray-600: #5f5f5f;
     --gray-700: #404040;
     --gray-900: #000501;
 
     --color-body: var(--gray-700);
-    --color-body-tint: var(--gray-400);
+    --color-body-tint: var(--gray-600);
     --color-bg-opacity-20: rgba(255, 255, 255, 0.2);
     --color-bg-opacity-50: rgba(255, 255, 255, 0.5);
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);

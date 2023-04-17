@@ -35,7 +35,7 @@ export function Session({
       <div className="mb-10">
         <div className="flex items-center flex-wrap -mx-4 -my-2">
           <div className="px-4 py-2">
-            <h3 className="h4">{title}</h3>
+            <h3 className="h5 md:text-lg">{title}</h3>
           </div>
           {mainMedia && (
             <div className="px-4 py-2">

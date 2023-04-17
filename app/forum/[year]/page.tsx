@@ -219,7 +219,7 @@ export default async function ForumPage({
         <div className="container">
           <h2 className="mb-[1em]">The Program</h2>
           <div className="flex flex-wrap xl:flex-nowrap -m-6">
-            <div className="p-6">
+            <div className="p-6 lg:basis-1/2 3xl:basis-3/5">
               <div className="relative max-w-prose">
                 <div className="max-h-[600px] overflow-y-auto">
                   <Schedule

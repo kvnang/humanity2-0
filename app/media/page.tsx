@@ -16,7 +16,7 @@ export default function MediaPage() {
       </section>
       <section className="py-section bg-gray-100">
         <div className="container">
-          <h2 className="mb-[1em]">Videos</h2>
+          <h2 className="mb-[1.5em]">Videos</h2>
 
           <div className="mb-10 last:mb-0">
             <h3 className="h4 mb-[1em]">2022 Forum</h3>
@@ -38,6 +38,8 @@ export default function MediaPage() {
                 "BVEG1Y46UFI",
               ]}
             />
+            {/* Button Placeholder */}
+            <div className="h-8 hidden md:block" />
           </div>
           <div className="mb-10 last:mb-0">
             <h3 className="h4 mb-[1em]">Interviews</h3>
