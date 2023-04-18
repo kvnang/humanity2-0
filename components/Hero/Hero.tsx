@@ -7,7 +7,7 @@ export function Hero() {
     <section>
       <div className="pt-[20%] -mb-12 md:pt-[10%] md:-mb-20 lg:pt-[4%] lg:-mb-32 flex items-center justify-center">
         <div className="relative flex items-center justify-center mx-auto w-3/4 md:w-full">
-          <div className="w-full relative z-10 max-w-md lg:max-w-lg 2xl:max-w-[34rem]">
+          <div className="w-full relative z-10 max-w-md lg:max-w-lg 3xl:max-w-[34rem] [@media(max-height:800px)]:max-w-[30rem] ">
             <div className="w-[120%] absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[105%] -z-10">
               <HeroBg />
             </div>

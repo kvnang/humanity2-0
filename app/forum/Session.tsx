@@ -65,7 +65,7 @@ export function Session({
       </div>
       {speakers ? (
         <div className="mb-10 last:mb-0">
-          <div className="grid xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xs:gap-6 lg:gap-8">
+          <div className="grid xs:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-4 xs:gap-6 lg:gap-8">
             {speakers.map((speaker) => (
               <div key={speaker.name}>
                 <Profile {...speaker} />

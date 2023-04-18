@@ -91,7 +91,7 @@ export function PageNav() {
               `inline-flex -mx-4 max-w-[calc(100%+2rem)] sm:mx-0 sm:max-w-full rounded-full shadow-md bg-bg-8/10 backdrop-blur-md overflow-hidden`
             )}
           >
-            <div className="flex items-center shrink-0 py-1 pl-4 pr-2 rounded-l-full shadow-lg">
+            <div className="flex items-center shrink-0 py-1 pl-4 pr-2 rounded-l-full bg-gray-50 shadow-md">
               <span className="text-body-tint text-xs uppercase font-heading font-semibold">
                 Jump to
               </span>

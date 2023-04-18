@@ -21,7 +21,7 @@ export function Input({
           {...props}
           id={id}
           className={clsx(
-            `w-full px-4 py-3 border border-gray-300 rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
+            `w-full px-4 py-3 border border-gray-50 shadow-md rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
             props.className
           )}
         />
@@ -51,7 +51,7 @@ export function Textarea({
           {...props}
           id={id}
           className={clsx(
-            `w-full px-4 py-3 border border-gray-300 rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
+            `w-full px-4 py-3 border border-gray-50 shadow-md rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
             `resize-y`,
             props.className
           )}
