@@ -343,7 +343,6 @@ const organizations = [
     "Wayne State University",
     "Infinitum Humanitarian Systems",
     "MDA",
-    "Infinitum Humanitarian Systems",
     "Bandwidth Inc.",
     "Global Catholic Climate Movement",
     "University of Warwick",

@@ -104,6 +104,7 @@ export function GalleryModalContent({
                   priority
                   alt=""
                   onLoadingComplete={() => setLoaded(true)}
+                  placeholder="blur"
                 />
               </motion.div>
             </AnimatePresence>
@@ -144,7 +145,7 @@ export function GalleryModalContent({
                   )}
                 </>
               )}
-              <ButtonsWrapper position="left">
+              {/* <ButtonsWrapper position="left">
                 {navigation && (
                   <LinkButton
                     href={
@@ -169,7 +170,7 @@ export function GalleryModalContent({
                   }}
                   title="Download fullsize version"
                 />
-              </ButtonsWrapper>
+              </ButtonsWrapper> */}
               <ButtonsWrapper>
                 <CloseButton onClick={() => closeModal()} title="Close" />
               </ButtonsWrapper>

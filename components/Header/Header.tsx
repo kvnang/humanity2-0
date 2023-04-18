@@ -2,17 +2,9 @@
 
 import * as React from "react";
 import { Hamburger } from "./Hamburger";
-import Link from "next/link";
 import { Dialog, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
 import { Social } from "@/components/Social";
-
-interface MenuItem {
-  name: string;
-  href?: string | null | undefined;
-  children?: MenuItem[];
-}
+import { MenuItem } from "./MenuItem";
 
 const MENU_ITEMS = [
   {
@@ -21,6 +13,7 @@ const MENU_ITEMS = [
   },
   {
     name: "About",
+    href: "/about",
     children: [
       {
         name: "About Us",
@@ -34,6 +27,7 @@ const MENU_ITEMS = [
   },
   {
     name: "Divisions",
+    href: "/divisions",
     children: [
       {
         name: "Impact",
@@ -51,6 +45,7 @@ const MENU_ITEMS = [
   },
   {
     name: "Forum",
+    href: "/forum",
     children: [
       {
         name: "2023 Forum",
@@ -79,115 +74,6 @@ const MENU_ITEMS = [
     href: "/contact",
   },
 ];
-
-function MenuItemDropdown({
-  item,
-  onClick,
-}: {
-  item: MenuItem;
-  onClick: () => void;
-}) {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const [open, setOpen] = React.useState(false);
-
-  const isOpen = open;
-
-  let focusTimeout: ReturnType<typeof setTimeout> | null = null;
-
-  const handleFocus = () => {
-    focusTimeout = setTimeout(() => {
-      setOpen(true);
-    }, 150);
-  };
-
-  const handleMouseDown = () => {
-    if (focusTimeout) {
-      clearTimeout(focusTimeout);
-    }
-  };
-
-  const handleMouseUp = () => {
-    if (focusTimeout) {
-      clearTimeout(focusTimeout);
-    }
-    setOpen((prev) => !prev);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === "Enter") {
-      if (focusTimeout) {
-        clearTimeout(focusTimeout);
-      }
-      setOpen((prev) => !prev);
-    }
-  };
-
-  React.useEffect(() => {
-    () => {
-      if (focusTimeout) {
-        clearTimeout(focusTimeout);
-      }
-    };
-  }, [focusTimeout]);
-
-  return (
-    <div ref={ref} className="flex flex-col items-start">
-      <button
-        className="group inline-flex items-center hover:text-primary transition-colors"
-        type="button"
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onKeyDown={handleKeyDown}
-        onFocus={handleFocus}
-        onBlur={(e) => {
-          if (!ref.current?.contains(e.relatedTarget)) {
-            setOpen(false);
-          }
-        }}
-        data-open={isOpen}
-      >
-        <span className="h6">{item.name}</span>
-        <ChevronDownIcon className="w-5 h-5 shrink-0 ml-2 transition-transform group-data-[open=true]:rotate-180" />
-      </button>
-      <motion.div
-        initial={{
-          opacity: 0,
-          height: 0,
-        }}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          height: isOpen ? "auto" : 0,
-        }}
-        className="overflow-hidden"
-      >
-        <ul className="inline-flex flex-col pl-6 py-2 pr-2 mt-4">
-          {item.children?.map((child) => (
-            <li
-              key={child.name}
-              className="group mb-6 last:mb-0"
-              // as="div"
-            >
-              <Link
-                className="hover:text-primary transition-colors"
-                href={child.href || "/"}
-                onClick={onClick}
-                onFocus={() => setOpen(true)}
-                onBlur={(e) => {
-                  if (!ref.current?.contains(e.relatedTarget)) {
-                    setOpen(false);
-                  }
-                }}
-                tabIndex={isOpen ? 0 : -1}
-              >
-                {child.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-    </div>
-  );
-}
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -236,17 +122,9 @@ export function Header() {
                   <ul>
                     {MENU_ITEMS.map((item) => (
                       <li key={item.name} className="mb-6 last:mb-0">
-                        {item.href ? (
-                          <Link
-                            href={item.href}
-                            className="hover:text-primary transition-colors"
-                            onClick={onClick}
-                          >
-                            <span className="h6">{item.name}</span>
-                          </Link>
-                        ) : (
-                          <MenuItemDropdown item={item} onClick={onClick} />
-                        )}
+                        <React.Suspense fallback={null}>
+                          <MenuItem item={item} onClick={onClick} />
+                        </React.Suspense>
                       </li>
                     ))}
                   </ul>

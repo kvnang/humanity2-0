@@ -34,6 +34,7 @@ function PhotoPreview({
         className="object-cover"
         style={{ objectPosition: photo.objectPosition }}
         sizes={sizes}
+        placeholder="blur"
       />
     </button>
   );
@@ -56,8 +57,8 @@ export function Photos({
   return (
     <div>
       <div className="relative">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 2xl:gap-8">
-          <div className="grid grid-rows-2 gap-4 2xl:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-rows-2 gap-4">
             <div className="relative w-full pb-[60%] bg-white rounded-md overflow-hidden">
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
@@ -73,7 +74,7 @@ export function Photos({
               />
             </div>
           </div>
-          <div className="grid gap-4 2xl:gap-8">
+          <div className="grid gap-4">
             <div className="relative w-full h-full bg-white rounded-md overflow-hidden">
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
@@ -82,7 +83,7 @@ export function Photos({
               />
             </div>
           </div>
-          <div className="hidden md:grid grid-rows-[4fr_2fr] gap-4 2xl:gap-8">
+          <div className="hidden md:grid grid-rows-[4fr_2fr] gap-4">
             <div className="relative w-full h-full bg-white rounded-md overflow-hidden">
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}
@@ -90,7 +91,7 @@ export function Photos({
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4 2xl:gap-8">
+            <div className="grid grid-cols-2 gap-4">
               <div className="relative w-full h-full bg-white rounded-md overflow-hidden">
                 <PhotoPreview
                   setCurrentPhoto={setCurrentPhoto}
@@ -107,7 +108,7 @@ export function Photos({
               </div>
             </div>
           </div>
-          <div className="hidden lg:grid grid-rows-2 gap-4 2xl:gap-8">
+          <div className="hidden lg:grid grid-rows-2 gap-4">
             <div className="relative w-full pb-[60%] bg-white rounded-md overflow-hidden">
               <PhotoPreview
                 setCurrentPhoto={setCurrentPhoto}

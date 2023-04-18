@@ -11,6 +11,7 @@ const nextConfig = {
         hostname: "i.ytimg.com",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
 };
 

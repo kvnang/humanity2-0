@@ -1,8 +1,9 @@
 "use client";
 
+import * as React from "react";
 import { ScrollFade } from "@/components/ScrollFade";
 import clsx from "clsx";
-import * as React from "react";
+import { motion } from "framer-motion";
 
 const ANCHORS = [
   {
@@ -115,7 +116,17 @@ export function PageNav() {
                       }
                     }}
                   >
-                    <div className="absolute -bottom-1 left-0 w-full border-b-4 border-primary origin-left scale-x-0 group-data-[anchor-state=active]:scale-x-100 transition-transform"></div>
+                    {activeAnchor === anchor.id && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 w-full border-b-4 border-primary"
+                        layoutId="underline"
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.3,
+                        }}
+                      />
+                    )}
                     {anchor.label}
                   </a>
                 </div>
