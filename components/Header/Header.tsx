@@ -216,7 +216,7 @@ export function Header() {
           >
             <Dialog.Overlay className="bg-bg-5/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
           </Transition.Child>
-          <Dialog.Panel className="absolute top-0 left-0 w-56 md:w-80 max-w-full h-full z-20">
+          <Dialog.Panel className="fixed top-0 left-0 w-56 md:w-80 max-w-full h-full z-20">
             <div className="absolute top-0 left-0 w-full flex z-10">
               <div className="px-3 pt-2 md:px-8 md:pt-8 flex w-full">
                 <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
