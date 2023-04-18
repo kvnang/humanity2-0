@@ -99,12 +99,12 @@
 
   h3,
   .h3 {
-    @apply font-heading font-semibold text-xl leading-tight;
+    @apply font-heading font-semibold text-xl leading-snug;
   }
 
   h4,
   .h4 {
-    @apply font-heading font-semibold text-lg leading-tight;
+    @apply font-heading font-semibold text-lg leading-snug;
   }
 
   h5,
@@ -126,5 +126,9 @@
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .text-white {
+    --color-body-tint: var(--gray-300);
   }
 }

@@ -105,7 +105,7 @@ export default function Home() {
         <div className="container py-section">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 md:max-lg:col-span-10 md:max-lg:col-start-2">
-              <div className="max-w-md">
+              <div className="max-w-prose">
                 <h2 className="h3 text-white">
                   <TitleLine>
                     People around the world are constantly moving, but advancing
