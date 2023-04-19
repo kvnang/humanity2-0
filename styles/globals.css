@@ -109,12 +109,12 @@
 
   h5,
   .h5 {
-    @apply font-heading font-semibold text-md leading-snug;
+    @apply font-heading font-semibold text-md leading-normal;
   }
 
   h6,
   .h6 {
-    @apply font-heading font-semibold text-base leading-snug;
+    @apply font-heading font-semibold text-base leading-normal;
   }
 }
 
