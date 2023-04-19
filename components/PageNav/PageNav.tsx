@@ -5,44 +5,16 @@ import { ScrollFade } from "@/components/ScrollFade";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-const ANCHORS = [
-  {
-    id: "videos",
-    label: "Videos",
-  },
-  {
-    id: "photos",
-    label: "Photos",
-  },
-  {
-    id: "opening-address",
-    label: "Opening Address",
-  },
-  {
-    id: "topics",
-    label: "Topics",
-  },
-  {
-    id: "sponsors",
-    label: "Sponsors",
-  },
-  {
-    id: "participating-organizations",
-    label: "Participating Organizations",
-  },
-  {
-    id: "program",
-    label: "Program",
-  },
-  {
-    id: "join-the-forum",
-    label: "Join the Forum",
-  },
-];
+interface PageNavProps {
+  anchors: {
+    id: string;
+    label: string;
+  }[];
+}
 
-export function PageNav() {
+export function PageNav({ anchors }: PageNavProps) {
   const [isSticky, setIsSticky] = React.useState(false);
-  const [activeAnchor, setActiveAnchor] = React.useState(ANCHORS[0].id);
+  const [activeAnchor, setActiveAnchor] = React.useState(anchors[0].id);
   const ref = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -53,7 +25,7 @@ export function PageNav() {
         setIsSticky(isSticky);
       }
 
-      const activeAnchor = ANCHORS.reduce((prev, curr) => {
+      const activeAnchor = anchors.reduce((prev, curr) => {
         const el = document.getElementById(curr.id);
         if (el) {
           const { top } = el.getBoundingClientRect();
@@ -62,7 +34,7 @@ export function PageNav() {
           }
         }
         return prev;
-      }, ANCHORS[0]);
+      }, anchors[0]);
 
       if (activeAnchor) {
         setActiveAnchor(activeAnchor.id);
@@ -97,7 +69,7 @@ export function PageNav() {
               </span>
             </div>
             <div className="flex items-center py-1 px-1 overflow-x-auto hide-scrollbar">
-              {ANCHORS.map((anchor) => (
+              {anchors.map((anchor) => (
                 <div key={anchor.id}>
                   <a
                     href={`#${anchor.id}`}
@@ -149,7 +121,7 @@ export function PageNav() {
             </span>
           </div>
           <ul className="flex items-center py-1 px-1">
-            {ANCHORS.map((anchor) => (
+            {anchors.map((anchor) => (
               <li key={anchor.id} className="">
                 <a
                   href={`#${anchor.id}`}

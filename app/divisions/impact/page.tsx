@@ -11,6 +11,7 @@ import hallmarkImage1 from "@/assets/images/impact/hallmark-1.jpg";
 import hallmarkImage2 from "@/assets/images/impact/hallmark-2.jpg";
 import hallmarkImage3 from "@/assets/images/impact/hallmark-3.jpg";
 import { Subscribe } from "@/components/Subscribe";
+import { PageNav } from "@/components/PageNav";
 
 const organizations = [
   "Google",
@@ -146,17 +147,29 @@ export default function ImpactPage() {
               priority
             />
           </h1>
-          <div className="prose">
-            <p>
-              Humanity 2.0 Impact translates human flourishing insight,
-              partnerships, and resources into impact in the world. Its mission
-              is simple, source ways to remove impediments to human flourishing
-              and then seed and scale them sustainably.
-            </p>
+          <div className="mb-8 lg:mb-12">
+            <div className="prose">
+              <p>
+                Humanity 2.0 Impact translates human flourishing insight,
+                partnerships, and resources into impact in the world. Its
+                mission is simple, source ways to remove impediments to human
+                flourishing and then seed and scale them sustainably.
+              </p>
+            </div>
           </div>
+          <PageNav
+            anchors={[
+              { label: "Overview", id: "overview" },
+              { label: "Impact Hallmarks", id: "hallmarks" },
+              { label: "Participating Organizations", id: "organizations" },
+              { label: "Join Us", id: "join" },
+              { label: "Our Goals", id: "goals" },
+              { label: "Our Impact", id: "impact" },
+            ]}
+          />
         </div>
       </section>
-      <section className="py-section bg-gray-100">
+      <section id="overview" className="py-section bg-gray-100">
         <div className="container">
           <div className="grid grid-cols-12 gap-x-4 gap-y-8 mb-10 lg:mb-16 last:mb-0">
             <div className="col-span-12 lg:col-span-6">
@@ -190,7 +203,7 @@ export default function ImpactPage() {
               </div>
             </div>
           </div>
-          <div>
+          <div id="hallmarks">
             <h3 className="h4 mb-[1em]">Hallmarks of our impact approach:</h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
               <Hallmark
@@ -215,7 +228,7 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
-      <section className="py-section">
+      <section id="organizations" className="py-section">
         <div className="container">
           <h2 className="mb-[1em]">
             <TitleLine>Participating Organizations</TitleLine>
@@ -232,7 +245,7 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
-      <section className="py-section bg-gray-900 text-white">
+      <section id="join" className="py-section bg-gray-900 text-white">
         <div className="container">
           <div className="grid grid-cols-12 gap-x-4">
             <div className="col-span-12">
@@ -267,7 +280,7 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
-      <section className="py-section bg-gray-100">
+      <section id="goals" className="py-section bg-gray-100">
         <div className="container">
           <h2 className="mb-[1em]">
             <TitleLine>Our Goals</TitleLine>
@@ -286,7 +299,7 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
-      <section className="py-section">
+      <section id="impact" className="py-section">
         <div className="container">
           <h2 className="mb-[1em]">
             <TitleLine>Our Impact</TitleLine>

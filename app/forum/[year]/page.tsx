@@ -7,15 +7,15 @@ import { NumberedList } from "@/components/NumberedList";
 import { FramedImage } from "@/components/FramedImage";
 import { Photos } from "@/components/Photos";
 import { ScrollFade } from "@/components/ScrollFade";
-import { PageNav } from "../PageNav";
-import { Session } from "../Session";
-import { Topic } from "../Topic";
-import { Schedule } from "../Schedule";
+import { Session } from "./Session";
+import { Topic } from "./Topic";
+import { Schedule } from "./Schedule";
 import forum2022Bg from "@/assets/images/forum-2022-bg.jpg";
 import forumPhotosBg from "@/assets/images/forum-photos-bg.jpg";
 import { notFound } from "next/navigation";
-import { Upcoming } from "../Upcoming";
+import { Upcoming } from "./Upcoming";
 import { getForum, getForums } from "@/lib/forum";
+import { ForumPageNav } from "./ForumPageNav";
 
 export async function generateStaticParams() {
   const forums = await getForums();
@@ -97,7 +97,7 @@ export default async function ForumPage({
             </div>
           </div>
           {/* Page Nav */}
-          <PageNav />
+          <ForumPageNav />
           {/* Videos */}
           <div id="videos" className="mt-section">
             <h2 className="mb-[1em]">Videos</h2>
