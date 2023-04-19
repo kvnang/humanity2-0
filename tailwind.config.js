@@ -92,6 +92,7 @@ module.exports = {
             h1: {
               fontSize: "",
               fontWeight: "",
+              lineHeight: "",
             },
             h2: {
               fontSize: "",
@@ -100,18 +101,22 @@ module.exports = {
             h3: {
               fontSize: "",
               fontWeight: "",
+              lineHeight: "",
             },
             h4: {
               fontSize: "",
               fontWeight: "",
+              lineHeight: "",
             },
             h5: {
               fontSize: "",
               fontWeight: "",
+              lineHeight: "",
             },
             h6: {
               fontSize: "",
               fontWeight: "",
+              lineHeight: "",
               marginBottom: "1.25em",
             },
 
