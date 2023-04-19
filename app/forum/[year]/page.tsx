@@ -16,6 +16,19 @@ import { notFound } from "next/navigation";
 import { Upcoming } from "./Upcoming";
 import { getForum, getForums } from "@/lib/forum";
 import { ForumPageNav } from "./ForumPageNav";
+import { getMetadata } from "@/lib/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { year: string };
+}) {
+  return getMetadata({
+    title: `${params.year} Forum`,
+    description: `The Humanity 2.0 Forum is a broad spectrum gathering of luminaries and stakeholders at the Vatican to explore specific impediments to human flourishing and to discuss courses of action aimed at overcoming them.`,
+    pathname: `/forum/${params.year}`,
+  });
+}
 
 export async function generateStaticParams() {
   const forums = await getForums();

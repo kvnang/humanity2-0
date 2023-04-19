@@ -1,6 +1,13 @@
 import { Videos } from "@/components/Videos";
 import { photos } from "@/lib/forum2022";
 import { Photos } from "@/components/Photos";
+import { getMetadata } from "@/lib/metadata";
+
+export const metadata = getMetadata({
+  title: "Media",
+  description: `Browse photos and videos from our events and activities.`,
+  pathname: "/media",
+});
 
 export default function MediaPage() {
   return (

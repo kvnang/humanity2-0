@@ -12,6 +12,7 @@ import hallmarkImage2 from "@/assets/images/impact/hallmark-2.jpg";
 import hallmarkImage3 from "@/assets/images/impact/hallmark-3.jpg";
 import { Subscribe } from "@/components/Subscribe";
 import { PageNav } from "@/components/PageNav";
+import { getMetadata } from "@/lib/metadata";
 
 const organizations = [
   "Google",
@@ -133,6 +134,12 @@ const goals = [
     text: "Pursue the establishment and maintenance of global infrastructure that enables the highest possible levels of human flourishing.",
   },
 ];
+
+export const metadata = getMetadata({
+  title: "Impact",
+  description: `Humanity 2.0 Impact translates human flourishing insight, partnerships, and resources into impact in the world. Its mission is simple, source ways to remove impediments to human flourishing and then seed and scale them sustainably.`,
+  pathname: "/divisions/impact",
+});
 
 export default function ImpactPage() {
   return (

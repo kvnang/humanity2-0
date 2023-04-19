@@ -1,5 +1,12 @@
 import { TitleLine } from "@/components/TitleLine";
 import { ParticipateForm } from "./ParticipateForm";
+import { getMetadata } from "@/lib/metadata";
+
+export const metadata = getMetadata({
+  title: "Participate",
+  description: `Participate in Humanity 2.0 forum.`,
+  pathname: "/participate",
+});
 
 export default function ParticipatePage() {
   return (

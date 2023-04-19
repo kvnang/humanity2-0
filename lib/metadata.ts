@@ -2,7 +2,7 @@ import { BASE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 
 const siteName = "Humanity 2.0";
-const defaultTitle = "Humanity 2.0 | Human Flourishing Accelerator";
+const defaultTitle = "Humanity 2.0 | A Shared Horizon for Humanity";
 const defaultDescription =
   "Humanity 2.0 is a vehicle for facilitating collaborative ventures between the traditionally siloed public, private and faith-based sectors.";
 
