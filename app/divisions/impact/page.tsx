@@ -177,11 +177,11 @@ export default function ImpactPage() {
                 <TitleLine>Overview</TitleLine>
               </h2>
               <div className="prose">
-                <h3 className="h6">
+                <p className="h6">
                   At the Humanity 2.0 Foundation, we envision a world where
                   everyone has the opportunity to flourish together in harmony
                   with all life on Earth.
-                </h3>
+                </p>
                 <p>
                   We understand that achieving this goal requires the
                   collaboration of diverse minds, hearts, and resources from
