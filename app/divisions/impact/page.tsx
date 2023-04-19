@@ -72,12 +72,7 @@ const organizations = [
   "Pontifical University of Saint Thomas Aquinas",
   "Harvard Medical School",
   "Santa Clara University",
-  "Harvard T.H. Chan School of Public Health",
-  "Harvard Business School",
-  "University of Oxford",
-  "Massachusetts Institute of Technology (MIT)",
   "University of Pennsylvania",
-  "The Wharton School, The University of Pennsylvania",
   "Columbia Medical School",
   "Institute of Electrical and Electronics Engineers (IEEE)",
   "United Nations Foundation",
@@ -169,8 +164,8 @@ export default function ImpactPage() {
               { label: "Overview", id: "overview" },
               { label: "Impact Hallmarks", id: "hallmarks" },
               { label: "Participating Organizations", id: "organizations" },
-              { label: "Join Us", id: "join" },
               { label: "Our Goals", id: "goals" },
+              { label: "Join Us", id: "join" },
               { label: "Our Impact", id: "impact" },
             ]}
           />
@@ -252,6 +247,26 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
+
+      <section id="goals" className="py-section bg-gray-100">
+        <div className="container">
+          <h2 className="mb-[1em]">
+            <TitleLine>Our Goals</TitleLine>
+          </h2>
+          <div>
+            <NumberedList.Group className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {goals.map((goal) => (
+                <NumberedList.Item key={goal.title}>
+                  <div className="prose">
+                    <h3 className="h5">{goal.title}</h3>
+                    <p>{goal.text}</p>
+                  </div>
+                </NumberedList.Item>
+              ))}
+            </NumberedList.Group>
+          </div>
+        </div>
+      </section>
       <section id="join" className="py-section bg-gray-900 text-white">
         <div className="container">
           <div className="grid grid-cols-12 gap-x-4">
@@ -284,25 +299,6 @@ export default function ImpactPage() {
                 <Subscribe wrap />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="goals" className="py-section bg-gray-100">
-        <div className="container">
-          <h2 className="mb-[1em]">
-            <TitleLine>Our Goals</TitleLine>
-          </h2>
-          <div>
-            <NumberedList.Group className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {goals.map((goal) => (
-                <NumberedList.Item key={goal.title}>
-                  <div className="prose">
-                    <h3 className="h5">{goal.title}</h3>
-                    <p>{goal.text}</p>
-                  </div>
-                </NumberedList.Item>
-              ))}
-            </NumberedList.Group>
           </div>
         </div>
       </section>

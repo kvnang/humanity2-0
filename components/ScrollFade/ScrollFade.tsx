@@ -42,10 +42,23 @@ export function ScrollFade({
         scrollLeft,
       } = scrollElement;
 
-      const opacity =
-        direction === "vertical"
-          ? easeIn(scrollTop / (offsetHeight - scrollHeight), 10)
-          : easeIn(scrollLeft / (offsetWidth - scrollWidth), 10);
+      let opacity: number | null = 0;
+      if (direction === "vertical" && offsetHeight >= scrollHeight) {
+        opacity = null;
+      } else if (direction === "horizontal" && offsetWidth >= scrollWidth) {
+        opacity = null;
+      } else {
+        opacity =
+          direction === "vertical"
+            ? easeIn(scrollTop / (offsetHeight - scrollHeight), 10)
+            : easeIn(scrollLeft / (offsetWidth - scrollWidth), 10);
+      }
+
+      if (opacity === null) {
+        scrollElement.style.mask = "";
+        scrollElement.style.webkitMask = "";
+        return;
+      }
 
       const mask = getMask(opacity, direction, size);
 
@@ -58,23 +71,6 @@ export function ScrollFade({
     const scrollElement = rootRef.current?.parentElement;
 
     if (scrollElement) {
-      const { offsetHeight, offsetWidth, scrollHeight, scrollWidth } =
-        scrollElement;
-
-      if (direction === "vertical") {
-        if (offsetHeight !== scrollHeight) {
-          const mask = getMask(0, direction, size);
-          scrollElement.style.mask = mask;
-          scrollElement.style.webkitMask = mask;
-        }
-      } else if (direction === "horizontal") {
-        if (offsetWidth !== scrollWidth) {
-          const mask = getMask(0, direction, size);
-          scrollElement.style.mask = mask;
-          scrollElement.style.webkitMask = mask;
-        }
-      }
-
       scrollElement.addEventListener("scroll", onScroll);
       window.addEventListener("resize", onScroll);
 

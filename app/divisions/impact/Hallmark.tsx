@@ -13,8 +13,8 @@ export function Hallmark({
   text: string;
 }) {
   return (
-    <div>
-      <div className="mb-6">
+    <div className="bg-white rounded-md overflow-hidden shadow-md">
+      <div>
         <ImageHighlight
           className="w-full pb-[45%]"
           align={index % 2 ? "right" : "left"}
@@ -28,10 +28,10 @@ export function Hallmark({
           />
         </ImageHighlight>
       </div>
-      <div>
+      <div className="p-4 md:p-6">
         <div className="prose">
           <h3 className="h6">{title}</h3>
-          <p>{text}</p>
+          <p className="text-sm text-body-tint">{text}</p>
         </div>
       </div>
     </div>
