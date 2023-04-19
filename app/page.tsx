@@ -6,6 +6,7 @@ import { TitleLine } from "@/components/TitleLine";
 import { Button } from "@/components/Button";
 import { AdvisoryBoard } from "@/components/AdvisoryBoard";
 import { ParticipateInForum } from "@/components/ParticipateInForum";
+import { Subscribe } from "@/components/Subscribe";
 
 export default function Home() {
   return (
@@ -131,27 +132,7 @@ export default function Home() {
               <h4>Sign up for email updates</h4>
             </div>
             <div className="py-4 px-6 flex-1">
-              <form action="" className="max-w-2xl">
-                <div className="flex items-center -m-4">
-                  <div className="p-4 flex-1">
-                    <label htmlFor="subscribe-email">
-                      <span className="sr-only">Email</span>
-                      <input
-                        type="email"
-                        name="email"
-                        id="subscribe-email"
-                        placeholder="Email address"
-                        className="px-4 py-3 outline-offset-4 w-full border-gray-50 shadow-md rounded-md"
-                      />
-                    </label>
-                  </div>
-                  <div className="p-4">
-                    <Button type="submit" theme="dark">
-                      Subscribe
-                    </Button>
-                  </div>
-                </div>
-              </form>
+              <Subscribe theme="dark" />
             </div>
           </div>
         </div>

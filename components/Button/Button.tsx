@@ -2,9 +2,12 @@ import Link from "next/link";
 
 export function Button({
   children,
-  theme,
+  theme = "light",
   ...props
-}: { children: React.ReactNode; theme?: "dark" } & React.DetailedHTMLProps<
+}: {
+  children: React.ReactNode;
+  theme?: "light" | "dark";
+} & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >) {

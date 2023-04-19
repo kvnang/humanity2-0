@@ -149,7 +149,7 @@ export default function InstitutePage() {
             <Image
               src={instituteTitle}
               alt="Institute"
-              className="w-full h-auto"
+              className="w-auto h-10"
               priority
             />
           </h1>

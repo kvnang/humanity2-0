@@ -4,9 +4,11 @@ import { Button } from "@/components/Button";
 export function FormSubmitButton({
   loading,
   children,
+  theme,
 }: {
   loading: boolean;
   children: React.ReactNode;
+  theme?: "light" | "dark";
 }) {
   return (
     <div
@@ -15,7 +17,7 @@ export function FormSubmitButton({
         loading && "pr-8"
       )}
     >
-      <Button type="submit" disabled={loading}>
+      <Button type="submit" disabled={loading} theme={theme}>
         {children}
       </Button>
       {loading ? (

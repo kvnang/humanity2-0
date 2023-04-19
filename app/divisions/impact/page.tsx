@@ -6,6 +6,11 @@ import impactIntroImage from "@/assets/images/impact-intro.jpg";
 import { ScrollFade } from "@/components/ScrollFade";
 import { ButtonLink } from "@/components/Button";
 import { NumberedList } from "@/components/NumberedList";
+import { Hallmark } from "./Hallmark";
+import hallmarkImage1 from "@/assets/images/impact/hallmark-1.jpg";
+import hallmarkImage2 from "@/assets/images/impact/hallmark-2.jpg";
+import hallmarkImage3 from "@/assets/images/impact/hallmark-3.jpg";
+import { Subscribe } from "@/components/Subscribe";
 
 const organizations = [
   "Google",
@@ -71,7 +76,6 @@ const organizations = [
   "Massachusetts Institute of Technology (MIT)",
   "University of Pennsylvania",
   "The Wharton School, The University of Pennsylvania",
-  "Mayo Clinic",
   "Columbia Medical School",
   "Institute of Electrical and Electronics Engineers (IEEE)",
   "United Nations Foundation",
@@ -129,7 +133,7 @@ const goals = [
   },
 ];
 
-export default function AcademyPage() {
+export default function ImpactPage() {
   return (
     <main>
       <section className="pt-page pb-section">
@@ -137,8 +141,8 @@ export default function AcademyPage() {
           <h1 className="max-w-full w-52 mb-[0.75em] lg:w-60">
             <Image
               src={impactTitle}
-              alt="Academy"
-              className="w-full h-auto"
+              alt="Impact"
+              className="w-auto h-10"
               priority
             />
           </h1>
@@ -154,7 +158,7 @@ export default function AcademyPage() {
       </section>
       <section className="py-section bg-gray-100">
         <div className="container">
-          <div className="grid grid-cols-12 gap-x-4 gap-y-8 mb-8 lg:mb-12 last:mb-0">
+          <div className="grid grid-cols-12 gap-x-4 gap-y-8 mb-10 lg:mb-16 last:mb-0">
             <div className="col-span-12 lg:col-span-6">
               <h2 className="mb-[1em]">
                 <TitleLine>Overview</TitleLine>
@@ -178,16 +182,36 @@ export default function AcademyPage() {
                 </p>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-              <div>
-                <FramedImage>
+            <div className="col-span-12 lg:col-span-5 lg:col-start-8 -order-1 lg:order-none">
+              <div className="lg:-mr-24 3xl:mr-0">
+                <FramedImage reverse>
                   <Image src={impactIntroImage} alt="" />
                 </FramedImage>
               </div>
             </div>
           </div>
           <div>
-            <h3>Hallmarks of our impact approach:</h3>
+            <h3 className="h4 mb-[1em]">Hallmarks of our impact approach:</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
+              <Hallmark
+                index={0}
+                image={hallmarkImage1}
+                title="Cross-Sector Collaboration"
+                text="We break down traditional silos between the public, private, and faith-based sectors, cultivating partnerships that fuel innovative thinking and inspire new approaches to complex challenges. By bringing together diverse perspectives, we catalyze transformative change and accelerate progress towards a more just and equitable world."
+              />
+              <Hallmark
+                index={1}
+                image={hallmarkImage2}
+                title="Sourcing Innovative Solutions"
+                text="Humanity 2.0 is committed to identifying and supporting cutting-edge solutions with the potential to revolutionize the way we approach the most pressing issues of our time. Through our innovation platform, we connect problem solvers with the resources, mentorship, and networks they need to bring their ideas to life and scale their impact."
+              />
+              <Hallmark
+                index={0}
+                image={hallmarkImage3}
+                title="Scaling for Success"
+                text="Our work doesn't stop at identifying and sourcing breakthrough ideas. Humanity 2.0 is dedicated to helping these solutions reach their full potential by providing the resources and support necessary to scale their impact. From funding to technical assistance, we work closely with our partners to ensure they have the tools they need to create lasting change on a global scale."
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -210,21 +234,35 @@ export default function AcademyPage() {
       </section>
       <section className="py-section bg-gray-900 text-white">
         <div className="container">
-          <div className="max-w-prose">
-            <h2 className="h1 mb-[0.75em]">
-              <TitleLine>Join Us</TitleLine>
-            </h2>
-            <div className="prose text-current mb-6">
-              <p>
-                Together, we can shape the future of humanity and build a world
-                where everyone has the opportunity to flourish. Become a part of
-                the Humanity 2.0 Foundation community and join us in our quest
-                to break down barriers, forge new partnerships, and transform
-                the world for the better.
-              </p>
+          <div className="grid grid-cols-12 gap-x-4">
+            <div className="col-span-12">
+              <div className="max-w-prose">
+                <h2 className="h1 mb-[0.75em]">
+                  <TitleLine>Join Us</TitleLine>
+                </h2>
+              </div>
             </div>
-            <div className="flex justify-end">
-              <ButtonLink href="/contact">Contact Us</ButtonLink>
+            <div className="col-span-12 lg:col-span-6">
+              <div className="max-w-prose">
+                <div className="prose text-current mb-6">
+                  <p>
+                    Together, we can shape the future of humanity and build a
+                    world where everyone has the opportunity to flourish. Become
+                    a part of the Humanity 2.0 Foundation community and join us
+                    in our quest to break down barriers, forge new partnerships,
+                    and transform the world for the better.
+                  </p>
+                </div>
+                <div className="flex justify-end">
+                  <ButtonLink href="/contact">Contact Us</ButtonLink>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-12 lg:col-span-5 lg:col-start-8 mt-8 lg:mt-0">
+              <div className="max-w-prose">
+                <h5 className="mb-[1em]">Subscribe to Our Newsletter</h5>
+                <Subscribe wrap />
+              </div>
             </div>
           </div>
         </div>

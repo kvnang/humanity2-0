@@ -8,7 +8,7 @@ export function SuccessMessage({
   text: string;
 }) {
   return (
-    <div className="p-4 rounded-md shadow-md">
+    <div className="p-4 rounded-md shadow-md bg-bg-2/10">
       <div className="flex">
         <div className="relative w-12 h-12 rounded-full shrink-0 mr-4 flex items-center justify-center overflow-hidden">
           <div className="animate-pulse">

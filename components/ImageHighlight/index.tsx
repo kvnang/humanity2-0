@@ -1,0 +1,1 @@
+export { ImageHighlight } from "./ImageHighlight";
