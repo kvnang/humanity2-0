@@ -145,7 +145,7 @@ export default function ImpactPage() {
             <Image
               src={impactTitle}
               alt="Impact"
-              className="w-auto h-10"
+              className="w-auto h-8 md:h-10"
               priority
             />
           </h1>

@@ -26,7 +26,7 @@
 
     --container-padding: 1.5rem;
     --section-spacing: 3rem;
-    --page-spacing: calc(var(--section-spacing) + 1rem);
+    --page-spacing: calc(var(--section-spacing) + 1.5rem);
 
     --font-size-sm: clamp(14.22px, 0.01vw + 14.14px, 14.4px);
     --font-size-base: clamp(16px, 0.15vw + 15.09px, 18px);

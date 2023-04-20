@@ -18,7 +18,7 @@ export default function AcademyPage() {
             <Image
               src={academyTitle}
               alt="Academy"
-              className="w-auto h-10"
+              className="w-auto h-8 md:h-10"
               priority
             />
           </h1>

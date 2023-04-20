@@ -41,7 +41,7 @@ export const metadata = getMetadata({
 export default function AboutPage() {
   return (
     <main>
-      <section className="py-section bg-gray-900">
+      <section className="pt-page pb-section bg-gray-900">
         <div className="container">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 md:col-span-10 md:col-start-3 lg:col-span-6 lg:col-start-7 2xl:col-span-5 2xl:col-start-8">

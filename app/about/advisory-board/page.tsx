@@ -11,7 +11,7 @@ export const metadata = getMetadata({
 export default function AdvisoryBoardPage() {
   return (
     <main>
-      <section className="py-section">
+      <section className="pt-page pb-section">
         <div className="container">
           <h1 className="mb-[1.5em]">Advisory Board</h1>
           <AdvisoryBoard />
