@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Header } from "@/components/Header";
 import { defaultMetadata } from "@/lib/metadata";
 import { Toaster } from "@/components/Toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
             duration: 5000,
           }}
         />
+        <Analytics />
       </body>
     </html>
   );
