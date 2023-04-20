@@ -9,6 +9,7 @@ export function Social() {
           target="_blank"
           rel="noopener noreferrer"
           className="w-auto h-12 p-2 flex items-center justify-center hover:text-pink rounded-md transition-colors"
+          aria-label="Facebook"
         >
           <FacebookSocialIcon className="w-auto h-8" />
         </a>
@@ -19,6 +20,7 @@ export function Social() {
           target="_blank"
           rel="noopener noreferrer"
           className="w-auto h-12 p-2 flex items-center justify-center hover:text-pink rounded-md transition-colors"
+          aria-label="YouTube"
         >
           <YouTubeSocialIcon className="w-auto h-8" />
         </a>

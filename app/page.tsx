@@ -132,7 +132,7 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-wrap items-center -my-4 -mx-6">
             <div className="py-4 px-6 basis-full lg:basis-auto">
-              <h4>Sign up for email updates</h4>
+              <h2 className="h4">Sign up for email updates</h2>
             </div>
             <div className="py-4 px-6 flex-1">
               <Subscribe theme="dark" />
