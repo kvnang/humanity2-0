@@ -1,14 +1,22 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
 
 export function SuccessMessage({
   title,
   text,
+  theme = "light",
 }: {
   title: string;
   text: string;
+  theme?: "light" | "dark";
 }) {
   return (
-    <div className="p-4 rounded-md shadow-md bg-bg-2/10">
+    <div
+      className={clsx(
+        `p-4 rounded-md shadow-md`,
+        theme === "light" ? "bg-bg-2/10" : "bg-white"
+      )}
+    >
       <div className="flex">
         <div className="relative w-12 h-12 rounded-full shrink-0 mr-4 flex items-center justify-center overflow-hidden">
           <div className="animate-pulse">
