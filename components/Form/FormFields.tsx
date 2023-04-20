@@ -14,14 +14,19 @@ export function Input({
       <label htmlFor={id} className="block w-full">
         <div className="mb-1">
           <span className="font-heading font-semibold text-gray-700 text-sm">
-            {label}
+            {label}{" "}
+            {props.required ? (
+              <abbr title="required" className="no-underline text-error">
+                *
+              </abbr>
+            ) : null}
           </span>
         </div>
         <input
           {...props}
           id={id}
           className={clsx(
-            `w-full px-4 py-3 border border-gray-50 shadow-md rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
+            `w-full px-4 py-3 border border-gray-50 shadow-md rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50 aria-[invalid=true]:[&:not([disabled])]:border-error`,
             props.className
           )}
         />
@@ -44,14 +49,19 @@ export function Textarea({
       <label htmlFor={id} className="block w-full">
         <div className="mb-1">
           <span className="font-heading font-semibold text-gray-700 text-sm">
-            {label}
+            {label}{" "}
+            {props.required ? (
+              <abbr title="required" className="no-underline text-error">
+                *
+              </abbr>
+            ) : null}
           </span>
         </div>
         <textarea
           {...props}
           id={id}
           className={clsx(
-            `w-full px-4 py-3 border border-gray-50 shadow-md rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50`,
+            `w-full px-4 py-3 border border-gray-50 shadow-md rounded-md outline-offset-4 disabled:bg-gray-50 disabled:border-gray-50 aria-[invalid=true]:[&:not([disabled])]:border-error`,
             `resize-y`,
             props.className
           )}

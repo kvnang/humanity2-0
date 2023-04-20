@@ -21,6 +21,8 @@
     --color-bg-opacity-20: rgba(255, 255, 255, 0.2);
     --color-bg-opacity-50: rgba(255, 255, 255, 0.5);
     --color-bg-opacity-80: rgba(255, 255, 255, 0.8);
+    --color-spinner: var(--pink);
+    --color-error: #ef4444;
 
     --container-padding: 1.5rem;
     --section-spacing: 3rem;

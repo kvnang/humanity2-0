@@ -23,7 +23,7 @@ export function FormSubmitButton({
       {loading ? (
         <div className="absolute top-1/2 right-0 -translate-y-1/2">
           <div
-            className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-primary border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-[var(--color-spinner)] border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status"
           />
         </div>

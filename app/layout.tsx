@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import "@/styles/globals.css";
 import { Header } from "@/components/Header";
 import { defaultMetadata } from "@/lib/metadata";
+import { Toaster } from "@/components/Toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -32,6 +33,11 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <Footer />
         </div>
+        <Toaster
+          toastOptions={{
+            duration: 5000,
+          }}
+        />
       </body>
     </html>
   );

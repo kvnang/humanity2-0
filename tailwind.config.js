@@ -53,6 +53,7 @@ module.exports = {
       "gray-700": "var(--gray-700)",
       "gray-900": "var(--gray-900)",
       pink: "var(--pink)",
+      error: "var(--color-error)",
     },
     extend: {
       spacing: {

@@ -125,7 +125,10 @@ export default function Home() {
         </div>
       </section>
       <ParticipateInForum />
-      <section className="py-section bg-primary">
+      <section
+        className="py-section bg-primary"
+        style={{ "--color-spinner": "var(--white)" } as React.CSSProperties}
+      >
         <div className="container">
           <div className="flex flex-wrap items-center -my-4 -mx-6">
             <div className="py-4 px-6 basis-full lg:basis-auto">

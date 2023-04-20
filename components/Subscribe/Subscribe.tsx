@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Button } from "@/components/Button";
 import clsx from "clsx";
 import { FormSubmitButton, SuccessMessage } from "../Form";
 import { useTurnstile } from "@/hooks/useTurnstile";
+import { toast } from "react-hot-toast";
+import type { ZodError } from "zod";
 
 export function Subscribe({
   wrap,
@@ -15,8 +16,9 @@ export function Subscribe({
 }) {
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+  const [issues, setIssues] = React.useState<ZodError["issues"]>([]);
 
-  const { turnstileRef, turnstileInputRef } = useTurnstile();
+  const { turnstileRef, turnstileInputRef, reset } = useTurnstile();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,16 +28,31 @@ export function Subscribe({
 
     const urlEncoded = new URLSearchParams(formData as any).toString();
 
-    await fetch(form.action, {
+    const { error } = await fetch(form.action, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: urlEncoded,
-    });
+    }).then((res) => res.json());
+
+    if (error) {
+      if (error.name === "ZodError") {
+        const { issues } = error as ZodError;
+        issues.forEach((err) => {
+          toast.error(err.message);
+        });
+        setIssues(issues);
+      } else {
+        console.error(error);
+        toast.error(error || "Something went wrong. Please try again later.");
+      }
+      reset();
+    } else {
+      setSuccess(true);
+    }
 
     setLoading(false);
-    setSuccess(true);
   };
 
   if (success) {
@@ -49,7 +66,7 @@ export function Subscribe({
   }
 
   return (
-    <form action="/api/subscribe" className="max-w-2xl" onSubmit={onSubmit}>
+    <form action="/api/submit" className="max-w-2xl" onSubmit={onSubmit}>
       <input type="hidden" name="form-name" value="subscribe" />
       <div className={clsx(`flex items-center -m-4`, wrap ? "flex-wrap" : "")}>
         <div className={clsx(`p-4`, wrap ? "basis-full" : "flex-1")}>
@@ -65,6 +82,7 @@ export function Subscribe({
                 theme === "dark" ? "bg-white" : "bg-gray-700"
               )}
               disabled={loading}
+              aria-invalid={issues.some((issue) => issue.path[0] === "email")}
               required
             />
           </label>

@@ -7,10 +7,16 @@ import {
   SuccessMessage,
   Textarea,
 } from "@/components/Form";
+import { useTurnstile } from "@/hooks/useTurnstile";
+import { toast } from "react-hot-toast";
+import type { ZodError } from "zod";
 
 export function ContactForm() {
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+  const [issues, setIssues] = React.useState<ZodError["issues"]>([]);
+
+  const { turnstileRef, turnstileInputRef, reset } = useTurnstile();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,12 +24,33 @@ export function ContactForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
 
-    // wait 3 secs
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const urlEncoded = new URLSearchParams(formData as any).toString();
 
-    setSuccess(true);
+    const { error } = await fetch(form.action, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: urlEncoded,
+    }).then((res) => res.json());
+
+    if (error) {
+      if (error.name === "ZodError") {
+        const { issues } = error as ZodError;
+        issues.forEach((err) => {
+          toast.error(err.message);
+        });
+        setIssues(issues);
+      } else {
+        console.error(error);
+        toast.error(error || "Something went wrong. Please try again later.");
+      }
+      reset();
+    } else {
+      setSuccess(true);
+    }
+
     setLoading(false);
   };
 
@@ -38,6 +65,7 @@ export function ContactForm() {
 
   return (
     <form action="/api/submit" method="POST" onSubmit={onSubmit}>
+      <input type="hidden" name="form-name" value="contact" />
       <div className="grid grid-cols-6 gap-4">
         <div className="col-span-3">
           <Input
@@ -46,6 +74,8 @@ export function ContactForm() {
             name="name"
             placeholder="John Doe"
             disabled={loading}
+            aria-invalid={issues.some((issue) => issue.path[0] === "name")}
+            required
           />
         </div>
         <div className="col-span-3">
@@ -55,6 +85,8 @@ export function ContactForm() {
             name="email"
             placeholder="email@example.com"
             disabled={loading}
+            aria-invalid={issues.some((issue) => issue.path[0] === "email")}
+            required
           />
         </div>
         <div className="col-span-full">
@@ -64,6 +96,8 @@ export function ContactForm() {
             name="subject"
             placeholder="About the upcoming forum ..."
             disabled={loading}
+            aria-invalid={issues.some((issue) => issue.path[0] === "subject")}
+            required
           />
         </div>
         <div className="col-span-full">
@@ -72,9 +106,22 @@ export function ContactForm() {
             name="message"
             placeholder="Your message ..."
             disabled={loading}
+            aria-invalid={issues.some((issue) => issue.path[0] === "message")}
+            required
           />
         </div>
         <div className="col-span-full">
+          <div
+            ref={turnstileRef}
+            className={`transition-opacity ${
+              loading ? "opacity-50 pointer-events-none" : ""
+            }`}
+          />
+          <input
+            ref={turnstileInputRef}
+            type="hidden"
+            name="cf-turnstile-response"
+          />
           <div className="flex justify-end">
             <FormSubmitButton loading={loading}>Send</FormSubmitButton>
           </div>

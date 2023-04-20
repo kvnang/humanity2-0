@@ -61,5 +61,11 @@ export function useTurnstile() {
     renderTurnstile(el);
   }, [turnstileRef]);
 
-  return { turnstileRef, turnstileInputRef };
+  const reset = () => {
+    if (turnstileRef.current && typeof window.turnstile !== "undefined") {
+      window.turnstile.reset(turnstileRef.current.dataset.widget);
+    }
+  };
+
+  return { turnstileRef, turnstileInputRef, reset };
 }
