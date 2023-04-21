@@ -1,6 +1,6 @@
+import { BASE_URL } from "@/lib/constants";
 import {
   Body,
-  Button,
   Container,
   Head,
   Heading,
@@ -9,14 +9,9 @@ import {
   Img,
   Link,
   Preview,
-  Section,
   Text,
 } from "@react-email/components";
 import * as React from "react";
-
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
 
 export const SubscribeEmail = () => (
   <Html>
@@ -25,7 +20,7 @@ export const SubscribeEmail = () => (
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={`${baseUrl}/logo.png`}
+          src={`${BASE_URL.toString()}/email-logo.png`}
           width="42"
           height="42"
           alt="Humanity 2.0"
@@ -39,7 +34,7 @@ export const SubscribeEmail = () => (
           for your patience.
         </Text>
         <Hr style={hr} />
-        <Link href={baseUrl} style={reportLink}>
+        <Link href={BASE_URL.toString()} style={reportLink}>
           Humanity 2.0
         </Link>
       </Container>
