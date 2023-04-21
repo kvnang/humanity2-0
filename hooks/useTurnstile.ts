@@ -12,13 +12,14 @@ const TEST_SITE_KEY_BLOCK = "2x00000000000000000000AB";
 const TEST_SITE_KEY_CHALLENGE = "3x00000000000000000000FF";
 
 export function useTurnstile() {
+  const widgetRef = React.useRef<string | null>(null);
   const turnstileRef = React.useRef<HTMLDivElement>(null);
   const turnstileInputRef = React.useRef<HTMLInputElement>(null);
 
   const renderTurnstile = (el: HTMLElement) => {
     if (typeof window.turnstile !== "undefined") {
-      if (el.dataset.widget) {
-        window.turnstile.reset(el.dataset.widget);
+      if (widgetRef.current) {
+        window.turnstile.reset(widgetRef.current);
       }
 
       const widget = window.turnstile.render(el, {
@@ -31,7 +32,8 @@ export function useTurnstile() {
         tabindex: -1,
       });
 
-      el.setAttribute("data-widget", widget);
+      // el.setAttribute("data-widget", widget);
+      widgetRef.current = widget;
     }
   };
 
@@ -42,28 +44,28 @@ export function useTurnstile() {
 
     if (typeof window.onloadTurnstileCallback !== "function") {
       window.onloadTurnstileCallback = () => {
-        if (!el.dataset.widget) {
+        if (!widgetRef.current) {
           renderTurnstile(el);
         }
       };
     }
 
-    if (!document.querySelector("#turnstile-script")) {
-      const script = document.createElement("script");
-      script.id = "turnstile-script";
-      script.src =
-        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    }
+    // if (!document.querySelector("#turnstile-script")) {
+    //   const script = document.createElement("script");
+    //   script.id = "turnstile-script";
+    //   script.src =
+    //     "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback";
+    //   script.async = true;
+    //   script.defer = true;
+    //   document.body.appendChild(script);
+    // }
 
     renderTurnstile(el);
   }, [turnstileRef]);
 
   const reset = () => {
     if (turnstileRef.current && typeof window.turnstile !== "undefined") {
-      window.turnstile.reset(turnstileRef.current.dataset.widget);
+      window.turnstile.reset(widgetRef.current);
     }
   };
 

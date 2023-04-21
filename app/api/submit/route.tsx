@@ -12,7 +12,6 @@ export async function POST(request: Request) {
 
   // Send email
   const bodyJson = Object.fromEntries(body.entries()) as Record<string, string>;
-
   // Validate with Turnstile
   const token = bodyJson["cf-turnstile-response"];
   const outcome = await turnstileVerify(request, token);
@@ -87,7 +86,7 @@ export async function POST(request: Request) {
         ? [{ email: "ka@kevinang.com", name: "Kevin Ang" }]
         : [{ email: bodyJson.email, name: "" }];
   } else {
-    html = (
+    html = render(
       <AdminEmail
         title={`New Web Form Submission: ${formatKey(formName)}`}
         data={emailData}

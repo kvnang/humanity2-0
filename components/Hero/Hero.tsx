@@ -11,7 +11,13 @@ export function Hero() {
             <div className="w-[120%] absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[105%] -z-10">
               <HeroBg />
             </div>
-            <Image src={heroImage} alt="" className="w-full" priority />
+            <Image
+              src={heroImage}
+              alt=""
+              className="w-full"
+              sizes="(min-width: 1750px) 544px, (min-width: 1024px) 512px, (min-width: 768px) 448px, 75vw"
+              priority
+            />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-[10%]">
               <svg
                 width="408"

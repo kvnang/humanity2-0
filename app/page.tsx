@@ -48,6 +48,7 @@ export default function Home() {
                   src={humanFlourishingImg}
                   alt=""
                   className="relative w-full"
+                  sizes="(min-width: 1280px) 50vw, (min-width: 768px) 70vw, 80vw"
                 />
               </div>
             </div>
