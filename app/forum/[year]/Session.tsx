@@ -1,12 +1,7 @@
+import { AudioProps, Audios } from "@/components/Audios";
 import { Profile, ProfileProps } from "@/components/Profile";
 import { PlayIcon } from "@heroicons/react/24/solid";
 
-interface MediaProps {
-  type: string;
-  title: string;
-  authors?: { name: string; title?: string; organization?: string }[];
-  url: string;
-}
 export interface SessionProps {
   title: string;
   video?: {
@@ -18,7 +13,7 @@ export interface SessionProps {
     title?: string;
   };
   speakers?: ProfileProps[];
-  media?: MediaProps[];
+  media?: AudioProps[];
 }
 
 export function Session({
@@ -74,38 +69,7 @@ export function Session({
           </div>
         </div>
       ) : null}
-      {media ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {media.map((mediaItem) => (
-            <div
-              key={`${mediaItem.title}-${mediaItem.url}-${mediaItem?.authors?.[0]?.name}`}
-              className="p-4 bg-white shadow-md rounded-md flex flex-col"
-            >
-              <div className="flex-1 mb-2 last:mb-0">
-                <h6 className="mb-1 last:mb-0">{mediaItem.title}</h6>
-                {!!mediaItem.authors?.length && (
-                  <ul className="text-sm text-body-tint">
-                    {mediaItem.authors.map((author) => (
-                      <li key={author.name}>
-                        <span className="font-semibold">{author.name}</span>
-                        {author.title && `, ${author.title}`}
-                        {author.organization && `, ${author.organization}`}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <div>
-                {mediaItem.type === "audio" ? (
-                  <audio preload="none" controls className="w-full">
-                    <source src={mediaItem.url} type="audio/mpeg" />
-                  </audio>
-                ) : null}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
+      {media ? <Audios audios={media} /> : null}
     </div>
   );
 }

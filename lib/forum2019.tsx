@@ -87,19 +87,16 @@ const topics = [
           ],
           media: [
             {
-              type: "audio",
               title: "Speech",
               authors: [profiles.michelleWilliams],
               url: "https://res.cloudinary.com/kevinang/video/upload/v1681504334/humanity2-0/MichelleWilliams-Opening_Address-Forum2019_1_rceyuk.mp3",
             },
             {
-              type: "audio",
               title: "Speech",
               authors: [profiles.moradFareed],
               url: "https://res.cloudinary.com/kevinang/video/upload/v1681504376/humanity2-0/MoradFareed-OpeningAddress-Forum2019_txbpvi.mp3",
             },
             {
-              type: "audio",
               title: "Speech",
               authors: [
                 {
@@ -110,7 +107,6 @@ const topics = [
               url: "https://res.cloudinary.com/kevinang/video/upload/v1681504380/humanity2-0/Marie-LouiseColeiroPreca-Speech-Forum2019_gytrgb.mp3",
             },
             {
-              type: "audio",
               title: "Presentation",
               authors: [
                 {
@@ -120,7 +116,6 @@ const topics = [
               url: "https://res.cloudinary.com/kevinang/video/upload/v1681504391/humanity2-0/Humanity2.0LabPresentation-Forum2019_udfktq.mp3",
             },
             {
-              type: "audio",
               title: "Panel",
               authors: [
                 {
@@ -168,7 +163,6 @@ const topics = [
       ],
       media: [
         {
-          type: "audio",
           title: "Presentation",
           authors: [{ name: "Project Vision" }],
           url: "https://res.cloudinary.com/kevinang/video/upload/v1681507521/humanity2-0/ProjectVisionPresentation-Forum2019_pciohy.mp3",
@@ -228,13 +222,11 @@ const topics = [
       ],
       media: [
         {
-          type: "audio",
           title: "Panel",
           authors: [{ name: "Ethical Transformations" }],
           url: "https://res.cloudinary.com/kevinang/video/upload/v1681507520/humanity2-0/EthicalTransformationsPanel-Forum_2019vs2_bxewfg.mp3",
         },
         {
-          type: "audio",
           title: "Panel",
           authors: [{ name: "Impacts of Emerging Technology" }],
           url: "https://res.cloudinary.com/kevinang/video/upload/v1681507534/humanity2-0/EmergingTechnologiesPanel-Forum2019_wo106y.mp3",

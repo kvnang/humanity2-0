@@ -3,7 +3,6 @@ import Image from "next/image";
 import quoteBg from "@/assets/images/home-quote-bg.jpg";
 import humanFlourishingImg from "@/assets/images/home-human-flourishing.jpg";
 import { TitleLine } from "@/components/TitleLine";
-import { Button } from "@/components/Button";
 import { AdvisoryBoard } from "@/components/AdvisoryBoard";
 import { ParticipateInForum } from "@/components/ParticipateInForum";
 import { Subscribe } from "@/components/Subscribe";
