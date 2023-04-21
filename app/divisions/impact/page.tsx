@@ -207,7 +207,7 @@ export default function ImpactPage() {
           </div>
           <div id="hallmarks">
             <h3 className="h4 mb-[1em]">Hallmarks of our impact approach:</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
+            <div className="grid grid-cols-1 gap-y-8">
               <Hallmark
                 index={0}
                 image={hallmarkImage1}
