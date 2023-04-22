@@ -82,6 +82,6 @@ const reportLink = {
 };
 
 const hr = {
-  borderColor: "#e5e5e5",
+  borderColor: "#5f5f5f",
   margin: "42px 0 26px",
 };

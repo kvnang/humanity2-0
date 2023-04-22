@@ -67,7 +67,7 @@ const logo = {
 };
 
 const main = {
-  backgroundColor: "#fff",
+  backgroundColor: "#000501",
   fontFamily:
     '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
 };
@@ -83,7 +83,7 @@ const heading = {
   letterSpacing: "-0.5px",
   lineHeight: "1.3",
   fontWeight: "400",
-  color: "#000501",
+  color: "#fff",
   padding: "17px 0 0",
 };
 
@@ -91,7 +91,7 @@ const paragraph = {
   margin: "0 0 15px",
   fontSize: "15px",
   lineHeight: "1.4",
-  color: "#000501",
+  color: "#e5e5e5",
 };
 
 const reportLink = {
@@ -100,7 +100,7 @@ const reportLink = {
 };
 
 const hr = {
-  borderColor: "#e5e5e5",
+  borderColor: "#5f5f5f",
   margin: "42px 0 26px",
 };
 

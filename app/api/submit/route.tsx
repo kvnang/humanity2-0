@@ -105,7 +105,7 @@ export async function POST(request: Request) {
         `humanity2-0:${process.env.FORMHANDLER_API_KEY}`
       )}`,
     },
-    body: new URLSearchParams(JSON.stringify(emailData)).toString(),
+    body: new URLSearchParams(emailData),
   });
 
   const response = await fetch(
