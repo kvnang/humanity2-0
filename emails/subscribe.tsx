@@ -56,7 +56,7 @@ const main = {
 
 const container = {
   margin: "0 auto",
-  padding: "20px 0 48px",
+  padding: "20px 16px 48px",
   width: "560px",
 };
 
