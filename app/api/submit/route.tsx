@@ -77,7 +77,7 @@ export async function POST(request: Request) {
   let emailTo =
     process.env.NODE_ENV === "development"
       ? [{ email: "ka@kevinang.com", name: "Kevin Ang" }]
-      : [{ email: "ka@kevinang.com", name: "Humanity 2.0" }];
+      : [{ email: "info@humanity2-0.org", name: "Humanity 2.0" }];
 
   if (bodyJson["form-name"] === "subscribe") {
     html = render(<SubscribeEmail />);
