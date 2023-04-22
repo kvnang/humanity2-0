@@ -67,6 +67,7 @@ export async function POST(request: Request) {
   const emailData: Record<string, any> = {
     ...bodyJson,
     timestamp: submissionTimestamp,
+    "user-agent": request.headers.get("user-agent") || "",
     "form-name": formName,
   };
 
@@ -76,7 +77,7 @@ export async function POST(request: Request) {
   let emailTo =
     process.env.NODE_ENV === "development"
       ? [{ email: "ka@kevinang.com", name: "Kevin Ang" }]
-      : [{ email: "info@humanity2-0.org", name: "Humanity 2.0" }];
+      : [{ email: "ka@kevinang.com", name: "Humanity 2.0" }];
 
   if (bodyJson["form-name"] === "subscribe") {
     html = render(<SubscribeEmail />);
