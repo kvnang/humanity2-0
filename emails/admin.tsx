@@ -41,9 +41,7 @@ export const AdminEmail = ({
               {Object.entries(data).map(([key, value]) => (
                 <tr key={key}>
                   <td style={tdStyle}>
-                    <strong style={{ color: "#404040" }}>
-                      {formatKey(key)}
-                    </strong>
+                    <strong style={{ color: "#fff" }}>{formatKey(key)}</strong>
                   </td>
                   <td style={tdStyle}>{value}</td>
                 </tr>
@@ -106,4 +104,5 @@ const hr = {
 
 const tdStyle = {
   padding: "6px 6px 6px 6px",
+  color: "#e5e5e5",
 };
