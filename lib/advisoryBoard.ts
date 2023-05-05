@@ -32,15 +32,14 @@ export const advisoryBoard = [
   },
   {
     name: "Tae Yoo",
-    title:
-      "Senior Vice President, Corporate Affairs and Corporate Social Responsibility",
+    title: "Former SVP, Corporate Affairs and Corporate Social Responsibility",
     organization: "Cisco",
     image: taeYoo,
   },
   {
     name: "Carlo D'Asaro Biondo",
-    title: "Chief Executive Officer",
-    organization: "Noovle",
+    title: "Former President EMEA Partnerships",
+    organization: "Google",
     image: carloDasaroBiondo,
   },
   {
@@ -69,14 +68,14 @@ export const advisoryBoard = [
   },
   {
     name: "Matthew Bird",
-    title: "Chief Executive Officer",
-    organization: "CommPro Worldwide",
+    title: "President",
+    organization: "ESG News",
     image: matthewBird,
   },
   {
     name: "Morad Fareed",
-    title: "Chief Executive Officer",
-    organization: "Humanity 2.0 Well Being",
+    title: "Co-founder",
+    organization: "Delos",
     image: moradFareed,
   },
   {

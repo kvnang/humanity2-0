@@ -313,8 +313,8 @@ const profiles2019 = {
   moradFareed: {
     name: "Morad Fareed",
     image: moradFareed,
-    title: "CEO",
-    organization: "Humanity 2.0 Lab",
+    title: "Co-founder",
+    organization: "Delos",
   },
   emmanuelaGakidou: {
     name: "Dr. Emmanuela Gakidou",
@@ -375,7 +375,7 @@ const profiles2019 = {
   carloDasaroBiondo: {
     name: "Carlo D'Asaro Biondo",
     image: carloDasaroBiondo,
-    title: "President, EMEA Partnerships",
+    title: "Former President EMEA Partnerships",
     organization: "Google",
   },
   davidDempsey: {
@@ -592,9 +592,8 @@ export const profiles = {
   taeYoo: {
     name: "Tae Yoo",
     image: taeYoo,
-    title:
-      "Former Senior Vice President-Corporate Affairs and Corporate Social Responsibility",
-    organization: "Cisco Systems, Inc.",
+    title: "Former SVP, Corporate Affairs and Corporate Social Responsibility",
+    organization: "Cisco",
   },
   erikaKarp: {
     name: "Erika Karp",

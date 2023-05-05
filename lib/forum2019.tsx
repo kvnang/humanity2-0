@@ -375,7 +375,7 @@ const schedule = [
     title: "Humanity 2.0 Lab",
     time: "9:30 - 11:30",
     speakers: [
-      { name: "Morad Fareed", title: "CEO, Humanity 2.0 Lab" },
+      { name: "Morad Fareed", title: "Co-founder, Delos" },
       {
         name: "H.E. Marie-Louise Coleiro Preca, KUOM GCMG",
       },
@@ -388,7 +388,7 @@ const schedule = [
   {
     title: "Presentation - Lab",
     speakers: [
-      { name: "Morad Fareed", title: "CEO, Humanity 2.0 Lab" },
+      { name: "Morad Fareed", title: "Co-founder, Delos" },
       {
         name: "Dr. Jie Zhao",
         title: "Executive Vice President, Head of Delos Labs, Delos",
@@ -568,12 +568,12 @@ const schedule = [
       },
       {
         name: "Carlo D'Asaro Biondo",
-        title: "President - EMEA Partnerships, Google",
+        title: "Former President EMEA Partnerships - Google",
       },
       {
         name: "Tae Yoo",
         title:
-          "Senior Vice President, Corporate Affairs and Corporate Social Responsibility, Cisco Systems",
+          "Former SVP, Corporate Affairs and Corporate Social Responsibility, Cisco",
       },
       {
         name: "Louise Koch",
