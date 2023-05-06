@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/lib/constants";
-import type { Metadata } from "next";
+import type { Metadata, ResolvedMetadata } from "next";
 
 const siteName = "Humanity 2.0";
 const defaultTitle = "Humanity 2.0 | A Shared Horizon for Humanity";
@@ -37,47 +37,36 @@ export const defaultMetadata: Metadata = {
   metadataBase: BASE_URL,
 };
 
-export const getMetadata = ({
-  pathname = "/",
-  title,
-  description,
-  image,
-}: {
-  pathname?: string;
-  title?: string;
-  description?: string;
-  image?: {
-    url: string;
-    alt?: string;
-  };
-}) => ({
+export const getMetadata = (
+  {
+    pathname = "/",
+    title,
+    description,
+    image,
+  }: {
+    pathname?: string;
+    title?: string;
+    description?: string;
+    image?: {
+      url: string;
+      alt?: string;
+    };
+  },
+  parent?: ResolvedMetadata
+) => ({
   title,
   description,
   openGraph: {
+    ...parent?.openGraph,
     title,
     description,
     url: pathname,
-    images: image
-      ? [
-          {
-            url: image.url,
-            width: 1200,
-            height: 628,
-            alt: image.alt,
-          },
-        ]
-      : undefined,
   },
   twitter: {
+    ...parent?.twitter,
     title,
     url: pathname,
     description,
-    images: image
-      ? {
-          url: image.url,
-          alt: image.alt,
-        }
-      : undefined,
   },
   alternates: {
     canonical: pathname,

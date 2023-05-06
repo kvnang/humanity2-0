@@ -2,12 +2,19 @@ import Image from "next/image";
 import academyTitle from "./academy.svg";
 import { MegaphoneIcon } from "@heroicons/react/24/outline";
 import { getMetadata } from "@/lib/metadata";
+import { type ResolvingMetadata } from "next";
 
-export const metadata = getMetadata({
-  title: "Academy",
-  description: `The Academy is the education and formation division of Humanity 2.0. Its overall mission is to accelerate human flourishing by developing educational and formation resources and training via our centers.`,
-  pathname: "/divisions/academy",
-});
+export async function generateMetadata(_: any, parent: ResolvingMetadata) {
+  const resolvedParent = await parent;
+  return getMetadata(
+    {
+      title: "Academy",
+      description: `The Academy is the education and formation division of Humanity 2.0. Its overall mission is to accelerate human flourishing by developing educational and formation resources and training via our centers.`,
+      pathname: "/divisions/academy",
+    },
+    resolvedParent
+  );
+}
 
 export default function AcademyPage() {
   return (

@@ -10,6 +10,18 @@ import { TextAndQuote } from "./TextAndQuote";
 import { UseCases } from "./UseCases";
 import { ProjectTimeline } from "./ProjectTimeline";
 import { getMetadata } from "@/lib/metadata";
+import { type ResolvingMetadata } from "next";
+
+export async function generateMetadata(_: any, parent: ResolvingMetadata) {
+  return getMetadata(
+    {
+      title: "Institute",
+      description: `The Institute is the collective intelligence of Humanity 2.0. Its primary purpose is to inform and direct Humanity 2.0’s efforts; specially those related to addressing impediments to human flourishing.`,
+      pathname: "/divisions/institute",
+    },
+    await parent
+  );
+}
 
 const OBJECTIVES = [
   {
@@ -140,12 +152,6 @@ const OBJECTIVES = [
     },
   },
 ];
-
-export const metadata = getMetadata({
-  title: "Institute",
-  description: `The Institute is the collective intelligence of Humanity 2.0. Its primary purpose is to inform and direct Humanity 2.0’s efforts; specially those related to addressing impediments to human flourishing.`,
-  pathname: "/divisions/institute",
-});
 
 export default function InstitutePage() {
   return (

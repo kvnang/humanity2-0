@@ -1,12 +1,18 @@
 import { TitleLine } from "@/components/TitleLine";
 import { ParticipateForm } from "./ParticipateForm";
 import { getMetadata } from "@/lib/metadata";
+import { type ResolvingMetadata } from "next";
 
-export const metadata = getMetadata({
-  title: "Participate",
-  description: `Participate in Humanity 2.0 forum.`,
-  pathname: "/participate",
-});
+export async function generateMetadata(_: any, parent: ResolvingMetadata) {
+  return getMetadata(
+    {
+      title: "Participate",
+      description: `Participate in Humanity 2.0 forum.`,
+      pathname: "/participate",
+    },
+    await parent
+  );
+}
 
 export default function ParticipatePage() {
   return (
