@@ -128,9 +128,6 @@ export function Header() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
-                    <Social />
-                  </div>
                 </div>
               </div>
             </Transition.Child>

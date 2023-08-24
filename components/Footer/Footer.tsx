@@ -34,9 +34,6 @@ export function Footer() {
                   </div>
                 </div>
               </div>
-              <div>
-                <Social />
-              </div>
             </div>
           </div>
         </div>
