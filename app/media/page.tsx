@@ -32,12 +32,10 @@ export default function MediaPage() {
 
           <div className="mb-10 last:mb-0">
             <h3 className="h4 mb-[1em]">2022 Forum</h3>
-            {/* @ts-expect-error */}
             <Videos playlistId="PL8rJDNiqYPUkoEmbZwXDzp1NyeVZg87Fl" />
           </div>
           <div className="mb-10 last:mb-0">
             <h3 className="h4 mb-[1em]">Studio Discussions</h3>
-            {/* @ts-expect-error */}
             <Videos
               videoIds={[
                 "H_r90Tg_F9U",
@@ -55,7 +53,6 @@ export default function MediaPage() {
           </div>
           <div className="mb-10 last:mb-0">
             <h3 className="h4 mb-[1em]">Interviews</h3>
-            {/* @ts-expect-error */}
             <Videos
               videoIds={[
                 "C8Daba5kA9s",

@@ -108,34 +108,30 @@ export async function POST(request: Request) {
     body: new URLSearchParams(emailData),
   });
 
-  const response = await fetch(
-    `https://formhandler.kevinang.com/v1/email/send`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${btoa(
-          `humanity2-0:${process.env.FORMHANDLER_API_KEY}`
-        )}`,
-      },
-      body: JSON.stringify({
-        personalizations: [
-          {
-            to: emailTo,
-            reply_to: { email: body.get("email") },
-          },
-        ],
-        from: { email: "noreply@humanity2-0.org", name: "Humanity 2.0 Web" },
-        subject,
-        content: [
-          {
-            type: "text/html",
-            value: html,
-          },
-        ],
-      }),
-    }
-  );
+  let replyTo = body.get("email");
+  if (replyTo && body.get("name")) {
+    replyTo = `"${body.get("name")}" <${replyTo}>`;
+  }
+
+  const data = {
+    from: `Humanity 2-0 <noreply@humanity2-0.org>`,
+    to:
+      process.env.NODE_ENV !== "production"
+        ? `Kevin <ka@kevinang.com>`
+        : emailTo.map((t) => `${t.name} <${t.email}>`),
+    reply_to: replyTo,
+    subject,
+    html,
+  };
+  const endpoint = `https://api.resend.com/emails`;
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+    },
+    body: JSON.stringify(data),
+  });
 
   return new Response(
     JSON.stringify({

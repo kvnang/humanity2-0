@@ -56,7 +56,6 @@ async function PressItemContent({ url }: { url: string }) {
 export function PressItem({ url }: { url: string }) {
   return (
     <React.Suspense fallback={null}>
-      {/* @ts-expect-error */}
       <PressItemContent url={url} />
     </React.Suspense>
   );

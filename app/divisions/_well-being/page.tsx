@@ -371,7 +371,6 @@ export default function ImpactPage() {
           </h2>
           <div className="mb-10 last:mb-0">
             <h3 className="h4 mb-[1em]">Videos</h3>
-            {/* @ts-expect-error */}
             <Videos videoIds={["lqPbCKtIm6Y", "lqPbCKtIm6Y", "Lxtqjpr_sR8"]} />
           </div>
           <div className="mb-10 last:mb-0">

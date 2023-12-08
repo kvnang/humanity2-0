@@ -121,7 +121,6 @@ export default async function ForumPage({
           {/* Videos */}
           <div id="videos" className="mt-section">
             <h2 className="mb-[1em]">Videos</h2>
-            {/* @ts-expect-error */}
             <Videos {...videos} />
           </div>
         </div>
