@@ -26,6 +26,8 @@ export default async function Image({ params }: { params: { year: string } }) {
   const catamaran = loadGoogleFont({ family: "Catamaran", weight: 400 });
   const montserratBold = loadGoogleFont({ family: "Montserrat", weight: 600 });
 
+  const dates = data?.eventDetails.dates;
+
   const venue = [
     data?.eventDetails.venue.name,
     data && "city" in data.eventDetails.venue
@@ -105,32 +107,34 @@ export default async function Image({ params }: { params: { year: string } }) {
                 maxWidth: "620px",
               }}
             >
-              {params.year} Human Flourishing Forum
+              {data ? params.year + " " : ""}Human Flourishing Forum
             </h1>
           </div>
-          <div
-            style={{
-              display: "flex",
-              // width: "100%",
-              fontFamily: "Catamaran",
-              alignItems: "flex-start",
-              justifyContent: "center",
-              fontSize: 20,
-            }}
-          >
-            <div style={{ display: "flex" }}>{data?.eventDetails.dates}</div>
+          {data ? (
             <div
               style={{
                 display: "flex",
-                width: 4,
-                height: "1.25em",
-                backgroundColor: "#ebbab9",
-                margin: "0 1rem",
-                alignSelf: "center",
+                // width: "100%",
+                fontFamily: "Catamaran",
+                alignItems: "flex-start",
+                justifyContent: "center",
+                fontSize: 20,
               }}
-            />
-            <div style={{ display: "flex" }}>{venue}</div>
-          </div>
+            >
+              <div style={{ display: "flex" }}>{dates}</div>
+              <div
+                style={{
+                  display: "flex",
+                  width: 4,
+                  height: "1.25em",
+                  backgroundColor: "#ebbab9",
+                  margin: "0 1rem",
+                  alignSelf: "center",
+                }}
+              />
+              <div style={{ display: "flex" }}>{venue}</div>
+            </div>
+          ) : null}
         </div>
       </div>
     ),
