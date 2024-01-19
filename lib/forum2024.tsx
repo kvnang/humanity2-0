@@ -1,5 +1,5 @@
 const eventDetails = {
-  title: "Human Flourishing Forum 2023",
+  title: "Human Flourishing Forum 2024",
   description: (
     <>
       <p>
@@ -18,7 +18,7 @@ const eventDetails = {
     name: "Pontifical Academy of Sciences",
     city: "Vatican City",
   },
-  dates: "November 9-10, 2023",
+  dates: "May 23-24, 2024",
 };
 
 const upcoming = true;

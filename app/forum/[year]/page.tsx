@@ -91,6 +91,7 @@ export default async function ForumPage({
             style={{ objectPosition: "75% top" }}
             sizes="(min-width: 768px) 40vw, 60vw"
             priority
+            placeholder="blur"
           />
         </div>
         <div className="container">
