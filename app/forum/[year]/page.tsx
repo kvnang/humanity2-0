@@ -32,8 +32,8 @@ export async function generateMetadata(
       title: `${params.year} Forum`,
       description: `The Humanity 2.0 Forum is a broad spectrum gathering of luminaries and stakeholders at the Vatican to explore specific impediments to human flourishing and to discuss courses of action aimed at overcoming them.`,
       pathname: `/forum/${params.year}`,
-    },
-    await parent
+    }
+    // await parent
   );
 }
 
