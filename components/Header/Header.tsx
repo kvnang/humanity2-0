@@ -48,8 +48,8 @@ const MENU_ITEMS = [
     href: "/forum",
     children: [
       {
-        name: "2023 Forum",
-        href: "/forum/2023",
+        name: "2024 Forum",
+        href: "/forum/2024",
       },
       {
         name: "2022 Forum",
