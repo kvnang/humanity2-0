@@ -118,7 +118,7 @@ export async function POST(request: Request) {
     to:
       process.env.NODE_ENV !== "production"
         ? `Kevin <ka@kevinang.com>`
-        : emailTo.map((t) => `${t.name} <${t.email}>`),
+        : emailTo.map((t) => (t.name ? `${t.name} <${t.email}>` : t.email)),
     reply_to: replyTo,
     subject,
     html,
