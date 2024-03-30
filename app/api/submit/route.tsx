@@ -5,6 +5,7 @@ import { render } from "@react-email/render";
 import { contactSchema, participateSchema, subscribeSchema } from "./schemas";
 import { SubscribeEmail } from "@/emails/subscribe";
 import { ZodSchema } from "zod";
+import { subscribe } from "@/lib/subscribe";
 
 export async function POST(request: Request) {
   const submissionTimestamp = new Date().toISOString();
@@ -96,6 +97,23 @@ export async function POST(request: Request) {
     subject = `New Web Form Submission: ${formatKey(formName)}`;
   }
 
+  // Subscribe
+  if (bodyJson["form-name"] === "subscribe") {
+    try {
+      await subscribe({ email: bodyJson.email });
+    } catch (err) {
+      return Response.json(
+        {
+          success: false,
+          error: (err as Error).message,
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+  }
+
   // Log
   await fetch(`https://formhandler.kevinang.com/v1/submit`, {
     method: "POST",
@@ -133,11 +151,11 @@ export async function POST(request: Request) {
     body: JSON.stringify(data),
   });
 
-  return new Response(
-    JSON.stringify({
+  return Response.json(
+    {
       success: response.ok,
       error: response.ok ? false : await response.text(),
-    }),
+    },
     {
       status: response.status,
       headers: {
