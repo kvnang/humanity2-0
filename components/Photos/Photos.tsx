@@ -10,6 +10,7 @@ interface PhotoProps {
   id: number;
   src: StaticImageData;
   objectPosition?: string;
+  scale?: string;
 }
 
 function PhotoPreview({
@@ -32,7 +33,7 @@ function PhotoPreview({
         alt=""
         fill
         className="object-cover"
-        style={{ objectPosition: photo.objectPosition }}
+        style={{ objectPosition: photo.objectPosition, scale: photo.scale }}
         sizes={sizes}
         placeholder="blur"
       />

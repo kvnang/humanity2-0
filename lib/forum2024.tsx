@@ -35,7 +35,7 @@ const eventDetails = {
     },
   ],
   venue: {
-    name: "Pontifical Academy of Sciences",
+    name: "Casina Pio IV, Vatican City",
     image: venueImage,
   },
   dates: "May 23-24, 2024",
@@ -53,7 +53,7 @@ const photos = [
   { src: image3, objectPosition: "center 40%" },
   { src: image4, objectPosition: "center 40%" },
   { src: image7 },
-  { src: image8 },
+  { src: image8, scale: "120%" },
 ];
 
 const albumUrl = "https://photos.app.goo.gl/jYnRHu8gvFHmaNjZA";
