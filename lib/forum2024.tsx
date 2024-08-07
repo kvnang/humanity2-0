@@ -197,7 +197,7 @@ const topics = [
           // },
           speakers: [
             profiles.isabelCane,
-            profiles.adrianPabst,
+            // profiles.adrianPabst,
             profiles.dennisSnower,
             profiles.lettyGarcia,
             profiles.johnLevy,
