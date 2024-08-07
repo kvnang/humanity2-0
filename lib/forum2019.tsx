@@ -24,7 +24,7 @@ const eventDetails = {
   title: "2019 Forum",
   description:
     "The Humanity 2.0 Forum is a broad spectrum gathering of luminaries and stakeholders at the Vatican to explore specific impediments to human flourishing and to discuss courses of action aimed at overcoming them.",
-  descriptionLogo: undefined,
+  descriptionLogos: undefined,
   venue: {
     name: "Vatican City",
     image: venueImage,

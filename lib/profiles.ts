@@ -83,6 +83,28 @@ import melchiordeMuralt from "@/assets/images/profiles/melchiorde-muralt.jpg";
 import elliotHoffman from "@/assets/images/profiles/elliot-hoffman.jpg";
 import lisaKristine from "@/assets/images/profiles/lisa-kristine.jpg";
 
+import adrianPabst from "@/assets/images/profiles/adrian-pabst.jpg";
+import andreLaborde from "@/assets/images/profiles/andre-laborde.jpg";
+import brandonVaidyanathan from "@/assets/images/profiles/brandon-vaidyanathan.jpg";
+import dennisSnower from "@/assets/images/profiles/dennis-snower.jpg";
+import elisabethKincaid from "@/assets/images/profiles/elisabeth-kincaid.jpg";
+import michaelBaggot from "@/assets/images/profiles/fr-michael-baggot.jpg";
+import jamesPawelski from "@/assets/images/profiles/james-pawelski.jpg";
+import janetAdams from "@/assets/images/profiles/janet-adams.jpg";
+import johnLevy from "@/assets/images/profiles/john-levy.jpg";
+import josePacheco from "@/assets/images/profiles/jose-pacheco.jpg";
+import julianneHoltLunstad from "@/assets/images/profiles/julianne-holt-lunstad.jpg";
+import keyunRuan from "@/assets/images/profiles/keyun-ruan.jpg";
+import lindsayOades from "@/assets/images/profiles/lindsay-oades.jpg";
+import michaelMuthukrishna from "@/assets/images/profiles/michael-muthukrishna.jpg";
+import milaAliana from "@/assets/images/profiles/mila-aliana.jpg";
+import monicaAleman from "@/assets/images/profiles/monica-aleman.jpg";
+import renateNyborg from "@/assets/images/profiles/renate-nyborg.jpg";
+import timLomas from "@/assets/images/profiles/tim-lomas.jpg";
+import tomasBjorkman from "@/assets/images/profiles/tomas-bjorkman.jpg";
+import victorCounted from "@/assets/images/profiles/victor-counted.jpg";
+import isabelCane from "@/assets/images/profiles/isabel-cane.jpg";
+
 import matthewHarveySanders from "@/assets/images/board/matthew-harvey-sanders.jpg";
 import taeYoo from "@/assets/images/board/tae-yoo.jpg";
 import moradFareed from "@/assets/images/board/morad-fareed.jpg";
@@ -405,8 +427,8 @@ const profiles2019 = {
   frPhilipLarrey: {
     name: "Fr. Philip Larrey",
     image: frPhilipLarrey,
-    title: "Chair of Logic",
-    organization: "Pontifical Lateran University",
+    title: "Chairman",
+    organization: "Humanity 2.0 Foundation",
   },
   lettyGarcia: {
     name: "Letty Garcia",
@@ -502,9 +524,143 @@ const profiles2019 = {
   },
 };
 
+const profiles2024 = {
+  josePacheco: {
+    name: "Jose Pacheco",
+    image: josePacheco,
+    title:
+      "Co-Director, Master of Engineering in Advanced Manufacturing & Design",
+    organization: "Massachusetts Institute of Technology",
+  },
+  renateNyborg: {
+    name: "Renate Nyborg",
+    image: renateNyborg,
+    title: "Founder & CEO",
+    organization: "Meeno",
+  },
+  keyunRuan: {
+    name: "Keyun Ruan",
+    image: keyunRuan,
+    title: "Founder & Chair",
+    organization: "Happiness Foundation",
+  },
+  michaelBaggot: {
+    name: "Michael Baggot",
+    image: michaelBaggot,
+    title: "Assistant Professor",
+    organization: "Ateneo Regina Apostolorum",
+  },
+  janetAdams: {
+    name: "Janet Adams",
+    image: janetAdams,
+    title: "COO",
+    organization: "SingularityNET",
+  },
+  jamesPawelski: {
+    name: "James Pawelski",
+    image: jamesPawelski,
+    title: "Director of Education, Positive Psychology Center",
+    organization: "University of Pennsylvania",
+  },
+  timLomas: {
+    name: "Tim Lomas",
+    image: timLomas,
+    title:
+      "Psychology Research Scientist, Department of Epidemiology at the Harvard T.H. Chan School of Public Health, Psychology Research Scientist, The Human Flourishing Program, IQSS",
+    organization: "Harvard University",
+  },
+  dennisSnower: {
+    name: "Dennis	Snower",
+    image: dennisSnower,
+    title: "President",
+    organization: "Global Solutions Initiative",
+  },
+  julianneHoltLunstad: {
+    name: "Julianne Holt-Lunstad",
+    image: julianneHoltLunstad,
+    title: "Professor of Psychology and Neuroscience",
+    organization: "Brigham Young University",
+  },
+  elisabethKincaid: {
+    name: "Elisabeth Kincaid",
+    image: elisabethKincaid,
+    title:
+      "Chair in Business Ethics and Director of the Center for Ethics and Economic Justice",
+    organization: "Loyola University New Orleans",
+  },
+  lindsayOades: {
+    name: "Lindsay Oades",
+    image: lindsayOades,
+    title: "Professor Well Being Science",
+    organization: "University of Melbourne",
+  },
+  milaAliana: {
+    name: "Mila Aliana",
+    image: milaAliana,
+    title: "Advisor",
+    organization: "ProSocial & Global Solutions Initiative",
+  },
+  brandonVaidyanathan: {
+    name: "Brandon Vaidyanathan",
+    image: brandonVaidyanathan,
+    title: "Associate Professor and Department Chair of Sociology",
+    organization: "The Catholic University of America",
+  },
+  michaelMuthukrishna: {
+    name: "Michael Muthukrishna",
+    image: michaelMuthukrishna,
+    title: "Associate Professor of Economic Psychology",
+    organization: "London School of Economics",
+  },
+  victorCounted: {
+    name: "Victor Counted",
+    image: victorCounted,
+    title: "Professor, Psychology",
+    organization:
+      "Harvard University/Regent University/ National Research Foundation (NRF) of South Africa",
+  },
+  monicaAleman: {
+    name: "Monica Aleman",
+    image: monicaAleman,
+    title: "International Program Director: Gender, Racial and Ethnic Justice",
+    organization: "Ford Foundation",
+  },
+  tomasBjorkman: {
+    name: "Tomas Björkman",
+    image: tomasBjorkman,
+    title: "Founder",
+    organization: "Ekskäret Foundation",
+  },
+  isabelCane: {
+    name: "Isabel Cane",
+    image: isabelCane,
+    title: "Director",
+    organization: "Cane Advisory",
+  },
+  adrianPabst: {
+    name: "Adrian Pabst",
+    image: adrianPabst,
+    title: "Deputy Director",
+    organization: "National Institute of Economic and Social Research",
+  },
+  johnLevy: {
+    name: "John Levy",
+    image: johnLevy,
+    title: "Managing Director - Impact, Franklin Real Asset Advisors	",
+    organization: "Franklin Templeton Investments",
+  },
+  andreLaborde: {
+    name: "Andre Laborde",
+    image: andreLaborde,
+    title: "President",
+    organization: "Bena Capital, LLC",
+  },
+};
+
 export const profiles = {
   ...profiles2018,
   ...profiles2019,
+  ...profiles2024,
   peterTurkson: {
     name: "Cardinal Peter Turkson",
     image: turkson,

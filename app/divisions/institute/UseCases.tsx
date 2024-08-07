@@ -2,7 +2,13 @@
 
 import * as React from "react";
 import { NumberedList } from "@/components/NumberedList";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { InformationCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const USE_CASES = [
@@ -226,7 +232,7 @@ function UseCase({
           onClose={() => setIsOpen(false)}
           className="fixed inset-0 flex items-center justify-center"
         >
-          <Transition.Child
+          <TransitionChild
             as={React.Fragment}
             enter="ease-out duration-100"
             enterFrom="opacity-0"
@@ -235,9 +241,9 @@ function UseCase({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="bg-bg-8/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
-          </Transition.Child>
-          <Transition.Child
+            <div className="bg-bg-8/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
+          </TransitionChild>
+          <TransitionChild
             as={React.Fragment}
             enter="ease-out duration-300"
             enterFrom="opacity-0 scale-95"
@@ -246,7 +252,7 @@ function UseCase({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Dialog.Panel className="absolute w-full max-w-3xl z-10 max-h-[80vh] flex">
+            <DialogPanel className="absolute w-full max-w-3xl z-10 max-h-[80vh] flex">
               <button
                 type="button"
                 className="absolute top-2 right-2 w-12 h-12 flex items-center justify-center rounded-full transition-colors hover:bg-gray-100"
@@ -256,15 +262,15 @@ function UseCase({
               </button>
               <div className="absolute top-0 left-0 w-full h-full bg-primary -translate-x-4 -translate-y-4 -z-10"></div>
               <div className="w-full flex flex-col p-6 lg:p-8 bg-white shadow-md">
-                <Dialog.Title as="h3" className="mb-[1em]">
+                <DialogTitle as="h3" className="mb-[1em]">
                   {useCase.title}
-                </Dialog.Title>
+                </DialogTitle>
                 <div className="flex-1 overflow-y-auto">
                   <div className="prose">{useCase.text}</div>
                 </div>
               </div>
-            </Dialog.Panel>
-          </Transition.Child>
+            </DialogPanel>
+          </TransitionChild>
         </Dialog>
       </Transition>
     </NumberedList.Item>

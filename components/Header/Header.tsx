@@ -2,7 +2,12 @@
 
 import * as React from "react";
 import { Hamburger } from "./Hamburger";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { Social } from "@/components/Social";
 import { MenuItem } from "./MenuItem";
 
@@ -91,7 +96,7 @@ export function Header() {
       </header>
       <Transition show={isOpen} as={React.Fragment}>
         <Dialog onClose={() => setIsOpen(false)}>
-          <Transition.Child
+          <TransitionChild
             as={React.Fragment}
             enter="ease-out duration-100"
             enterFrom="opacity-0"
@@ -100,15 +105,15 @@ export function Header() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="bg-bg-5/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
-          </Transition.Child>
-          <Dialog.Panel className="fixed top-0 left-0 w-56 md:w-80 max-w-full h-full z-20">
+            <div className="bg-bg-5/10 fixed inset-0 z-10 backdrop-blur-md will-change-auto transition-opacity" />
+          </TransitionChild>
+          <DialogPanel className="fixed top-0 left-0 w-56 md:w-80 max-w-full h-full z-20">
             <div className="absolute top-0 left-0 w-full flex z-10">
               <div className="px-3 pt-2 md:px-8 md:pt-8 flex w-full">
                 <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
               </div>
             </div>
-            <Transition.Child
+            <TransitionChild
               as={React.Fragment}
               enter="ease-out duration-200"
               enterFrom="opacity-0 -translate-x-8"
@@ -130,8 +135,8 @@ export function Header() {
                   </ul>
                 </div>
               </div>
-            </Transition.Child>
-          </Dialog.Panel>
+            </TransitionChild>
+          </DialogPanel>
         </Dialog>
       </Transition>
     </>

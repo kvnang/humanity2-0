@@ -21,12 +21,14 @@ const eventDetails = {
   title: "2022 Human Flourishing Forum",
   description:
     "The Human Flourishing Forum consists of a two day program and involves leaders and luminaries from around the world exploring what constitutes and inhibits human flourishing. We are grateful to be partnering with The Human Flourishing Program at Harvard University in hosting this Forum.",
-  descriptionLogo: {
-    src: harvardHumanFlourishing,
-    alt: "The Human Flourishing Program at the Harvard University",
-  },
+  descriptionLogos: [
+    {
+      src: harvardHumanFlourishing,
+      alt: "The Human Flourishing Program at the Harvard University",
+    },
+  ],
   venue: {
-    name: "Pontifical Academy of Sciences",
+    name: "Casina Pio IV, Vatican City",
     image: venueImage,
   },
   dates: "Nov 3-4, 2022",
@@ -276,7 +278,7 @@ const organizations = [
 const schedule = [
   {
     title: "Welcoming Remarks",
-    time: "9:15 - 9:15",
+    time: "9:00 - 9:15",
     speakers: [
       {
         name: "Rev. Philip Larrey",

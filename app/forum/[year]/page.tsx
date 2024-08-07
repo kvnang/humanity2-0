@@ -18,6 +18,7 @@ import { getForum, getForums } from "@/lib/forum";
 import { ForumPageNav } from "./ForumPageNav";
 import { getMetadata } from "@/lib/metadata";
 import { type ResolvingMetadata } from "next";
+import { VideoCameraIcon } from "@heroicons/react/24/outline";
 
 export async function generateMetadata(
   {
@@ -100,19 +101,32 @@ export default async function ForumPage({
             <h1 className="mb-[0.75em] max-w-xl">
               <TitleLine>{eventDetails.title}</TitleLine>
             </h1>
-            <div className="flex flex-wrap lg:flex-nowrap -mx-6 -my-4">
+            <div
+              className={`flex -mx-6 -my-4 ${
+                eventDetails.descriptionLogos?.length &&
+                eventDetails.descriptionLogos.length > 1
+                  ? `flex-col`
+                  : `flex-wrap lg:flex-nowrap`
+              }`}
+            >
               <div className="px-6 py-4">
                 <div className="prose">
                   <p>{eventDetails.description}</p>
                 </div>
               </div>
-              {eventDetails.descriptionLogo && (
+              {eventDetails.descriptionLogos?.length && (
                 <div className="px-6 py-4">
-                  <Image
-                    src={eventDetails.descriptionLogo.src}
-                    alt={eventDetails.descriptionLogo.alt || ""}
-                    className="w-96"
-                  />
+                  <div className="flex flex-wrap items-center -mx-6 -my-4">
+                    {eventDetails.descriptionLogos.map((logo, i) => (
+                      <div key={`logo-${i}`} className="px-6 py-4">
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt || ""}
+                          className="h-14 w-auto"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -122,7 +136,28 @@ export default async function ForumPage({
           {/* Videos */}
           <div id="videos" className="mt-section">
             <h2 className="mb-[1em]">Videos</h2>
-            <Videos {...videos} />
+            {videos.playlistId ? (
+              <Videos {...videos} />
+            ) : (
+              <>
+                <div className="max-w-lg">
+                  <div className="w-full rounded-md shadow-lg bg-white p-4 flex">
+                    <div className="relative w-12 h-12 rounded-full shrink-0 mr-4 flex items-center justify-center overflow-hidden">
+                      <div className="animate-pulse">
+                        <div className="absolute inset-0 bg-primary opacity-20"></div>
+                      </div>
+                      <VideoCameraIcon className="w-8 h-8 text-primary" />
+                    </div>
+                    <div>
+                      <h2 className="h6 mb-1">Videos coming soon!</h2>
+                      <p className="text-body-tint text-sm">
+                        Please stay tuned as we prepare more content.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -243,8 +278,8 @@ export default async function ForumPage({
               <div className="relative max-w-prose">
                 <div className="max-h-[600px] overflow-y-auto">
                   <Schedule
-                    dates="Nov 3-4, 2022"
-                    venue="Pontifical Academy of Sciences"
+                    dates={eventDetails.dates}
+                    venue={eventDetails.venue.name}
                     schedule={schedule}
                   />
                   <ScrollFade />
