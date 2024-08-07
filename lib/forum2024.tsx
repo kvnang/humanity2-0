@@ -56,7 +56,7 @@ const photos = [
   { src: image8 },
 ];
 
-const albumUrl = "https://photos.app.goo.gl/yTztxb2Sqf5AfacY9";
+const albumUrl = "https://photos.app.goo.gl/jYnRHu8gvFHmaNjZA";
 
 const openingAddress = {
   title: "Opening Address",
