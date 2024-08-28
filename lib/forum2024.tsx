@@ -60,9 +60,9 @@ const albumUrl = "https://photos.app.goo.gl/jYnRHu8gvFHmaNjZA";
 
 const openingAddress = {
   title: "Opening Address",
-  // video: {
-  //   url: null,
-  // },
+  video: {
+    url: `https://www.youtube.com/watch?v=GjE6oOD0T0A&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=2`,
+  },
   speakers: [profiles.peterTurkson],
 };
 
@@ -73,9 +73,9 @@ const topics = [
       sessions: [
         {
           title: "Presentation",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=uakN3C5rj08&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=3`,
+          },
           speakers: [profiles.frPhilipLarrey],
         },
       ],
@@ -85,9 +85,9 @@ const topics = [
       sessions: [
         {
           title: "Panel",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=kgScMb5BfAA&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=4`,
+          },
           speakers: [
             profiles.frPhilipLarrey,
             profiles.matthewSanders,
@@ -108,9 +108,9 @@ const topics = [
       sessions: [
         {
           title: "Presentation",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=kVg9yalYrWs&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=5`,
+          },
           speakers: [profiles.ronIvey],
         },
       ],
@@ -121,9 +121,9 @@ const topics = [
       sessions: [
         {
           title: "Panel",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=wqT-m5Dz4BQ&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=6`,
+          },
           speakers: [
             profiles.ronIvey,
             profiles.jamesPawelski,
@@ -144,9 +144,9 @@ const topics = [
       sessions: [
         {
           title: "Presentation",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=JgegZP28N2Y&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=7`,
+          },
           speakers: [profiles.matthewSanders],
         },
       ],
@@ -157,9 +157,9 @@ const topics = [
       sessions: [
         {
           title: "Panel",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=-V0mDYEn8n8&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=8`,
+          },
           speakers: [
             profiles.timLomas,
             profiles.milaAliana,
@@ -180,9 +180,9 @@ const topics = [
       sessions: [
         {
           title: "Presentation",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=BjcPuKLp_FE&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=9`,
+          },
           speakers: [profiles.dennisSnower],
         },
       ],
@@ -192,9 +192,9 @@ const topics = [
       sessions: [
         {
           title: "Panel",
-          // video: {
-          //   url: null,
-          // },
+          video: {
+            url: `https://www.youtube.com/watch?v=dz8Uvc_lGwY&list=PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY&index=10`,
+          },
           speakers: [
             profiles.isabelCane,
             // profiles.adrianPabst,
