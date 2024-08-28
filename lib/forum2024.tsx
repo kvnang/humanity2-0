@@ -42,7 +42,7 @@ const eventDetails = {
 };
 
 const videos = {
-  playlistId: null,
+  playlistId: `PL8rJDNiqYPUldkU4IncPqHEbS7Cuu52GY`,
 };
 
 const photos = [
