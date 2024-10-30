@@ -24,15 +24,16 @@ export async function generateMetadata(
   {
     params,
   }: {
-    params: { year: string };
+    params: Promise<{ year: string }>;
   },
   parent: ResolvingMetadata
 ) {
+  const { year } = await params;
   return getMetadata(
     {
-      title: `${params.year} Forum`,
+      title: `${year} Forum`,
       description: `The Humanity 2.0 Forum is a broad spectrum gathering of luminaries and stakeholders at the Vatican to explore specific impediments to human flourishing and to discuss courses of action aimed at overcoming them.`,
-      pathname: `/forum/${params.year}`,
+      pathname: `/forum/${year}`,
     }
     // await parent
   );
@@ -49,9 +50,9 @@ export async function generateStaticParams() {
 export default async function ForumPage({
   params,
 }: {
-  params: { year: string };
+  params: Promise<{ year: string }>;
 }) {
-  const { year } = params;
+  const { year } = await params;
 
   const data = await getForum(parseInt(year, 10));
 
