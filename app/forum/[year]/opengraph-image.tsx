@@ -15,8 +15,13 @@ export const size = {
 export const contentType = "image/png";
 
 // Image generation
-export default async function Image({ params }: { params: { year: string } }) {
-  const data = await getForum(parseInt(params.year, 10));
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ year: string }>;
+}) {
+  const { year } = await params;
+  const data = await getForum(parseInt(year, 10));
 
   const imageData = await fetch(new URL("./og-bg.jpg", import.meta.url)).then(
     (res) => res.arrayBuffer()
@@ -107,7 +112,7 @@ export default async function Image({ params }: { params: { year: string } }) {
                 maxWidth: "620px",
               }}
             >
-              {data ? params.year + " " : ""}Human Flourishing Forum
+              {data ? year + " " : ""}Human Flourishing Forum
             </h1>
           </div>
           {data ? (

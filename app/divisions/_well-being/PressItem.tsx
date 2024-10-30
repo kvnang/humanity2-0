@@ -1,3 +1,4 @@
+import Image from "next/image";
 import * as React from "react";
 
 async function PressItemContent({ url }: { url: string }) {
@@ -29,7 +30,8 @@ async function PressItemContent({ url }: { url: string }) {
     <article>
       <div className="mb-2 flex items-center">
         <div className="w-5 h-5 shrink-0 mr-2 bg-gray-100 rounded-sm">
-          <img
+          <Image
+            unoptimized
             src={favicon}
             alt={title || ogTitle}
             height={32}

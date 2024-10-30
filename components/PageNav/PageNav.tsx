@@ -46,7 +46,7 @@ export function PageNav({ anchors }: PageNavProps) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [anchors]);
 
   return (
     <>
