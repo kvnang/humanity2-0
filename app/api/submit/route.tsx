@@ -114,8 +114,6 @@ export async function POST(request: Request) {
     }
   }
 
-  console.log(html);
-
   // Log
   await fetch(`https://formhandler.kevinang.com/v1/submit`, {
     method: "POST",
