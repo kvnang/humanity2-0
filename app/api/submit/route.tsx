@@ -73,7 +73,7 @@ export async function POST(request: Request) {
   };
 
   // Render email HTML & metadata
-  let html = null;
+  let html: string | null = null;
   let subject = "";
   let emailTo =
     process.env.NODE_ENV === "development"
@@ -81,14 +81,14 @@ export async function POST(request: Request) {
       : [{ email: "info@humanity2-0.org", name: "Humanity 2.0" }];
 
   if (bodyJson["form-name"] === "subscribe") {
-    html = render(<SubscribeEmail />);
+    html = await render(<SubscribeEmail />);
     subject = `Thank you for subscribing to Humanity 2.0`;
     emailTo =
       process.env.NODE_ENV === "development"
         ? [{ email: "ka@kevinang.com", name: "Kevin Ang" }]
         : [{ email: bodyJson.email, name: "" }];
   } else {
-    html = render(
+    html = await render(
       <AdminEmail
         title={`New Web Form Submission: ${formatKey(formName)}`}
         data={emailData}
@@ -113,6 +113,8 @@ export async function POST(request: Request) {
       );
     }
   }
+
+  console.log(html);
 
   // Log
   await fetch(`https://formhandler.kevinang.com/v1/submit`, {
